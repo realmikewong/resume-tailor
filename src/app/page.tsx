@@ -1,65 +1,118 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white">
+      {/* Nav */}
+      <nav className="flex justify-between items-center px-8 py-4 max-w-6xl mx-auto">
+        <h1 className="text-xl font-bold">Resume Tailor</h1>
+        <Link
+          href="/auth/login"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+        >
+          Get Started
+        </Link>
+      </nav>
+
+      {/* Hero */}
+      <section className="text-center py-24 px-4 max-w-4xl mx-auto">
+        <h2 className="text-5xl font-bold mb-6">
+          Tailored resumes in minutes, not hours
+        </h2>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Upload your resume, paste a job posting, and get a professionally
+          tailored resume and cover letter — formatted and ready to send.
+        </p>
+        <Link
+          href="/auth/login"
+          className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700"
+        >
+          Start Free — 3 Credits Included
+        </Link>
+      </section>
+
+      {/* How it works */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-center mb-12">
+            How it works
+          </h3>
+          <div className="grid grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                1
+              </div>
+              <h4 className="font-bold mb-2">Upload your resume</h4>
+              <p className="text-gray-600 text-sm">
+                Upload your baseline resume as a Word doc or PDF.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                2
+              </div>
+              <h4 className="font-bold mb-2">Add a job posting</h4>
+              <p className="text-gray-600 text-sm">
+                Paste a URL or enter the job details manually.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                3
+              </div>
+              <h4 className="font-bold mb-2">Download your docs</h4>
+              <p className="text-gray-600 text-sm">
+                Get a tailored resume and cover letter as Word and PDF.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 max-w-4xl mx-auto px-4">
+        <h3 className="text-3xl font-bold text-center mb-12">Pricing</h3>
+        <div className="grid grid-cols-3 gap-6">
+          <div className="border rounded-lg p-6 text-center">
+            <h4 className="font-bold text-lg mb-2">Free</h4>
+            <p className="text-3xl font-bold mb-4">$0</p>
+            <p className="text-gray-600 text-sm mb-4">3 credits to start</p>
+            <Link
+              href="/auth/login"
+              className="block w-full py-2 bg-gray-100 rounded-md text-sm hover:bg-gray-200"
+            >
+              Get Started
+            </Link>
+          </div>
+          <div className="border-2 border-blue-600 rounded-lg p-6 text-center">
+            <h4 className="font-bold text-lg mb-2">Credit Pack</h4>
+            <p className="text-3xl font-bold mb-4">$9.99</p>
+            <p className="text-gray-600 text-sm mb-4">10 credits, one-time</p>
+            <Link
+              href="/auth/login"
+              className="block w-full py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700"
+            >
+              Buy Credits
+            </Link>
+          </div>
+          <div className="border rounded-lg p-6 text-center">
+            <h4 className="font-bold text-lg mb-2">Monthly</h4>
+            <p className="text-3xl font-bold mb-4">$14.99</p>
+            <p className="text-gray-600 text-sm mb-4">15 credits/month</p>
+            <Link
+              href="/auth/login"
+              className="block w-full py-2 bg-gray-100 rounded-md text-sm hover:bg-gray-200"
+            >
+              Subscribe
+            </Link>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-sm text-gray-400 border-t">
+        Resume Tailor &copy; {new Date().getFullYear()}
+      </footer>
     </div>
   );
 }
