@@ -146,6 +146,60 @@ export default function NewJobPage() {
   );
 }
 
+const funnyMessages = [
+  "Polishing your professional summary...",
+  "Convincing the AI you're a real person...",
+  "Adding just the right amount of synergy...",
+  "Translating your experience into corporate...",
+  "Removing all mentions of pizza Fridays...",
+  "Calculating your ideal buzzword density...",
+  "Cross-referencing with LinkedIn stalking data...",
+  "Sprinkling in some thought leadership...",
+  "Pretending we know what 'proactive' means...",
+  "Strategically deploying action verbs...",
+  "Making your gap year sound intentional...",
+  "Replacing 'helped' with 'spearheaded'...",
+  "Ensuring maximum keyword saturation...",
+  "Teaching your resume to make eye contact...",
+  "Crafting your cover letter origin story...",
+  "Giving your bullet points a pep talk...",
+  "Optimizing for the robot overlords (ATS)...",
+  "Turning coffee consumption into a skill...",
+  "Rebranding your Netflix habit as research...",
+  "Adding 'detail-oriented' without a typo...",
+  "Questioning why they need 10 years of React...",
+  "Making sure your margins are chef's kiss...",
+  "Rehearsing your 'tell me about yourself'...",
+  "Translating 'I Googled it' to 'self-directed learner'...",
+  "Wondering if this counts as networking...",
+  "Upgrading 'team player' to 'cross-functional collaborator'...",
+  "Triple-checking there's no Comic Sans...",
+  "Hiding the fact that you cried in the supply closet...",
+  "Generating corporate enthusiasm...",
+  "Aligning your personal brand with their values...",
+];
+
+function useRotatingMessage(intervalMs = 3000) {
+  const [index, setIndex] = useState(() =>
+    Math.floor(Math.random() * funnyMessages.length)
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => {
+        let next: number;
+        do {
+          next = Math.floor(Math.random() * funnyMessages.length);
+        } while (next === prev && funnyMessages.length > 1);
+        return next;
+      });
+    }, intervalMs);
+    return () => clearInterval(timer);
+  }, [intervalMs]);
+
+  return funnyMessages[index];
+}
+
 // Processing step with Supabase Realtime subscription
 function ProcessingStep({
   generationId,
@@ -188,13 +242,17 @@ function ProcessingStep({
     };
   }, [generationId, onComplete, onFailed]);
 
+  const funnyMessage = useRotatingMessage(3000);
+
   return (
     <div className="text-center py-12">
       <div className="animate-spin h-12 w-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4" />
       <h2 className="text-lg font-medium mb-2">Tailoring your resume...</h2>
-      <p className="text-gray-500">
-        This usually takes about a minute, but can take longer during busy
-        periods.
+      <p className="text-gray-500 italic min-h-[1.5rem] transition-opacity duration-500">
+        {funnyMessage}
+      </p>
+      <p className="text-gray-400 text-xs mt-4">
+        This usually takes about a minute.
       </p>
     </div>
   );
