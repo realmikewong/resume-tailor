@@ -1,6 +1,8 @@
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { DownloadButtons } from "@/components/generations/download-buttons";
+import { ResumePreview } from "@/components/generations/resume-preview";
+import { CoverLetterPreview } from "@/components/generations/cover-letter-preview";
 import Link from "next/link";
 
 export default async function GenerationPage({
@@ -44,21 +46,11 @@ export default async function GenerationPage({
           />
 
           {generation.tailored_resume_content && (
-            <div className="mt-8">
-              <h2 className="text-lg font-medium mb-2">Resume Preview</h2>
-              <pre className="bg-white p-4 rounded-lg shadow-sm text-sm whitespace-pre-wrap">
-                {generation.tailored_resume_content}
-              </pre>
-            </div>
+            <ResumePreview content={generation.tailored_resume_content} />
           )}
 
           {generation.cover_letter_content && (
-            <div className="mt-6">
-              <h2 className="text-lg font-medium mb-2">Cover Letter Preview</h2>
-              <pre className="bg-white p-4 rounded-lg shadow-sm text-sm whitespace-pre-wrap">
-                {generation.cover_letter_content}
-              </pre>
-            </div>
+            <CoverLetterPreview content={generation.cover_letter_content} />
           )}
 
           <div className="mt-6">
