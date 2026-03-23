@@ -39,6 +39,36 @@ const templates: Record<string, TemplateConfig> = {
   },
 };
 
+// Shape returned by GPT prompts
+type GptResumeData = {
+  name: string;
+  contact: {
+    city?: string;
+    state?: string;
+    phone?: string;
+    email?: string;
+    linkedin?: string;
+  };
+  summary?: string;
+  experience: Array<{
+    title: string;
+    company: string;
+    location?: string;
+    start_date: string;
+    end_date: string;
+    bullets: string[];
+  }>;
+  education: Array<{
+    degree: string;
+    school: string;
+    location?: string;
+    year: string;
+  }>;
+  skills: string[];
+  additional?: string[];
+};
+
+// Normalized shape used by document generators
 type ResumeData = {
   name: string;
   contact: string;
@@ -46,6 +76,7 @@ type ResumeData = {
   experience: Array<{
     title: string;
     company: string;
+    location?: string;
     dates: string;
     bullets: string[];
   }>;
@@ -55,14 +86,106 @@ type ResumeData = {
     year: string;
   }>;
   skills: string[];
+  additional?: string[];
 };
 
-type CoverLetterData = {
+function normalizeResumeData(raw: GptResumeData): ResumeData {
+  const contactParts: string[] = [];
+  if (raw.contact.city && raw.contact.state) {
+    contactParts.push(`${raw.contact.city}, ${raw.contact.state}`);
+  } else if (raw.contact.city) {
+    contactParts.push(raw.contact.city);
+  }
+  if (raw.contact.phone) contactParts.push(raw.contact.phone);
+  if (raw.contact.email) contactParts.push(raw.contact.email);
+  if (raw.contact.linkedin) contactParts.push(raw.contact.linkedin);
+
+  return {
+    name: raw.name,
+    contact: contactParts.join(" | "),
+    summary: raw.summary,
+    experience: raw.experience.map((exp) => ({
+      title: exp.title,
+      company: exp.company,
+      location: exp.location,
+      dates: `${exp.start_date} – ${exp.end_date}`,
+      bullets: exp.bullets,
+    })),
+    education: raw.education.map((edu) => ({
+      degree: edu.degree,
+      school: edu.school,
+      year: edu.year,
+    })),
+    skills: raw.skills,
+    additional: raw.additional,
+  };
+}
+
+// Shape returned by GPT prompts
+type GptCoverLetterData = {
+  date?: string;
+  applicant?: {
+    name: string;
+    city?: string;
+    state?: string;
+    phone?: string;
+    email?: string;
+    linkedin?: string;
+  };
+  recipient?: {
+    name?: string;
+    company?: string;
+  };
   greeting: string;
   body: string[];
   signoff: string;
   name: string;
 };
+
+// Normalized shape used by document generators
+type CoverLetterData = {
+  date?: string;
+  applicantInfo?: string;
+  recipientInfo?: string;
+  greeting: string;
+  body: string[];
+  signoff: string;
+  name: string;
+};
+
+function normalizeCoverLetterData(raw: GptCoverLetterData): CoverLetterData {
+  let applicantInfo: string | undefined;
+  if (raw.applicant) {
+    const parts: string[] = [raw.applicant.name];
+    if (raw.applicant.city && raw.applicant.state) {
+      parts.push(`${raw.applicant.city}, ${raw.applicant.state}`);
+    }
+    const contactParts: string[] = [];
+    if (raw.applicant.phone) contactParts.push(raw.applicant.phone);
+    if (raw.applicant.email) contactParts.push(raw.applicant.email);
+    if (raw.applicant.linkedin) contactParts.push(raw.applicant.linkedin);
+    if (contactParts.length) parts.push(contactParts.join(" | "));
+    applicantInfo = parts.join("\n");
+  }
+
+  let recipientInfo: string | undefined;
+  if (raw.recipient) {
+    const parts: string[] = [];
+    if (raw.recipient.name) parts.push(raw.recipient.name);
+    if (raw.recipient.company) parts.push(raw.recipient.company);
+    recipientInfo = parts.join("\n");
+  }
+
+  return {
+    date: raw.date,
+    applicantInfo,
+    recipientInfo,
+    greeting: raw.greeting,
+    body: raw.body,
+    signoff: raw.signoff,
+    name: raw.name,
+  };
+}
 
 type GenerateInput = {
   generationId: string;
@@ -88,8 +211,10 @@ export async function generateDocuments(
   let coverLetterData: CoverLetterData;
 
   try {
-    resumeData = JSON.parse(input.resumeContent);
-    coverLetterData = JSON.parse(input.coverLetterContent);
+    const rawResume: GptResumeData = JSON.parse(input.resumeContent);
+    resumeData = normalizeResumeData(rawResume);
+    const rawCoverLetter: GptCoverLetterData = JSON.parse(input.coverLetterContent);
+    coverLetterData = normalizeCoverLetterData(rawCoverLetter);
   } catch {
     throw new Error("Failed to parse content from Make.com. Expected JSON format.");
   }
@@ -189,13 +314,23 @@ async function generateResumeDocx(
     sections.push(
       new Paragraph({
         children: [
-          new TextRun({ text: `${exp.title} — ${exp.company}`, bold: true, size: config.bodyFontSize }),
+          new TextRun({ text: `${exp.title} | ${exp.company}`, bold: true, size: config.bodyFontSize }),
           new TextRun({ text: `\t${exp.dates}`, size: config.bodyFontSize, color: config.accentColor }),
         ],
         tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
         spacing: { before: 150, after: 50 },
       })
     );
+    if (exp.location) {
+      sections.push(
+        new Paragraph({
+          children: [
+            new TextRun({ text: exp.location, size: config.bodyFontSize, color: config.accentColor, italics: true }),
+          ],
+          spacing: { after: 50 },
+        })
+      );
+    }
     for (const bullet of exp.bullets) {
       sections.push(
         new Paragraph({
@@ -244,6 +379,26 @@ async function generateResumeDocx(
       ],
     })
   );
+
+  // Additional
+  if (data.additional && data.additional.length > 0) {
+    sections.push(
+      new Paragraph({
+        text: "Additional",
+        heading: HeadingLevel.HEADING_2,
+        spacing: { before: 200, after: 100 },
+      })
+    );
+    for (const item of data.additional) {
+      sections.push(
+        new Paragraph({
+          children: [new TextRun({ text: item, size: config.bodyFontSize })],
+          bullet: { level: 0 },
+          spacing: { before: 30, after: 30 },
+        })
+      );
+    }
+  }
 
   const doc = new Document({
     sections: [
@@ -328,8 +483,11 @@ async function generateResumePdf(
   drawText("Experience", { font: boldFont, size: 14 });
   y -= 2;
   for (const exp of data.experience) {
-    drawText(`${exp.title} — ${exp.company}`, { font: boldFont, size: 11 });
-    drawText(exp.dates, { size: 9, color: { r: 0.4, g: 0.4, b: 0.4 } });
+    drawText(`${exp.title} | ${exp.company}`, { font: boldFont, size: 11 });
+    const metaParts: string[] = [];
+    if (exp.location) metaParts.push(exp.location);
+    metaParts.push(exp.dates);
+    drawText(metaParts.join(" | "), { size: 9, color: { r: 0.4, g: 0.4, b: 0.4 } });
     for (const bullet of exp.bullets) {
       drawText(`  •  ${bullet}`, { size: 10 });
     }
@@ -359,12 +517,25 @@ async function generateCoverLetterDocx(
 ): Promise<Buffer> {
   const paragraphs: Paragraph[] = [];
 
+  // Applicant info
+  if (data.applicantInfo) {
+    for (const line of data.applicantInfo.split("\n")) {
+      paragraphs.push(
+        new Paragraph({
+          children: [new TextRun({ text: line, size: config.bodyFontSize })],
+          spacing: { after: 40 },
+        })
+      );
+    }
+    paragraphs.push(new Paragraph({ spacing: { after: 200 } }));
+  }
+
   // Date
   paragraphs.push(
     new Paragraph({
       children: [
         new TextRun({
-          text: new Date().toLocaleDateString("en-US", {
+          text: data.date ?? new Date().toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -372,9 +543,22 @@ async function generateCoverLetterDocx(
           size: config.bodyFontSize,
         }),
       ],
-      spacing: { after: 400 },
+      spacing: { after: 200 },
     })
   );
+
+  // Recipient
+  if (data.recipientInfo) {
+    for (const line of data.recipientInfo.split("\n")) {
+      paragraphs.push(
+        new Paragraph({
+          children: [new TextRun({ text: line, size: config.bodyFontSize })],
+          spacing: { after: 40 },
+        })
+      );
+    }
+    paragraphs.push(new Paragraph({ spacing: { after: 200 } }));
+  }
 
   // Greeting
   paragraphs.push(
@@ -457,15 +641,31 @@ async function generateCoverLetterPdf(
     y -= size + 6;
   };
 
+  // Applicant info
+  if (data.applicantInfo) {
+    for (const line of data.applicantInfo.split("\n")) {
+      drawText(line, font, 10);
+    }
+    y -= 12;
+  }
+
   // Date
   drawText(
-    new Date().toLocaleDateString("en-US", {
+    data.date ?? new Date().toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     })
   );
-  y -= 20;
+  y -= 8;
+
+  // Recipient
+  if (data.recipientInfo) {
+    for (const line of data.recipientInfo.split("\n")) {
+      drawText(line, font, 11);
+    }
+    y -= 8;
+  }
 
   // Greeting
   drawText(data.greeting);
