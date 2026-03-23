@@ -103,50 +103,32 @@ export async function POST(request: Request) {
     );
   }
 
-  // Call Make.com webhook
+  // Update status to processing before calling Make
+  await admin
+    .from("generations")
+    .update({ status: "processing" })
+    .eq("id", generation.id);
+
+  // Call Make.com webhook (fire and forget — don't await the full scenario)
   const callbackBaseUrl = process.env.MAKE_CALLBACK_BASE_URL!;
   const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL!;
 
-  try {
-    const makeResponse = await fetch(makeWebhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        generation_id: generation.id,
-        callback_token: generation.callback_token,
-        resume_content: resume.raw_text_content,
-        job_description: job.job_description,
-        job_title: job.job_title,
-        company_name: job.company_name,
-        callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
-      }),
-    });
+  fetch(makeWebhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      generation_id: generation.id,
+      callback_token: generation.callback_token,
+      resume_content: resume.raw_text_content,
+      job_description: job.job_description,
+      job_title: job.job_title,
+      company_name: job.company_name,
+      callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
+    }),
+  }).catch(() => {
+    // If Make webhook fails, the generation will stay in "processing"
+    // and can be retried or timed out later
+  });
 
-    if (!makeResponse.ok) {
-      throw new Error("Make.com webhook failed");
-    }
-
-    // Update status to processing (use admin to bypass RLS)
-    await admin
-      .from("generations")
-      .update({ status: "processing" })
-      .eq("id", generation.id);
-
-    return NextResponse.json({ generation_id: generation.id });
-  } catch {
-    // Refund credit and mark as failed
-    await admin.rpc("refund_credit", {
-      p_user_id: user.id,
-      p_reason: "refund_make_webhook_failed",
-    });
-    await supabase
-      .from("generations")
-      .update({ status: "failed" })
-      .eq("id", generation.id);
-
-    return NextResponse.json(
-      { error: "Failed to start generation. Your credit has been refunded." },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({ generation_id: generation.id });
 }
