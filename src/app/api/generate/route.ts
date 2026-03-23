@@ -126,8 +126,8 @@ export async function POST(request: Request) {
       throw new Error("Make.com webhook failed");
     }
 
-    // Update status to processing
-    await supabase
+    // Update status to processing (use admin to bypass RLS)
+    await admin
       .from("generations")
       .update({ status: "processing" })
       .eq("id", generation.id);
