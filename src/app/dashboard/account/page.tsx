@@ -66,9 +66,34 @@ export default async function AccountPage() {
 
       {/* Purchase Options */}
       <h2 className="text-lg font-medium mb-3">Purchase Credits</h2>
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-3 gap-4 mb-8">
         <form action={createCheckoutSession}>
-          <input type="hidden" name="priceId" value={process.env.STRIPE_CREDIT_PACK_PRICE_ID} />
+          <input type="hidden" name="priceId" value="price_1TDzVSLzuvlRUbnLXqtUb2DP" />
+          <input type="hidden" name="mode" value="payment" />
+          <button
+            type="submit"
+            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
+          >
+            <h3 className="font-bold text-lg">1 Credit</h3>
+            <p className="text-gray-500 text-sm">One-time purchase</p>
+            <p className="text-2xl font-bold mt-2">$5.00</p>
+          </button>
+        </form>
+        <form action={createCheckoutSession}>
+          <input type="hidden" name="priceId" value="price_1TDzW4LzuvlRUbnLt7rfrfvt" />
+          <input type="hidden" name="mode" value="payment" />
+          <button
+            type="submit"
+            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
+          >
+            <h3 className="font-bold text-lg">5 Credits</h3>
+            <p className="text-gray-500 text-sm">One-time purchase</p>
+            <p className="text-2xl font-bold mt-2">$20.00</p>
+            <p className="text-xs text-green-600 mt-1">Save $5</p>
+          </button>
+        </form>
+        <form action={createCheckoutSession}>
+          <input type="hidden" name="priceId" value="price_1TDzWNLzuvlRUbnLr83sFm4k" />
           <input type="hidden" name="mode" value="payment" />
           <button
             type="submit"
@@ -76,19 +101,8 @@ export default async function AccountPage() {
           >
             <h3 className="font-bold text-lg">10 Credits</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
-            <p className="text-2xl font-bold mt-2">$9.99</p>
-          </button>
-        </form>
-        <form action={createCheckoutSession}>
-          <input type="hidden" name="priceId" value={process.env.STRIPE_MONTHLY_PRICE_ID} />
-          <input type="hidden" name="mode" value="subscription" />
-          <button
-            type="submit"
-            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
-          >
-            <h3 className="font-bold text-lg">15 Credits/Month</h3>
-            <p className="text-gray-500 text-sm">Monthly subscription</p>
-            <p className="text-2xl font-bold mt-2">$14.99/mo</p>
+            <p className="text-2xl font-bold mt-2">$35.00</p>
+            <p className="text-xs text-green-600 mt-1">Save $15</p>
           </button>
         </form>
       </div>

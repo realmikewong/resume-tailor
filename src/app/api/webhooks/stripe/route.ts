@@ -3,6 +3,13 @@ import { stripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import Stripe from "stripe";
 
+// Map Stripe price IDs to credit amounts
+const PRICE_TO_CREDITS: Record<string, number> = {
+  "price_1TDzVSLzuvlRUbnLXqtUb2DP": 1,
+  "price_1TDzW4LzuvlRUbnLt7rfrfvt": 5,
+  "price_1TDzWNLzuvlRUbnLr83sFm4k": 10,
+};
+
 export async function POST(request: Request) {
   const body = await request.text();
   const signature = request.headers.get("stripe-signature")!;
@@ -29,55 +36,25 @@ export async function POST(request: Request) {
       if (!userId) break;
 
       if (session.mode === "payment") {
-        // One-time credit pack purchase: add 10 credits atomically
-        await admin.rpc("add_credits", {
-          p_user_id: userId,
-          p_amount: 10,
-          p_reason: "purchase_credit_pack",
-          p_stripe_payment_id: session.payment_intent as string,
-        });
+        // Look up the price ID from the line items
+        const lineItems = await stripe.checkout.sessions.listLineItems(session.id);
+        const priceId = lineItems.data[0]?.price?.id;
+        const credits = priceId ? PRICE_TO_CREDITS[priceId] ?? 0 : 0;
 
-        await admin
-          .from("profiles")
-          .update({ plan_type: "credit_pack" })
-          .eq("user_id", userId);
+        if (credits > 0) {
+          await admin.rpc("add_credits", {
+            p_user_id: userId,
+            p_amount: credits,
+            p_reason: "purchase_credit_pack",
+            p_stripe_payment_id: session.payment_intent as string,
+          });
+
+          await admin
+            .from("profiles")
+            .update({ plan_type: "credit_pack" })
+            .eq("user_id", userId);
+        }
       }
-
-      if (session.mode === "subscription") {
-        // First subscription payment: add 15 credits atomically
-        await admin.rpc("add_credits", {
-          p_user_id: userId,
-          p_amount: 15,
-          p_reason: "subscription_payment",
-          p_stripe_payment_id: session.subscription as string,
-        });
-
-        await admin
-          .from("profiles")
-          .update({ plan_type: "subscription" })
-          .eq("user_id", userId);
-      }
-      break;
-    }
-
-    case "invoice.payment_succeeded": {
-      // Recurring subscription renewal
-      const invoice = event.data.object as Stripe.Invoice & { subscription?: string; billing_reason?: string };
-      if (invoice.billing_reason !== "subscription_cycle") break;
-
-      // Find user by subscription ID
-      const subscriptionId = invoice.subscription as string;
-      const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-      const userId = subscription.metadata?.user_id;
-
-      if (!userId) break;
-
-      await admin.rpc("add_credits", {
-        p_user_id: userId,
-        p_amount: 15,
-        p_reason: "subscription_renewal",
-        p_stripe_payment_id: invoice.id,
-      });
       break;
     }
   }
