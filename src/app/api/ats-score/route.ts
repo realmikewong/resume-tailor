@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
     const parsed = ATSScoreRequestSchema.safeParse(body);
     if (!parsed.success) {
-      const firstError = parsed.error.errors[0];
+      const firstError = parsed.error.issues[0];
       const field = firstError.path.join(".");
 
       if (firstError.code === "too_big") {
