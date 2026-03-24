@@ -69,7 +69,12 @@ export function computeOverallScore(factors: ATSFactors): number {
 }
 
 export function parseATSResponse(text: string): ATSScoreResponse {
-  const json = JSON.parse(text);
+  // Strip markdown code fences if present
+  let cleaned = text.trim();
+  if (cleaned.startsWith("```")) {
+    cleaned = cleaned.replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```\s*$/, "");
+  }
+  const json = JSON.parse(cleaned);
   const parsed = ATSScoreResponseSchema.parse(json);
   // Recompute overall score from weights to ensure consistency
   parsed.overall_score = computeOverallScore(parsed.factors);
