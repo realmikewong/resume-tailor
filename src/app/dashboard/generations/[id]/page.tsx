@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { DownloadButtons } from "@/components/generations/download-buttons";
 import { ResumePreview } from "@/components/generations/resume-preview";
 import { CoverLetterPreview } from "@/components/generations/cover-letter-preview";
+import { ATSScoreLoader } from "@/components/ats/ats-score-loader";
 import Link from "next/link";
 
 export default async function GenerationPage({
@@ -20,7 +21,7 @@ export default async function GenerationPage({
 
   const { data: generation } = await supabase
     .from("generations")
-    .select("*, jobs(*)")
+    .select("*, jobs(*), resumes(*)")
     .eq("id", id)
     .eq("user_id", user.id)
     .single();
@@ -28,7 +29,7 @@ export default async function GenerationPage({
   if (!generation) notFound();
 
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-4xl">
       <h1 className="text-2xl font-bold mb-2">Generation Results</h1>
       <p className="text-gray-600 mb-6">
         {generation.jobs.job_title} at {generation.jobs.company_name}
@@ -43,6 +44,16 @@ export default async function GenerationPage({
               cover_letter_word: generation.cover_letter_word_file_path,
               cover_letter_pdf: generation.cover_letter_pdf_file_path,
             }}
+          />
+
+          <ATSScoreLoader
+            generationId={generation.id}
+            baseResumeContent={generation.resumes?.raw_text_content || null}
+            tailoredResumeContent={generation.tailored_resume_content}
+            jobDescription={generation.jobs.job_description}
+            jobTitle={generation.jobs.job_title}
+            existingBaseScores={generation.base_ats_scores}
+            existingTailoredScores={generation.tailored_ats_scores}
           />
 
           {generation.tailored_resume_content && (
