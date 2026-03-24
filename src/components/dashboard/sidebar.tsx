@@ -10,6 +10,7 @@ const navItems = [
   { href: "/dashboard/resumes", label: "Resumes", icon: "📄" },
   { href: "/dashboard/jobs", label: "Job Tracker", icon: "💼" },
   { href: "/dashboard/account", label: "Account", icon: "⚙️" },
+  { href: "/tools/ats-score", label: "ATS Score Checker", icon: "📈" },
 ];
 
 export function Sidebar() {

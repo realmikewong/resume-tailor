@@ -69,6 +69,23 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Free Tool */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-4">Free ATS Score Checker</h3>
+          <p className="text-lg text-gray-600 mb-6">
+            Not sure how your resume stacks up? Check your ATS compatibility
+            score for free — no sign-up required.
+          </p>
+          <Link
+            href="/tools/ats-score"
+            className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-lg text-lg font-medium hover:bg-blue-50"
+          >
+            Check Your Score Free
+          </Link>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="py-16 max-w-4xl mx-auto px-4">
         <h3 className="text-3xl font-bold text-center mb-12">Pricing</h3>
