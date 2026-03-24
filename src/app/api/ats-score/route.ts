@@ -28,9 +28,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json(scores);
   } catch (error) {
-    console.error("ATS scoring failed:", error);
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("ATS scoring failed:", message);
     return NextResponse.json(
-      { error: "Failed to compute ATS score", code: "SCORING_FAILED" },
+      { error: "Failed to compute ATS score", code: "SCORING_FAILED", details: message },
       { status: 500 }
     );
   }
