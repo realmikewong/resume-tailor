@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { ScrapeInput } from "@/components/jobs/scrape-input";
+import { PasteJobInput } from "@/components/jobs/paste-job-input";
+import type { ExtractedJobFields } from "@/lib/job-extractor-schemas";
 import { JobForm, type JobFormData } from "@/components/jobs/job-form";
 import { TemplatePicker } from "@/components/jobs/template-picker";
 
@@ -13,6 +14,7 @@ export default function NewJobPage() {
   const [step, setStep] = useState<Step>("input");
   const [sourceUrl, setSourceUrl] = useState<string | null>(null);
   const [scrapeStatus, setScrapeStatus] = useState<"scraped" | "manual" | "failed">("manual");
+  const [isStaffingAgency, setIsStaffingAgency] = useState(false);
   const [jobData, setJobData] = useState<JobFormData | null>(null);
   const [initialFormData, setInitialFormData] = useState<Partial<JobFormData>>({});
   const [template, setTemplate] = useState("modern");
@@ -20,17 +22,18 @@ export default function NewJobPage() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
-  // Step 1: URL input
-  const handleScraped = (fields: Record<string, unknown>, url: string) => {
-    setSourceUrl(url);
+  // Step 1: Paste input
+  const handleExtracted = (fields: ExtractedJobFields) => {
+    setSourceUrl(null);
     setScrapeStatus("scraped");
+    setIsStaffingAgency(fields.is_staffing_agency);
     setInitialFormData({
-      company_name: (fields.company_name as string) ?? "",
-      job_title: (fields.job_title as string) ?? "",
-      job_description: (fields.job_description as string) ?? "",
+      company_name: fields.company_name ?? "",
+      job_title: fields.job_title ?? "",
+      job_description: fields.job_description ?? "",
       pay_range_low: fields.pay_range_low?.toString() ?? "",
       pay_range_high: fields.pay_range_high?.toString() ?? "",
-      job_location: (fields.job_location as string) ?? "",
+      job_location: fields.job_location ?? "",
       location_type: (fields.location_type as JobFormData["location_type"]) ?? "",
     });
     setStep("details");
@@ -92,8 +95,8 @@ export default function NewJobPage() {
 
       {step === "input" && (
         <div>
-          <h2 className="text-lg font-medium mb-4">Step 1: Job Posting URL</h2>
-          <ScrapeInput onScraped={handleScraped} onSkip={handleSkipScrape} />
+          <h2 className="text-lg font-medium mb-4">Step 1: Job Posting</h2>
+          <PasteJobInput onExtracted={handleExtracted} onSkip={handleSkipScrape} />
         </div>
       )}
 
@@ -104,6 +107,11 @@ export default function NewJobPage() {
             <p className="text-sm text-green-600 mb-4">
               Fields pre-filled from URL. Please review and edit as needed.
             </p>
+          )}
+          {isStaffingAgency && (
+            <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-lg text-sm mb-4">
+              This appears to be posted by a recruiting agency. Please verify the company name.
+            </div>
           )}
           <JobForm initialData={initialFormData} onSubmit={handleJobFormSubmit} />
         </div>
