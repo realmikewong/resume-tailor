@@ -113,6 +113,9 @@ export async function POST(request: Request) {
   const callbackBaseUrl = process.env.MAKE_CALLBACK_BASE_URL!;
   const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL!;
 
+  console.log("[generate] Calling Make webhook:", makeWebhookUrl);
+  console.log("[generate] Callback URL:", `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`);
+
   fetch(makeWebhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -125,10 +128,13 @@ export async function POST(request: Request) {
       company_name: job.company_name,
       callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
     }),
-  }).catch(() => {
-    // If Make webhook fails, the generation will stay in "processing"
-    // and can be retried or timed out later
-  });
+  })
+    .then((res) => {
+      console.log("[generate] Make webhook response status:", res.status);
+    })
+    .catch((err) => {
+      console.error("[generate] Make webhook fetch error:", err);
+    });
 
   return NextResponse.json({ generation_id: generation.id });
 }
