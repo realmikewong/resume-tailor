@@ -488,6 +488,52 @@ async function generateResumePdf(
     }
   };
 
+  const drawBullet = (text: string, options: {
+    font?: typeof font;
+    size?: number;
+    color?: { r: number; g: number; b: number };
+  } = {}) => {
+    const f = options.font ?? font;
+    const size = options.size ?? 10;
+    const lineHeight = size + 4;
+    const bulletStr = "•   ";
+    const bulletWidth = f.widthOfTextAtSize(bulletStr, size);
+    const bulletX = margin + 8;
+    const textX = bulletX + bulletWidth;
+    const textMaxWidth = usableWidth - 8 - bulletWidth;
+
+    const lines = wrapText(text, f, size, textMaxWidth);
+
+    for (let i = 0; i < lines.length; i++) {
+      if (y < margin + 40) {
+        page = pdfDoc.addPage([612, 792]);
+        y = height - margin;
+      }
+
+      // Draw bullet symbol only on first line
+      if (i === 0) {
+        page.drawText(bulletStr, {
+          x: bulletX,
+          y,
+          size,
+          font: f,
+          color: options.color ? rgb(options.color.r, options.color.g, options.color.b) : rgb(0, 0, 0),
+        });
+      }
+
+      // Draw text aligned after bullet for all lines
+      page.drawText(lines[i], {
+        x: textX,
+        y,
+        size,
+        font: f,
+        color: options.color ? rgb(options.color.r, options.color.g, options.color.b) : rgb(0, 0, 0),
+      });
+
+      y -= lineHeight;
+    }
+  };
+
   // Name
   drawText(data.name, { font: boldFont, size: 24 });
   y -= 4;
@@ -514,7 +560,7 @@ async function generateResumePdf(
     metaParts.push(exp.dates);
     drawText(metaParts.join(" | "), { size: 9, color: { r: 0.4, g: 0.4, b: 0.4 } });
     for (const bullet of exp.bullets) {
-      drawText(`  •  ${bullet}`, { size: 10 });
+      drawBullet(bullet, { size: 10 });
     }
     y -= 6;
   }
