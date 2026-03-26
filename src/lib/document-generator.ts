@@ -433,7 +433,27 @@ async function generateResumePdf(
   let page = pdfDoc.addPage([612, 792]); // Letter size
   const { width, height } = page.getSize();
   const margin = 72; // 1 inch
+  const usableWidth = width - 2 * margin;
   let y = height - margin;
+
+  const wrapText = (text: string, f: typeof font, size: number, maxWidth: number): string[] => {
+    const words = text.split(" ");
+    const lines: string[] = [];
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word;
+      const testWidth = f.widthOfTextAtSize(testLine, size);
+      if (testWidth > maxWidth && currentLine) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+    return lines;
+  };
 
   const drawText = (text: string, options: {
     font?: typeof font;
@@ -445,22 +465,27 @@ async function generateResumePdf(
     const f = options.font ?? font;
     const size = options.size ?? 11;
     const x = options.x ?? margin;
+    const maxWidth = options.maxWidth ?? usableWidth;
+    const lineHeight = size + 4;
 
-    if (y < margin + 40) {
-      page = pdfDoc.addPage([612, 792]);
-      y = height - margin;
+    const lines = wrapText(text, f, size, maxWidth);
+
+    for (const line of lines) {
+      if (y < margin + 40) {
+        page = pdfDoc.addPage([612, 792]);
+        y = height - margin;
+      }
+
+      page.drawText(line, {
+        x,
+        y,
+        size,
+        font: f,
+        color: options.color ? rgb(options.color.r, options.color.g, options.color.b) : rgb(0, 0, 0),
+      });
+
+      y -= lineHeight;
     }
-
-    page.drawText(text, {
-      x,
-      y,
-      size,
-      font: f,
-      color: options.color ? rgb(options.color.r, options.color.g, options.color.b) : rgb(0, 0, 0),
-      maxWidth: options.maxWidth ?? width - 2 * margin,
-    });
-
-    y -= size + 4;
   };
 
   // Name
@@ -625,20 +650,50 @@ async function generateCoverLetterPdf(
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-  const page = pdfDoc.addPage([612, 792]);
+  let page = pdfDoc.addPage([612, 792]);
   const { width, height } = page.getSize();
   const margin = 72;
+  const usableWidth = width - 2 * margin;
   let y = height - margin;
 
+  const wrapText = (text: string, f: typeof font, size: number, maxWidth: number): string[] => {
+    const words = text.split(" ");
+    const lines: string[] = [];
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word;
+      const testWidth = f.widthOfTextAtSize(testLine, size);
+      if (testWidth > maxWidth && currentLine) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+    return lines;
+  };
+
   const drawText = (text: string, f = font, size = 11) => {
-    page.drawText(text, {
-      x: margin,
-      y,
-      size,
-      font: f,
-      maxWidth: width - 2 * margin,
-    });
-    y -= size + 6;
+    const lineHeight = size + 6;
+    const lines = wrapText(text, f, size, usableWidth);
+
+    for (const line of lines) {
+      if (y < margin + 40) {
+        page = pdfDoc.addPage([612, 792]);
+        y = height - margin;
+      }
+
+      page.drawText(line, {
+        x: margin,
+        y,
+        size,
+        font: f,
+      });
+
+      y -= lineHeight;
+    }
   };
 
   // Applicant info
