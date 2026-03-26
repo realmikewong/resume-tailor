@@ -114,27 +114,26 @@ export async function POST(request: Request) {
   const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL!;
 
   console.log("[generate] Calling Make webhook:", makeWebhookUrl);
-  console.log("[generate] Callback URL:", `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`);
 
-  fetch(makeWebhookUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      generation_id: generation.id,
-      callback_token: generation.callback_token,
-      resume_content: resume.raw_text_content,
-      job_description: job.job_description,
-      job_title: job.job_title,
-      company_name: job.company_name,
-      callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
-    }),
-  })
-    .then((res) => {
-      console.log("[generate] Make webhook response status:", res.status);
-    })
-    .catch((err) => {
-      console.error("[generate] Make webhook fetch error:", err);
+  try {
+    const makeRes = await fetch(makeWebhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        generation_id: generation.id,
+        callback_token: generation.callback_token,
+        resume_content: resume.raw_text_content,
+        job_description: job.job_description,
+        job_title: job.job_title,
+        company_name: job.company_name,
+        callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
+      }),
     });
+    console.log("[generate] Make webhook response status:", makeRes.status);
+  } catch (err) {
+    console.error("[generate] Make webhook fetch error:", err);
+    // Don't fail the request — generation is already in "processing"
+  }
 
   return NextResponse.json({ generation_id: generation.id });
 }
