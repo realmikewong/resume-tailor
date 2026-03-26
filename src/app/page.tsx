@@ -6,12 +6,20 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="flex justify-between items-center px-8 py-4 max-w-6xl mx-auto">
         <h1 className="text-xl font-bold">Resume Tailor</h1>
-        <Link
-          href="/auth/login"
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
-        >
-          Get Started
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/blog"
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/auth/login"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
+          >
+            Get Started
+          </Link>
+        </div>
       </nav>
 
       {/* Hero */}
