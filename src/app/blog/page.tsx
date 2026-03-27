@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/blog";
 import { ArticleList } from "@/components/blog/article-list";
 
 export const metadata: Metadata = {
-  title: "Blog | Resume Tailor",
+  title: "Blog | Taylor Resumé",
 };
 
 export default function BlogPage() {

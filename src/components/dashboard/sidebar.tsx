@@ -25,7 +25,7 @@ export function Sidebar() {
 
   return (
     <aside className="w-64 bg-gray-900 text-white min-h-screen p-4 flex flex-col">
-      <h1 className="text-xl font-bold mb-8 px-2">Resume Tailor</h1>
+      <h1 className="text-xl font-bold mb-8 px-2">Taylor Resum&eacute;</h1>
       <nav className="flex-1 space-y-1">
         {navItems.map((item) => (
           <Link

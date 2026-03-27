@@ -13,7 +13,7 @@ export function JsonLd({ post }: { post: BlogPost }) {
     datePublished: post.date,
     publisher: {
       "@type": "Organization",
-      name: "Resume Tailor",
+      name: "Taylor Resumé",
     },
   };
 
