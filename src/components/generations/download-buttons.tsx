@@ -32,7 +32,7 @@ export function DownloadButtons({
     <div className="space-y-4">
       <div>
         <h3 className="font-medium mb-2">Resume</h3>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           {filePaths.resume_word && (
             <button
               onClick={() => handleDownload(filePaths.resume_word!, "resume.docx")}
@@ -53,7 +53,7 @@ export function DownloadButtons({
       </div>
       <div>
         <h3 className="font-medium mb-2">Cover Letter</h3>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           {filePaths.cover_letter_word && (
             <button
               onClick={() => handleDownload(filePaths.cover_letter_word!, "cover-letter.docx")}

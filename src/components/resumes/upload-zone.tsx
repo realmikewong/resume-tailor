@@ -53,7 +53,7 @@ export function UploadZone() {
       onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
       onDragLeave={() => setDragging(false)}
       onDrop={handleDrop}
-      className={`border-2 border-dashed rounded-lg p-8 text-center ${
+      className={`border-2 border-dashed rounded-lg p-4 md:p-8 text-center ${
         dragging ? "border-blue-500 bg-blue-50" : "border-gray-300"
       }`}
     >

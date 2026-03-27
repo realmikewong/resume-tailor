@@ -49,7 +49,7 @@ export function ResumeList({
       {resumes.map((resume) => (
         <li
           key={resume.id}
-          className="flex items-center justify-between bg-white p-4 rounded-lg shadow-sm"
+          className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between bg-white p-4 rounded-lg shadow-sm"
         >
           <div className="flex items-center gap-3">
             {resume.is_active && (
