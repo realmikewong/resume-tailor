@@ -40,7 +40,7 @@ export default async function DashboardPage() {
     <div>
       <h1 className="text-2xl font-bold mb-6">Dashboard</h1>
 
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <p className="text-sm text-gray-500">Credits Remaining</p>
           <p className="text-3xl font-bold">{profile?.credits_remaining ?? 0}</p>

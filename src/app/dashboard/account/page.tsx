@@ -66,7 +66,7 @@ export default async function AccountPage() {
 
       {/* Purchase Options */}
       <h2 className="text-lg font-medium mb-3">Purchase Credits</h2>
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzVSLzuvlRUbnLXqtUb2DP" />
           <input type="hidden" name="mode" value="payment" />
@@ -109,6 +109,7 @@ export default async function AccountPage() {
 
       {/* Transaction History */}
       <h2 className="text-lg font-medium mb-3">Transaction History</h2>
+      <div className="overflow-x-auto">
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         <table className="w-full">
           <thead className="bg-gray-50 border-b">
@@ -139,6 +140,7 @@ export default async function AccountPage() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );
