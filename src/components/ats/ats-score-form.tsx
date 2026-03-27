@@ -53,7 +53,7 @@ export function ATSScoreForm() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 font-sans">
             Your Resume
             <span className="text-gray-400 font-normal ml-2">
               {resumeContent.length}/15,000
@@ -68,7 +68,7 @@ export function ATSScoreForm() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 font-sans">
             Job Description
             <span className="text-gray-400 font-normal ml-2">
               {jobDescription.length}/10,000
@@ -85,7 +85,7 @@ export function ATSScoreForm() {
       </div>
 
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-2 font-sans">
           Target Job Title{" "}
           <span className="text-gray-400 font-normal">(optional)</span>
         </label>
@@ -102,13 +102,13 @@ export function ATSScoreForm() {
       <button
         onClick={handleAnalyze}
         disabled={loading || !resumeContent.trim() || !jobDescription.trim()}
-        className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+        className="w-full py-3.5 bg-[#1a1a1a] text-white font-sans text-sm font-semibold tracking-wider uppercase hover:bg-[#333] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
       >
         {loading ? "Analyzing..." : "Analyze My Resume"}
       </button>
 
       {error && (
-        <div className="mt-4 bg-red-50 p-4 rounded-lg">
+        <div className="mt-4 bg-red-50 p-4">
           <p className="text-red-700 text-sm">{error}</p>
         </div>
       )}
@@ -123,17 +123,17 @@ export function ATSScoreForm() {
         <div className="mt-8">
           <ATSScoreCard scores={scores} title="Your ATS Score" />
 
-          <div className="mt-8 bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-lg font-bold mb-2">
+          <div className="mt-8 bg-blue-50 p-6 text-center">
+            <h3 className="text-lg font-bold mb-2 font-sans">
               Want to improve this score?
             </h3>
             <p className="text-gray-600 mb-4">
-              Sign up for Resume Tailor and we&apos;ll automatically optimize
+              Sign up for Taylor Resum&eacute; and I&apos;ll automatically optimize
               your resume for any job description.
             </p>
             <Link
               href="/auth/login"
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700"
+              className="inline-block font-sans text-sm font-semibold tracking-wider uppercase text-white bg-[#1a1a1a] px-9 py-3.5 hover:bg-[#333] transition-colors"
             >
               Start Free — 3 Credits Included
             </Link>

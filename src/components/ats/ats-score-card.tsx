@@ -29,15 +29,15 @@ export function ATSScoreCard({
   title: string;
 }) {
   return (
-    <div className="border rounded-lg p-6">
-      <h3 className="text-lg font-semibold mb-4">{title}</h3>
+    <div className="border p-6">
+      <h3 className="text-lg font-semibold mb-4 font-sans">{title}</h3>
 
       {/* Overall Score */}
-      <div className={`text-center p-4 rounded-lg mb-6 ${getScoreBgColor(scores.overall_score)}`}>
+      <div className={`text-center p-4 mb-6 ${getScoreBgColor(scores.overall_score)}`}>
         <div className={`text-4xl font-bold ${getScoreTextColor(scores.overall_score)}`}>
           {scores.overall_score}
         </div>
-        <div className="text-sm text-gray-600 mt-1">Overall ATS Score</div>
+        <div className="text-sm text-gray-600 mt-1 font-sans">Overall ATS Score</div>
       </div>
 
       {/* Factor Breakdown */}
@@ -46,7 +46,7 @@ export function ATSScoreCard({
           ([key, { score, explanation }]) => (
             <div key={key}>
               <div className="flex justify-between text-sm mb-1">
-                <span className="text-gray-700">{FACTOR_LABELS[key]}</span>
+                <span className="text-gray-700 font-sans">{FACTOR_LABELS[key]}</span>
                 <span className={`font-medium ${getScoreTextColor(score)}`}>
                   {score}
                 </span>
@@ -68,9 +68,9 @@ export function ATSScoreCard({
 
 export function ATSScoreCardSkeleton({ title }: { title: string }) {
   return (
-    <div className="border rounded-lg p-6 animate-pulse">
+    <div className="border p-6 animate-pulse">
       <h3 className="text-lg font-semibold mb-4">{title}</h3>
-      <div className="bg-gray-100 rounded-lg p-4 mb-6 text-center">
+      <div className="bg-gray-100 p-4 mb-6 text-center">
         <div className="h-10 w-16 bg-gray-200 rounded mx-auto mb-2" />
         <div className="h-4 w-24 bg-gray-200 rounded mx-auto" />
       </div>
