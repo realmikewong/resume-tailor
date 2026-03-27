@@ -1,143 +1,176 @@
 import Link from "next/link";
+import StickyNav from "@/components/nav/sticky-nav";
 
-export default function LandingPage() {
+export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="flex justify-between items-center px-8 py-4 max-w-6xl mx-auto">
-        <h1 className="text-xl font-bold">Resume Tailor</h1>
-        <div className="flex items-center gap-4">
-          <Link
-            href="/blog"
-            className="text-sm text-gray-600 hover:text-gray-900"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/auth/login"
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
-          >
-            Get Started
-          </Link>
-        </div>
-      </nav>
+      <StickyNav />
 
-      {/* Hero */}
-      <section className="text-center py-24 px-4 max-w-4xl mx-auto">
-        <h2 className="text-5xl font-bold mb-6">
-          Tailored resumes in minutes, not hours
-        </h2>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Upload your resume, paste a job posting, and get a professionally
-          tailored resume and cover letter — formatted and ready to send.
-        </p>
-        <Link
-          href="/auth/login"
-          className="px-8 py-4 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700"
-        >
-          Start Free — 3 Credits Included
-        </Link>
-      </section>
-
-      {/* How it works */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12">
-            How it works
-          </h3>
-          <div className="grid grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                1
-              </div>
-              <h4 className="font-bold mb-2">Upload your resume</h4>
-              <p className="text-gray-600 text-sm">
-                Upload your baseline resume as a Word doc or PDF.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                2
-              </div>
-              <h4 className="font-bold mb-2">Add a job posting</h4>
-              <p className="text-gray-600 text-sm">
-                Paste a URL or enter the job details manually.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                3
-              </div>
-              <h4 className="font-bold mb-2">Download your docs</h4>
-              <p className="text-gray-600 text-sm">
-                Get a tailored resume and cover letter as Word and PDF.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Free Tool */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-4">Free ATS Score Checker</h3>
-          <p className="text-lg text-gray-600 mb-6">
-            Not sure how your resume stacks up? Check your ATS compatibility
-            score for free — no sign-up required.
+      <main className="max-w-[780px] mx-auto">
+        {/* Header */}
+        <header id="resume-header" className="text-center px-12 pt-14 pb-8 border-b-2 border-foreground">
+          <h1 className="font-sans text-4xl font-bold tracking-[4px] uppercase text-foreground">
+            Taylor Resum&eacute;
+          </h1>
+          <p className="font-sans text-sm text-gray-500 tracking-wider mt-2">
+            Making sure your resum&eacute; does you justice
           </p>
-          <Link
-            href="/tools/ats-score"
-            className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-lg text-lg font-medium hover:bg-blue-50"
-          >
-            Check Your Score Free
-          </Link>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-16 max-w-4xl mx-auto px-4">
-        <h3 className="text-3xl font-bold text-center mb-12">Pricing</h3>
-        <div className="grid grid-cols-3 gap-6">
-          <div className="border rounded-lg p-6 text-center">
-            <h4 className="font-bold text-lg mb-2">Free</h4>
-            <p className="text-3xl font-bold mb-4">$0</p>
-            <p className="text-gray-600 text-sm mb-4">3 credits to start</p>
+          <div className="font-sans text-xs text-gray-400 mt-3 tracking-wide">
+            <span>hello@taylorresume.com</span>
+            <span className="mx-2">|</span>
+            <span>taylorresume.com</span>
+            <span className="mx-2">|</span>
             <Link
               href="/auth/login"
-              className="block w-full py-2 bg-gray-100 rounded-md text-sm hover:bg-gray-200"
+              className="text-blue-600 font-medium hover:text-blue-800 transition-colors"
             >
               Get Started
             </Link>
           </div>
-          <div className="border-2 border-blue-600 rounded-lg p-6 text-center">
-            <h4 className="font-bold text-lg mb-2">Credit Pack</h4>
-            <p className="text-3xl font-bold mb-4">$9.99</p>
-            <p className="text-gray-600 text-sm mb-4">10 credits, one-time</p>
-            <Link
-              href="/auth/login"
-              className="block w-full py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700"
-            >
-              Buy Credits
-            </Link>
-          </div>
-          <div className="border rounded-lg p-6 text-center">
-            <h4 className="font-bold text-lg mb-2">Monthly</h4>
-            <p className="text-3xl font-bold mb-4">$14.99</p>
-            <p className="text-gray-600 text-sm mb-4">15 credits/month</p>
-            <Link
-              href="/auth/login"
-              className="block w-full py-2 bg-gray-100 rounded-md text-sm hover:bg-gray-200"
-            >
-              Subscribe
-            </Link>
-          </div>
-        </div>
-      </section>
+        </header>
 
-      {/* Footer */}
-      <footer className="py-8 text-center text-sm text-gray-400 border-t">
-        Resume Tailor &copy; {new Date().getFullYear()}
-      </footer>
+        {/* Objective */}
+        <section className="px-12 py-7 border-b border-gray-200">
+          <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
+            Objective
+          </h2>
+          <p className="text-[15px] text-gray-700 leading-relaxed italic">
+            You&rsquo;ve done the hard part: building real skills, gaining real
+            experience, becoming someone worth hiring. I&rsquo;m here to make sure
+            your resum&eacute; does you justice, every time, for every role.
+          </p>
+        </section>
+
+        {/* Experience */}
+        <section className="px-12 py-7 border-b border-gray-200">
+          <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
+            Experience
+          </h2>
+
+          <div className="mb-7">
+            <div className="flex justify-between items-baseline mb-1">
+              <h3 className="font-sans text-[15px] font-semibold text-foreground">
+                Document Intake Specialist
+              </h3>
+              <span className="font-sans text-xs text-gray-400">Step 1</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-2">Getting Started</p>
+            <ul className="space-y-1">
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Upload your baseline resum&eacute; as a Word doc or PDF
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Your experience, your skills, your story. Securely received.
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                One upload covers every future application
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-7">
+            <div className="flex justify-between items-baseline mb-1">
+              <h3 className="font-sans text-[15px] font-semibold text-foreground">
+                Tailoring Analyst
+              </h3>
+              <span className="font-sans text-xs text-gray-400">Step 2</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-2">The Work</p>
+            <ul className="space-y-1">
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Paste the job posting you&rsquo;re targeting
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                I&rsquo;ll match your experience to what matters for this role
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Every resum&eacute; is unique, because every job posting is
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="flex justify-between items-baseline mb-1">
+              <h3 className="font-sans text-[15px] font-semibold text-foreground">
+                Delivery Coordinator
+              </h3>
+              <span className="font-sans text-xs text-gray-400">Step 3</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-2">The Result</p>
+            <ul className="space-y-1">
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Download your tailored resum&eacute; and cover letter
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Formatted, polished, and ready to send
+              </li>
+              <li className="text-sm text-gray-700 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-gray-500">
+                Word and PDF formats included
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Volunteer Work */}
+        <section className="px-12 py-7 border-b border-gray-200">
+          <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
+            Volunteer Work
+          </h2>
+          <h3 className="font-sans text-[15px] font-semibold text-foreground mb-1">
+            ATS Compatibility Analyst
+          </h3>
+          <p className="text-sm text-gray-500 mb-2">
+            Community Service. Free, no sign-up required.
+          </p>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Not sure how your resum&eacute; stacks up against applicant tracking
+            systems? Check your ATS compatibility score, on the house.
+          </p>
+          <Link
+            href="/tools/ats-score"
+            className="inline-block mt-3 font-sans text-sm font-medium text-blue-600 border-b border-blue-600 pb-px hover:text-blue-800 hover:border-blue-800 transition-colors"
+          >
+            Check Your Score Free &rarr;
+          </Link>
+        </section>
+
+        {/* Compensation */}
+        <section className="px-12 py-7 border-b border-gray-200">
+          <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
+            Compensation
+          </h2>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Flexible packages starting at free. Competitive rates because job
+            searching is expensive enough.
+          </p>
+          <Link
+            href="/pricing"
+            className="inline-block mt-2 font-sans text-sm font-medium text-blue-600 border-b border-blue-600 pb-px hover:text-blue-800 hover:border-blue-800 transition-colors"
+          >
+            View Pricing &rarr;
+          </Link>
+        </section>
+
+        {/* CTA Footer */}
+        <section className="text-center px-12 py-9 border-t-2 border-foreground">
+          <p className="text-[15px] text-gray-700 mb-5 leading-relaxed">
+            References available upon request. Or just try it: your first 3
+            tailored resum&eacute;s are on me.
+          </p>
+          <Link
+            href="/auth/login"
+            className="inline-block font-sans text-sm font-semibold tracking-wider uppercase text-white bg-[#1a1a1a] px-9 py-3.5 hover:bg-[#333] transition-colors"
+          >
+            Get Started Free
+          </Link>
+        </section>
+
+        {/* Footer */}
+        <footer className="text-center px-12 py-5 font-sans text-[11px] text-gray-300 tracking-wide">
+          &copy; {new Date().getFullYear()} Taylor Resum&eacute;. All rights
+          reserved.
+        </footer>
+      </main>
     </div>
   );
 }
