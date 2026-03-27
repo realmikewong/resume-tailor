@@ -15,10 +15,10 @@ export default function HomePage() {
           <p className="font-sans text-sm text-gray-500 tracking-wider mt-2">
             Making sure your resum&eacute; does you justice
           </p>
-          <div className="font-sans text-xs text-gray-400 mt-3 tracking-wide">
-            <span>hello@taylorresume.com</span>
+          <div className="font-sans text-xs text-gray-500 mt-3 tracking-wide">
+            <a href="mailto:hello@taylorresume.com" className="hover:text-gray-600">hello@taylorresume.com</a>
             <span className="mx-2">|</span>
-            <span>taylorresume.com</span>
+            <a href="/" className="hover:text-gray-600">taylorresume.com</a>
             <span className="mx-2">|</span>
             <Link
               href="/auth/login"
@@ -52,7 +52,7 @@ export default function HomePage() {
               <h3 className="font-sans text-[15px] font-semibold text-foreground">
                 Document Intake Specialist
               </h3>
-              <span className="font-sans text-xs text-gray-400">Step 1</span>
+              <span className="font-sans text-xs text-gray-500">Step 1</span>
             </div>
             <p className="text-sm text-gray-500 mb-2">Getting Started</p>
             <ul className="space-y-1">
@@ -73,7 +73,7 @@ export default function HomePage() {
               <h3 className="font-sans text-[15px] font-semibold text-foreground">
                 Tailoring Analyst
               </h3>
-              <span className="font-sans text-xs text-gray-400">Step 2</span>
+              <span className="font-sans text-xs text-gray-500">Step 2</span>
             </div>
             <p className="text-sm text-gray-500 mb-2">The Work</p>
             <ul className="space-y-1">
@@ -94,7 +94,7 @@ export default function HomePage() {
               <h3 className="font-sans text-[15px] font-semibold text-foreground">
                 Delivery Coordinator
               </h3>
-              <span className="font-sans text-xs text-gray-400">Step 3</span>
+              <span className="font-sans text-xs text-gray-500">Step 3</span>
             </div>
             <p className="text-sm text-gray-500 mb-2">The Result</p>
             <ul className="space-y-1">
