@@ -90,13 +90,14 @@ export function Sidebar() {
               {item.label}
             </Link>
           ))}
+          <div className="border-t border-gray-700 my-3" />
+          <button
+            onClick={handleSignOut}
+            className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-gray-300 hover:bg-gray-800 hover:text-white w-full text-left"
+          >
+            Sign out
+          </button>
         </nav>
-        <button
-          onClick={handleSignOut}
-          className="mt-auto px-3 py-2 text-sm text-gray-400 hover:text-white"
-        >
-          Sign out
-        </button>
       </aside>
     </>
   );
