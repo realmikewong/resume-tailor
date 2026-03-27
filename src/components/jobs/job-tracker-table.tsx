@@ -69,7 +69,7 @@ export function JobTrackerTable({
   return (
     <div>
       {/* Filter bar */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4">
         <button
           onClick={() => setFilter("all")}
           className={`px-3 py-1 rounded text-sm ${
@@ -94,6 +94,7 @@ export function JobTrackerTable({
       {filtered.length === 0 ? (
         <p className="text-gray-500 py-8 text-center">No applications yet.</p>
       ) : (
+        <div className="overflow-x-auto">
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <table className="w-full">
             <thead className="bg-gray-50 border-b">
@@ -101,8 +102,8 @@ export function JobTrackerTable({
                 <th className="text-left px-4 py-3 text-sm font-medium">Company</th>
                 <th className="text-left px-4 py-3 text-sm font-medium">Title</th>
                 <th className="text-left px-4 py-3 text-sm font-medium">Status</th>
-                <th className="text-left px-4 py-3 text-sm font-medium">Date Applied</th>
-                <th className="text-left px-4 py-3 text-sm font-medium">Added</th>
+                <th className="text-left px-4 py-3 text-sm font-medium hidden md:table-cell">Date Applied</th>
+                <th className="text-left px-4 py-3 text-sm font-medium hidden md:table-cell">Added</th>
               </tr>
             </thead>
             <tbody>
@@ -133,17 +134,17 @@ export function JobTrackerTable({
                         ))}
                       </select>
                     </td>
-                    <td className="px-4 py-3 text-sm">
+                    <td className="px-4 py-3 text-sm hidden md:table-cell">
                       {app.date_applied ?? "—"}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-500">
+                    <td className="px-4 py-3 text-sm text-gray-500 hidden md:table-cell">
                       {new Date(app.created_at).toLocaleDateString()}
                     </td>
                   </tr>
                   {expandedId === app.id && (
                     <tr className="border-b bg-gray-50">
                       <td colSpan={5} className="px-4 py-4">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-xs font-medium mb-1">
                               Date Applied
@@ -201,6 +202,7 @@ export function JobTrackerTable({
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       )}
     </div>
