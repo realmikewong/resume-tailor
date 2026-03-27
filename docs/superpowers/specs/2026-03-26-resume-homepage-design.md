@@ -96,7 +96,7 @@ Three entries styled as career progression, each with:
 
 ### Page Footer
 
-- Copyright line: "© 2025 Taylor Resumé. All rights reserved." (Inter, small, muted)
+- Copyright line: "© 2026 Taylor Resumé. All rights reserved." (Inter, small, muted)
 
 ## Scroll Behavior
 
