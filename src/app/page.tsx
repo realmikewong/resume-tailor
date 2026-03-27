@@ -8,7 +8,7 @@ export default function HomePage() {
 
       <main className="max-w-[780px] mx-auto">
         {/* Header */}
-        <header id="resume-header" className="text-center px-12 pt-14 pb-8 border-b-2 border-foreground">
+        <header id="resume-header" className="text-center px-6 md:px-12 pt-14 pb-8 border-b-2 border-foreground">
           <h1 className="font-sans text-4xl font-bold tracking-[4px] uppercase text-foreground">
             Taylor Resum&eacute;
           </h1>
@@ -30,7 +30,7 @@ export default function HomePage() {
         </header>
 
         {/* Objective */}
-        <section className="px-12 py-7 border-b border-gray-200">
+        <section className="px-6 md:px-12 py-7 border-b border-gray-200">
           <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
             Objective
           </h2>
@@ -42,7 +42,7 @@ export default function HomePage() {
         </section>
 
         {/* Experience */}
-        <section className="px-12 py-7 border-b border-gray-200">
+        <section className="px-6 md:px-12 py-7 border-b border-gray-200">
           <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
             Experience
           </h2>
@@ -112,7 +112,7 @@ export default function HomePage() {
         </section>
 
         {/* Volunteer Work */}
-        <section className="px-12 py-7 border-b border-gray-200">
+        <section className="px-6 md:px-12 py-7 border-b border-gray-200">
           <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
             Volunteer Work
           </h2>
@@ -135,7 +135,7 @@ export default function HomePage() {
         </section>
 
         {/* Compensation */}
-        <section className="px-12 py-7 border-b border-gray-200">
+        <section className="px-6 md:px-12 py-7 border-b border-gray-200">
           <h2 className="font-sans text-xs font-semibold tracking-[2.5px] uppercase text-foreground mb-5 pb-1.5 border-b border-gray-300">
             Compensation
           </h2>
@@ -152,7 +152,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA Footer */}
-        <section className="text-center px-12 py-9 border-t-2 border-foreground">
+        <section className="text-center px-6 md:px-12 py-9 border-t-2 border-foreground">
           <p className="text-[15px] text-gray-700 mb-5 leading-relaxed">
             References available upon request. Or just try it: your first 3
             tailored resum&eacute;s are on me.
@@ -166,7 +166,7 @@ export default function HomePage() {
         </section>
 
         {/* Footer */}
-        <footer className="text-center px-12 py-5 font-sans text-[11px] text-gray-300 tracking-wide">
+        <footer className="text-center px-6 md:px-12 py-5 font-sans text-[11px] text-gray-300 tracking-wide">
           &copy; {new Date().getFullYear()} Taylor Resum&eacute;. All rights
           reserved.
         </footer>
