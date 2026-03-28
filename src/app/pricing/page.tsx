@@ -66,7 +66,7 @@ export default function PricingPage() {
                   i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
                 }`}
               >
-                <span className="font-sans text-xs text-foreground mt-0.5 shrink-0">
+                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
                   ✓
                 </span>
                 {feature}
@@ -107,7 +107,7 @@ export default function PricingPage() {
                   i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
                 }`}
               >
-                <span className="font-sans text-xs text-foreground mt-0.5 shrink-0">
+                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
                   ✓
                 </span>
                 {feature}
@@ -150,7 +150,7 @@ export default function PricingPage() {
                   i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
                 }`}
               >
-                <span className="font-sans text-xs text-foreground mt-0.5 shrink-0">
+                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
                   ✓
                 </span>
                 {feature}
@@ -186,7 +186,7 @@ export default function PricingPage() {
           Questions?{" "}
           <a
             href="mailto:hello@taylorresume.com"
-            className="hover:text-gray-600 transition-colors"
+            className="underline hover:text-gray-600 transition-colors"
           >
             hello@taylorresume.com
           </a>
