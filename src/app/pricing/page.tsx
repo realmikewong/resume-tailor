@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pricing | Taylor Resumé",
-  description: "Honest pricing for job seekers. Start free — no credit card required.",
+  description: "Honest pricing for job seekers. Start free, no credit card required.",
 };
 
 const FEATURES = [
@@ -41,7 +41,7 @@ export default function PricingPage() {
         <div className="bg-white p-8 flex flex-col">
           <div className="h-[22px]" />
           <p className="font-sans text-xs font-semibold tracking-[2px] uppercase text-gray-500 mb-4">
-            Free
+            FREE
           </p>
           <p className="font-sans text-4xl font-bold text-foreground leading-none">
             $0
@@ -82,7 +82,7 @@ export default function PricingPage() {
         <div className="bg-white p-8 flex flex-col">
           <div className="h-[22px]" />
           <p className="font-sans text-xs font-semibold tracking-[2px] uppercase text-gray-500 mb-4">
-            Pro
+            PRO
           </p>
           <p className="font-sans text-4xl font-bold text-foreground leading-none">
             $7.99
@@ -125,7 +125,7 @@ export default function PricingPage() {
             Best Value
           </span>
           <p className="font-sans text-xs font-semibold tracking-[2px] uppercase text-gray-500 mb-4">
-            Ultimate
+            ULTIMATE
           </p>
           <p className="font-sans text-4xl font-bold text-foreground leading-none">
             $19.99
