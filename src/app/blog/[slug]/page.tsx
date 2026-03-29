@@ -61,8 +61,8 @@ export default async function ArticlePage({ params }: Props) {
           </time>
           <span>{post.readingTime} min read</span>
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-        <p className="text-xl text-gray-600 leading-relaxed">{post.excerpt}</p>
+        <h1 className="font-sans text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+        <p className="font-serif text-xl text-gray-600 leading-relaxed">{post.excerpt}</p>
       </header>
       <ArticleContent html={post.content} />
       {post.faq && post.faq.length > 0 && <FaqSection items={post.faq} />}

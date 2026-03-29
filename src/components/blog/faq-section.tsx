@@ -12,7 +12,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
 
   return (
     <div className="mt-12">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+      <h2 className="font-sans text-2xl font-bold text-gray-900 mb-6">
         Frequently Asked Questions
       </h2>
       <div className="divide-y border rounded-lg overflow-hidden">
@@ -22,7 +22,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
               onClick={() => toggle(index)}
               className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
             >
-              <span className="font-medium text-gray-900">{item.q}</span>
+              <span className="font-sans font-medium text-gray-900">{item.q}</span>
               <span className="ml-4 flex-shrink-0 text-gray-500">
                 {openIndex === index ? (
                   <svg

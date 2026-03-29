@@ -15,7 +15,7 @@ export function ArticleCard({ post }: { post: BlogPostMeta }) {
           {post.category}
         </span>
       </div>
-      <h2 className="text-xl font-semibold mb-2">
+      <h2 className="font-sans text-xl font-semibold mb-2">
         <Link
           href={`/blog/${post.slug}`}
           className="text-gray-900 hover:text-blue-600 transition-colors"
@@ -23,8 +23,8 @@ export function ArticleCard({ post }: { post: BlogPostMeta }) {
           {post.title}
         </Link>
       </h2>
-      <p className="text-gray-600 mb-3 leading-relaxed">{post.excerpt}</p>
-      <div className="flex items-center gap-3 text-sm text-gray-500">
+      <p className="font-serif text-gray-600 mb-3 leading-relaxed">{post.excerpt}</p>
+      <div className="font-sans flex items-center gap-3 text-sm text-gray-500">
         <span>{formattedDate}</span>
         <span>&middot;</span>
         <span>{post.readingTime} min read</span>
