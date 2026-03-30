@@ -154,7 +154,7 @@ export default function HomePage() {
         {/* CTA Footer */}
         <section className="text-center px-6 md:px-12 py-9 border-t-2 border-foreground">
           <p className="text-[15px] text-gray-700 mb-5 leading-relaxed">
-            References available upon request. Or just try it: your first 3
+            References available upon request. Or just try it: your first 10
             tailored resum&eacute;s are on me.
           </p>
           <Link
