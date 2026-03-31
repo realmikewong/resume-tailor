@@ -38,6 +38,8 @@ export async function POST(request: Request) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const rawText = await extractTextFromBuffer(buffer, file.name);
 
+    console.log(`[upload-resume] extracted ${rawText?.length ?? 0} chars from ${file.name}`);
+
     if (!rawText || rawText.length < 50) {
       return NextResponse.json(
         { error: "Could not extract meaningful text from this file. Try a different format." },
@@ -88,7 +90,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ resume });
-  } catch {
+  } catch (err) {
+    console.error("[upload-resume] processing error:", err);
     return NextResponse.json(
       { error: "Failed to process file. Try a different format." },
       { status: 422 }
