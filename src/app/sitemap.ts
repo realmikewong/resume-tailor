@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
-const BASE_URL = "https://resume-tailor-tau-seven.vercel.app";
+const BASE_URL = "https://taylorresume.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
