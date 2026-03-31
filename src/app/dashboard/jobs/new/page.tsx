@@ -7,6 +7,7 @@ import { PasteJobInput } from "@/components/jobs/paste-job-input";
 import type { ExtractedJobFields } from "@/lib/job-extractor-schemas";
 import { JobForm, type JobFormData } from "@/components/jobs/job-form";
 import { TemplatePicker } from "@/components/jobs/template-picker";
+import { trackEvent } from "@/lib/analytics";
 
 type Step = "input" | "details" | "confirm" | "processing" | "results";
 
@@ -36,11 +37,13 @@ export default function NewJobPage() {
       job_location: fields.job_location ?? "",
       location_type: (fields.location_type as JobFormData["location_type"]) ?? "",
     });
+    trackEvent("job_description_submitted");
     setStep("details");
   };
 
   const handleSkipScrape = () => {
     setScrapeStatus("manual");
+    trackEvent("job_description_submitted");
     setStep("details");
   };
 
@@ -55,6 +58,7 @@ export default function NewJobPage() {
     setError(null);
     setStep("processing");
 
+    trackEvent("generation_started");
     const res = await fetch("/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -236,9 +240,16 @@ function ProcessingStep({
           const status = payload.new.status;
           if (status === "completed") {
             channel.unsubscribe();
+            trackEvent("generation_completed", {
+              generation_id: generationId,
+            });
+            trackEvent("job_added");
             onComplete(generationId);
           } else if (status === "failed") {
             channel.unsubscribe();
+            trackEvent("generation_failed", {
+              generation_id: generationId,
+            });
             onFailed("Generation failed. Your credit has been refunded. Please try again.");
           }
         }

@@ -1,6 +1,7 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 import { useRouter } from "next/navigation";
 
 type Resume = {
@@ -40,6 +41,19 @@ export function ResumeList({
     router.refresh();
   };
 
+  const deleteResume = async (resumeId: string) => {
+    const supabase = createClient();
+    const { error } = await supabase
+      .from("resumes")
+      .delete()
+      .eq("id", resumeId);
+
+    if (!error) {
+      trackEvent("resume_deleted");
+      router.refresh();
+    }
+  };
+
   if (resumes.length === 0) {
     return <p className="text-gray-500">No resumes uploaded yet.</p>;
   }
@@ -77,6 +91,12 @@ export function ResumeList({
                 Set as active
               </button>
             )}
+            <button
+              onClick={() => deleteResume(resume.id)}
+              className="text-sm text-red-600 hover:underline"
+            >
+              Delete
+            </button>
           </div>
         </li>
       ))}

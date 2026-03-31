@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 
 export default function AuthCallbackPage() {
   const router = useRouter();
@@ -10,8 +11,15 @@ export default function AuthCallbackPage() {
   useEffect(() => {
     const supabase = createClient();
 
-    supabase.auth.onAuthStateChange((event) => {
+    supabase.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_IN") {
+        if (session?.user) {
+          const createdAt = new Date(session.user.created_at).getTime();
+          const isNewUser = Date.now() - createdAt < 60_000;
+          trackEvent(isNewUser ? "user_signed_up" : "user_logged_in", {
+            user_id: session.user.id,
+          });
+        }
         router.replace("/dashboard");
       } else if (event === "PASSWORD_RECOVERY") {
         router.replace("/dashboard");

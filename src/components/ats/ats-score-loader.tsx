@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ATSComparison } from "./ats-comparison";
 import { ATSScoreCardSkeleton } from "./ats-score-card";
 import type { ATSScoreResponse } from "@/lib/ats-schemas";
+import { trackEvent } from "@/lib/analytics";
 
 export function ATSScoreLoader({
   generationId,
@@ -26,6 +27,14 @@ export function ATSScoreLoader({
   const [tailoredScores, setTailoredScores] = useState<ATSScoreResponse | null>(existingTailoredScores);
   const [loading, setLoading] = useState(!existingBaseScores || !existingTailoredScores);
   const [error, setError] = useState<string | null>(null);
+  const hasTrackedRef = useRef(false);
+
+  useEffect(() => {
+    if (tailoredScores && !hasTrackedRef.current) {
+      hasTrackedRef.current = true;
+      trackEvent("ats_score_viewed");
+    }
+  }, [tailoredScores]);
 
   useEffect(() => {
     if (existingBaseScores && existingTailoredScores) return;

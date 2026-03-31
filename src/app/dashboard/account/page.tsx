@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
+import { AccountAnalytics, PurchaseButton } from "@/components/account/account-analytics";
 
 async function createCheckoutSession(formData: FormData) {
   "use server";
@@ -53,6 +54,7 @@ export default async function AccountPage() {
 
   return (
     <div className="max-w-2xl">
+      <AccountAnalytics creditBalance={profile?.credits_remaining ?? 0} />
       <h1 className="text-2xl font-bold mb-6">Account & Billing</h1>
 
       {/* Credit Balance */}
@@ -70,40 +72,31 @@ export default async function AccountPage() {
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzVSLzuvlRUbnLXqtUb2DP" />
           <input type="hidden" name="mode" value="payment" />
-          <button
-            type="submit"
-            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
-          >
+          <PurchaseButton planLabel="1 Credit">
             <h3 className="font-bold text-lg">1 Credit</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$5.00</p>
-          </button>
+          </PurchaseButton>
         </form>
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzW4LzuvlRUbnLt7rfrfvt" />
           <input type="hidden" name="mode" value="payment" />
-          <button
-            type="submit"
-            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
-          >
+          <PurchaseButton planLabel="5 Credits">
             <h3 className="font-bold text-lg">5 Credits</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$20.00</p>
             <p className="text-xs text-green-600 mt-1">Save $5</p>
-          </button>
+          </PurchaseButton>
         </form>
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzWNLzuvlRUbnLr83sFm4k" />
           <input type="hidden" name="mode" value="payment" />
-          <button
-            type="submit"
-            className="w-full bg-white p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-blue-500 text-left"
-          >
+          <PurchaseButton planLabel="10 Credits">
             <h3 className="font-bold text-lg">10 Credits</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$35.00</p>
             <p className="text-xs text-green-600 mt-1">Save $15</p>
-          </button>
+          </PurchaseButton>
         </form>
       </div>
 

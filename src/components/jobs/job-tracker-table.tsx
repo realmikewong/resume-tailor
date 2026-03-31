@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 type Application = {
   id: string;
@@ -50,6 +51,7 @@ export function JobTrackerTable({
       .from("applications")
       .update({ status: newStatus })
       .eq("id", appId);
+    trackEvent("job_status_updated", { status: newStatus });
     router.refresh();
   };
 

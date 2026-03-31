@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 type UploadStatus = "idle" | "uploading" | "extracting" | "done" | "error";
 
@@ -12,6 +13,7 @@ export function UploadZone() {
   const router = useRouter();
 
   const handleFile = useCallback(async (file: File) => {
+    trackEvent("resume_upload_started");
     setStatus("uploading");
     setError(null);
 
@@ -32,10 +34,12 @@ export function UploadZone() {
     if (!res.ok) {
       setError(data.error);
       setStatus("error");
+      trackEvent("resume_upload_failed", { error_message: data.error });
       return;
     }
 
     setStatus("done");
+    trackEvent("resume_uploaded");
     router.refresh();
 
     // Reset to idle after a brief success moment
