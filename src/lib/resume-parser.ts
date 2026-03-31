@@ -1,4 +1,5 @@
 import mammoth from "mammoth";
+import { extractText } from "unpdf";
 
 export async function extractTextFromBuffer(
   buffer: Buffer,
@@ -12,10 +13,8 @@ export async function extractTextFromBuffer(
   }
 
   if (extension === "pdf") {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const pdfParse = require("pdf-parse");
-    const result = await pdfParse(buffer);
-    return result.text.trim();
+    const { text } = await extractText(new Uint8Array(buffer), { mergePages: true });
+    return text.trim();
   }
 
   throw new Error(`Unsupported file type: .${extension}`);
