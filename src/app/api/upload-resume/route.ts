@@ -20,12 +20,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
   }
 
-  const allowedTypes = [
-    "application/pdf",
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  ];
+  const ext = file.name.split(".").pop()?.toLowerCase();
+  const contentTypeMap: Record<string, string> = {
+    pdf: "application/pdf",
+    docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  };
+  const resolvedContentType = contentTypeMap[ext ?? ""];
 
-  if (!allowedTypes.includes(file.type)) {
+  if (!resolvedContentType) {
     return NextResponse.json(
       { error: "Only .docx and .pdf files are supported" },
       { status: 400 }
@@ -49,7 +51,7 @@ export async function POST(request: Request) {
 
     const { error: uploadError } = await admin.storage
       .from("documents")
-      .upload(filePath, buffer, { contentType: file.type });
+      .upload(filePath, buffer, { contentType: resolvedContentType });
 
     if (uploadError) {
       return NextResponse.json(
