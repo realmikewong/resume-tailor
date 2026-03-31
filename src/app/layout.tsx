@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { PageViewTracker } from "@/components/analytics/page-view-tracker";
 import "./globals.css";
 
 const inter = Inter({
@@ -43,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             />
           </noscript>
         )}
+        <PageViewTracker />
         {children}
       </body>
     </html>
