@@ -44,6 +44,7 @@ export default async function GenerationPage({
               cover_letter_word: generation.cover_letter_word_file_path,
               cover_letter_pdf: generation.cover_letter_pdf_file_path,
             }}
+            companyName={generation.jobs.company_name}
           />
 
           <ATSScoreLoader

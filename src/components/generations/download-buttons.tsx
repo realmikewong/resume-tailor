@@ -2,8 +2,16 @@
 
 import { createClient } from "@/lib/supabase/client";
 
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export function DownloadButtons({
   filePaths,
+  companyName,
 }: {
   filePaths: {
     resume_word: string | null;
@@ -11,7 +19,9 @@ export function DownloadButtons({
     cover_letter_word: string | null;
     cover_letter_pdf: string | null;
   };
+  companyName?: string;
 }) {
+  const slug = companyName ? slugify(companyName) : null;
   const handleDownload = async (path: string, fileName: string) => {
     const supabase = createClient();
     const { data, error } = await supabase.storage
@@ -35,7 +45,7 @@ export function DownloadButtons({
         <div className="flex flex-col sm:flex-row gap-2">
           {filePaths.resume_word && (
             <button
-              onClick={() => handleDownload(filePaths.resume_word!, "resume.docx")}
+              onClick={() => handleDownload(filePaths.resume_word!, slug ? `resume-${slug}.docx` : "resume.docx")}
               className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
             >
               Download Word
@@ -43,7 +53,7 @@ export function DownloadButtons({
           )}
           {filePaths.resume_pdf && (
             <button
-              onClick={() => handleDownload(filePaths.resume_pdf!, "resume.pdf")}
+              onClick={() => handleDownload(filePaths.resume_pdf!, slug ? `resume-${slug}.pdf` : "resume.pdf")}
               className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm"
             >
               Download PDF
@@ -56,7 +66,7 @@ export function DownloadButtons({
         <div className="flex flex-col sm:flex-row gap-2">
           {filePaths.cover_letter_word && (
             <button
-              onClick={() => handleDownload(filePaths.cover_letter_word!, "cover-letter.docx")}
+              onClick={() => handleDownload(filePaths.cover_letter_word!, slug ? `cover-letter-${slug}.docx` : "cover-letter.docx")}
               className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm"
             >
               Download Word
@@ -64,7 +74,7 @@ export function DownloadButtons({
           )}
           {filePaths.cover_letter_pdf && (
             <button
-              onClick={() => handleDownload(filePaths.cover_letter_pdf!, "cover-letter.pdf")}
+              onClick={() => handleDownload(filePaths.cover_letter_pdf!, slug ? `cover-letter-${slug}.pdf` : "cover-letter.pdf")}
               className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm"
             >
               Download PDF
