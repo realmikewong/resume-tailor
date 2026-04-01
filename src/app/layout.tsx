@@ -25,10 +25,6 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <Script
-        src="https://app.termly.io/resource-blocker/2b5778c1-d9b1-4ef3-b1b3-42a5870ca24a?autoBlock=on"
-        strategy="beforeInteractive"
-      />
       {gtmId && (
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

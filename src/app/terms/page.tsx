@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import { marked } from "marked";
 
-export default async function PrivacyPage() {
-  const filePath = path.join(process.cwd(), "content", "legal", "privacy-policy.md");
+export default async function TermsPage() {
+  const filePath = path.join(process.cwd(), "content", "legal", "terms-of-use.md");
   const raw = fs.readFileSync(filePath, "utf-8");
   const html = await marked(raw);
 

@@ -13,17 +13,10 @@ export function Footer() {
             Privacy Policy
           </a>
           <a
-            href="#"
+            href="/terms"
             className="font-sans text-xs text-gray-400 hover:text-gray-600 transition-colors"
           >
-            Terms of Service
-          </a>
-          {/* Termly consent modal trigger — class name is required, do not change */}
-          <a
-            href="#"
-            className="termly-display-preferences font-sans text-xs text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            Consent Preferences
+            Terms of Use
           </a>
         </nav>
       </div>
