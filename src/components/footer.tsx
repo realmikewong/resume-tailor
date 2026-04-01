@@ -7,7 +7,7 @@ export function Footer() {
         </p>
         <nav className="flex items-center gap-5">
           <a
-            href="#"
+            href="/privacy"
             className="font-sans text-xs text-gray-400 hover:text-gray-600 transition-colors"
           >
             Privacy Policy
