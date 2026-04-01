@@ -16,6 +16,16 @@ export default async function DashboardLayout({
     redirect("/auth/login");
   }
 
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("terms_accepted_at")
+    .eq("user_id", user.id)
+    .single();
+
+  if (!profile || !profile.terms_accepted_at) {
+    redirect("/auth/accept-terms");
+  }
+
   return (
     <div className="flex min-h-screen font-sans">
       <Sidebar />
