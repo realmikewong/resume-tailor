@@ -26,7 +26,7 @@ export default async function AcceptTermsPage() {
 
   const filePath = path.join(process.cwd(), "content", "legal", "terms-of-use.md");
   const raw = fs.readFileSync(filePath, "utf-8");
-  const html = marked(raw) as string;
+  const html = await marked(raw);
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
