@@ -37,7 +37,12 @@ export async function middleware(request: NextRequest) {
   }
 
   // Redirect authenticated users away from auth pages
-  if (user && request.nextUrl.pathname.startsWith("/auth")) {
+  // (but not /auth/accept-terms — authenticated users need to reach that page)
+  if (
+    user &&
+    request.nextUrl.pathname.startsWith("/auth") &&
+    request.nextUrl.pathname !== "/auth/accept-terms"
+  ) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
