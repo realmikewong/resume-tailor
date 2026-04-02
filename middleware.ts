@@ -36,12 +36,17 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Redirect authenticated users away from auth pages
-  // (but not /auth/accept-terms — authenticated users need to reach that page)
+  // Redirect authenticated users away from auth pages — EXCEPT for routes that
+  // intentionally need to be reachable while authenticated (e.g. post-login gates).
+  // Add any new authenticated-accessible /auth/* routes to this list.
+  const AUTH_ROUTES_ACCESSIBLE_WHEN_AUTHENTICATED = [
+    "/auth/accept-terms",
+  ];
+
   if (
     user &&
     request.nextUrl.pathname.startsWith("/auth") &&
-    request.nextUrl.pathname !== "/auth/accept-terms"
+    !AUTH_ROUTES_ACCESSIBLE_WHEN_AUTHENTICATED.includes(request.nextUrl.pathname)
   ) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
