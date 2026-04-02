@@ -1,6 +1,7 @@
 // src/app/auth/accept-terms/page.tsx
 import fs from "fs";
 import path from "path";
+import Link from "next/link";
 import { marked } from "marked";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -18,14 +19,14 @@ export default async function AcceptTermsPage() {
   const { data: profile } = await supabase
     .from("profiles")
     .select("terms_accepted_at")
-    .eq("user_id", user!.id)
+    .eq("user_id", user.id)
     .single();
 
   if (profile?.terms_accepted_at) redirect("/dashboard");
 
   const filePath = path.join(process.cwd(), "content", "legal", "terms-of-use.md");
   const raw = fs.readFileSync(filePath, "utf-8");
-  const html = await marked(raw);
+  const html = marked(raw) as string;
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
@@ -65,13 +66,13 @@ export default async function AcceptTermsPage() {
         <p className="font-sans text-[11px] text-gray-400 text-center">
           By clicking I Agree, you confirm you are at least 16 years old and
           accept our{" "}
-          <a href="/terms" className="underline hover:text-gray-600">
+          <Link href="/terms" className="underline hover:text-gray-600">
             Terms of Use
-          </a>{" "}
+          </Link>{" "}
           and{" "}
-          <a href="/privacy" className="underline hover:text-gray-600">
+          <Link href="/privacy" className="underline hover:text-gray-600">
             Privacy Policy
-          </a>
+          </Link>
           .
         </p>
       </div>
