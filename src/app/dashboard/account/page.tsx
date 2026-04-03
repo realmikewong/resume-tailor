@@ -72,7 +72,7 @@ export default async function AccountPage() {
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzVSLzuvlRUbnLXqtUb2DP" />
           <input type="hidden" name="mode" value="payment" />
-          <PurchaseButton planLabel="1 Credit">
+          <PurchaseButton planLabel="1 Credit" currentPlanType={profile?.plan_type ?? "free"}>
             <h3 className="font-bold text-lg">1 Credit</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$5.00</p>
@@ -81,7 +81,7 @@ export default async function AccountPage() {
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzW4LzuvlRUbnLt7rfrfvt" />
           <input type="hidden" name="mode" value="payment" />
-          <PurchaseButton planLabel="5 Credits">
+          <PurchaseButton planLabel="5 Credits" currentPlanType={profile?.plan_type ?? "free"}>
             <h3 className="font-bold text-lg">5 Credits</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$20.00</p>
@@ -91,7 +91,7 @@ export default async function AccountPage() {
         <form action={createCheckoutSession}>
           <input type="hidden" name="priceId" value="price_1TDzWNLzuvlRUbnLr83sFm4k" />
           <input type="hidden" name="mode" value="payment" />
-          <PurchaseButton planLabel="10 Credits">
+          <PurchaseButton planLabel="10 Credits" currentPlanType={profile?.plan_type ?? "free"}>
             <h3 className="font-bold text-lg">10 Credits</h3>
             <p className="text-gray-500 text-sm">One-time purchase</p>
             <p className="text-2xl font-bold mt-2">$35.00</p>

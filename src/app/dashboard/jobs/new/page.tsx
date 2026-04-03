@@ -21,7 +21,23 @@ export default function NewJobPage() {
   const [template, setTemplate] = useState("modern");
   const [generationId, setGenerationId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [planType, setPlanType] = useState<string>("free");
   const router = useRouter();
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (!user) return;
+      supabase
+        .from("profiles")
+        .select("plan_type")
+        .eq("user_id", user.id)
+        .single()
+        .then(({ data }) => {
+          if (data?.plan_type) setPlanType(data.plan_type);
+        });
+    });
+  }, []);
 
   // Step 1: Paste input
   const handleExtracted = (fields: ExtractedJobFields) => {
@@ -58,7 +74,7 @@ export default function NewJobPage() {
     setError(null);
     setStep("processing");
 
-    trackEvent("generation_started");
+    trackEvent("generation_started", { plan_type: planType });
     const res = await fetch("/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
