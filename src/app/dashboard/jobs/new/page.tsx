@@ -74,7 +74,7 @@ export default function NewJobPage() {
     setError(null);
     setStep("processing");
 
-    trackEvent("generation_started", { plan_type: planType });
+    trackEvent("generation_started", { plan_type: planType, template_choice: template });
     const res = await fetch("/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
