@@ -270,6 +270,59 @@ export async function generateDocuments(
   };
 }
 
+function makeSectionHeader(text: string, config: TemplateConfig): Paragraph {
+  const style = config.sectionHeaderStyle ?? "default";
+
+  if (style === "centered-underline") {
+    return new Paragraph({
+      children: [
+        new TextRun({
+          text,
+          bold: true,
+          allCaps: true,
+          underline: { type: UnderlineType.SINGLE },
+          font: config.headingFont,
+          color: config.headingColor,
+          size: config.bodyFontSize + 2,
+        }),
+      ],
+      alignment: AlignmentType.CENTER,
+      spacing: { before: 200, after: 100 },
+    });
+  }
+
+  if (style === "ruled") {
+    return new Paragraph({
+      children: [
+        new TextRun({
+          text,
+          bold: true,
+          allCaps: true,
+          font: config.headingFont,
+          color: config.headingColor,
+          size: config.bodyFontSize + 2,
+        }),
+      ],
+      alignment: AlignmentType.LEFT,
+      border: {
+        bottom: {
+          style: BorderStyle.SINGLE,
+          size: 6,
+          color: config.headingColor,
+        },
+      },
+      spacing: { before: 200, after: 100 },
+    });
+  }
+
+  // "default" — preserve existing behavior using Word's built-in heading style
+  return new Paragraph({
+    text,
+    heading: HeadingLevel.HEADING_2,
+    spacing: { before: 200, after: 100 },
+  });
+}
+
 async function generateResumeDocx(
   data: ResumeData,
   config: TemplateConfig
@@ -310,13 +363,7 @@ async function generateResumeDocx(
 
   // Summary
   if (data.summary) {
-    sections.push(
-      new Paragraph({
-        text: "Summary",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 200, after: 100 },
-      })
-    );
+    sections.push(makeSectionHeader("Summary", config));
     sections.push(
       new Paragraph({
         children: [new TextRun({ text: data.summary, size: config.bodyFontSize })],
@@ -326,13 +373,7 @@ async function generateResumeDocx(
   }
 
   // Experience
-  sections.push(
-    new Paragraph({
-      text: "Experience",
-      heading: HeadingLevel.HEADING_2,
-      spacing: { before: 200, after: 100 },
-    })
-  );
+  sections.push(makeSectionHeader("Experience", config));
 
   for (const exp of data.experience) {
     sections.push(
@@ -367,13 +408,7 @@ async function generateResumeDocx(
   }
 
   // Education
-  sections.push(
-    new Paragraph({
-      text: "Education",
-      heading: HeadingLevel.HEADING_2,
-      spacing: { before: 200, after: 100 },
-    })
-  );
+  sections.push(makeSectionHeader("Education", config));
 
   for (const edu of data.education) {
     sections.push(
@@ -389,13 +424,7 @@ async function generateResumeDocx(
   }
 
   // Skills
-  sections.push(
-    new Paragraph({
-      text: "Skills",
-      heading: HeadingLevel.HEADING_2,
-      spacing: { before: 200, after: 100 },
-    })
-  );
+  sections.push(makeSectionHeader("Skills", config));
   sections.push(
     new Paragraph({
       children: [
@@ -406,13 +435,7 @@ async function generateResumeDocx(
 
   // Additional
   if (data.additional && data.additional.length > 0) {
-    sections.push(
-      new Paragraph({
-        text: "Additional",
-        heading: HeadingLevel.HEADING_2,
-        spacing: { before: 200, after: 100 },
-      })
-    );
+    sections.push(makeSectionHeader("Additional", config));
     for (const item of data.additional) {
       sections.push(
         new Paragraph({
