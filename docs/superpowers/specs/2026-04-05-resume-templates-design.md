@@ -72,19 +72,19 @@ sharp: {
 },
 ```
 
-**DOCX section header rendering** (`generateResumeDocx`, `generateCoverLetterDocx`) — update the paragraph that renders section headings to branch on `config.sectionHeaderStyle`:
+**DOCX section header rendering** (`generateResumeDocx` only — cover letters have no section headers) — update the paragraph that renders section headings to branch on `config.sectionHeaderStyle`. Note: the existing code uses `heading: HeadingLevel.HEADING_2` shorthand; the `centered-underline` and `ruled` styles will require replacing this with an explicit `Paragraph` + `TextRun` construction to support `allCaps`, `underline`, and border properties:
 
 - `centered-underline`: alignment = CENTER, allCaps = true, underline = single
 - `ruled`: alignment = LEFT, allCaps = true, add a bottom border (thin rule) to the paragraph
 - `default`: existing behavior unchanged
 
-**PDF section header rendering** (`generateResumePdf`, `generateCoverLetterPdf`) — apply equivalent visual treatment using `pdf-lib`:
+**PDF section header rendering** — the existing PDF generators (`generateResumePdf`, `generateCoverLetterPdf`) do not currently apply any `TemplateConfig` values (font, color, size are all hardcoded to Helvetica/black). Wiring up full PDF styling is out of scope for this change — it requires font embedding for Times New Roman and Georgia, which `pdf-lib`'s `StandardFonts` does not support. PDF output will continue to use hardcoded Helvetica styling regardless of template choice. This is a known limitation to be addressed in a future iteration.
 
-- `centered-underline`: center the text, draw underline manually
-- `ruled`: left-align, draw a horizontal rule beneath the text
-- `default`: existing behavior unchanged
+The `sectionHeaderStyle` field will be applied to **DOCX output only** for this release.
 
 ### 2. `src/components/jobs/template-picker.tsx`
+
+The `templates` array currently ends with `as const`, which makes the `id` field a string literal union. Adding new entries will require removing or adjusting the `as const` assertion to avoid a type error.
 
 Add three new entries to the `templates` array:
 
@@ -113,7 +113,7 @@ Each `Preview` is a small SVG component matching the style of the existing `Mode
 
 ### 3. `supabase/migrations/004_add_new_templates.sql`
 
-Update the `template_choice` CHECK constraint on the `generations` table to include the three new values:
+Update the `template_choice` CHECK constraint on the `generations` table to include the three new values. The original constraint was defined inline in `001_initial_schema.sql`, so Postgres auto-generated the name. Verify the actual constraint name before running (`\d generations`), but the standard auto-generated name is `generations_template_choice_check`. The `DROP CONSTRAINT IF EXISTS` is safe — if the name differs, the old constraint remains and the `ADD CONSTRAINT` still succeeds, so the net result is two CHECK constraints (harmless but worth verifying after migration).
 
 ```sql
 ALTER TABLE generations
