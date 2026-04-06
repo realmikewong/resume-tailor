@@ -5,6 +5,8 @@ import {
   TextRun,
   HeadingLevel,
   AlignmentType,
+  BorderStyle,
+  UnderlineType,
   TabStopPosition,
   TabStopType,
   convertInchesToTwip,
@@ -16,6 +18,7 @@ type TemplateConfig = {
   bodyFontSize: number;
   headingColor: string;
   accentColor: string;
+  sectionHeaderStyle?: "default" | "centered-underline" | "ruled";
 };
 
 const templates: Record<string, TemplateConfig> = {
@@ -36,6 +39,27 @@ const templates: Record<string, TemplateConfig> = {
     bodyFontSize: 20, // 10pt
     headingColor: "000000",
     accentColor: "6B7280",
+  },
+  editorial: {
+    headingFont: "Times New Roman",
+    bodyFontSize: 24, // 12pt
+    headingColor: "000000",
+    accentColor: "000000",
+    sectionHeaderStyle: "centered-underline",
+  },
+  bold: {
+    headingFont: "Georgia",
+    bodyFontSize: 22, // 11pt
+    headingColor: "C2410C",
+    accentColor: "C2410C",
+    sectionHeaderStyle: "default",
+  },
+  sharp: {
+    headingFont: "Arial",
+    bodyFontSize: 22, // 11pt
+    headingColor: "0F172A",
+    accentColor: "64748B",
+    sectionHeaderStyle: "ruled",
   },
 };
 
