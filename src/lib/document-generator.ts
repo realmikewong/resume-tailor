@@ -315,7 +315,10 @@ function makeSectionHeader(text: string, config: TemplateConfig): Paragraph {
     });
   }
 
-  // "default" — preserve existing behavior using Word's built-in heading style
+  // "default" — delegates to Word's built-in Heading 2 style.
+  // NOTE: config.headingFont and config.headingColor do NOT apply here;
+  // Word's HEADING_2 style governs font and color. This is intentional
+  // for templates like "bold" that want Word's default heading appearance.
   return new Paragraph({
     text,
     heading: HeadingLevel.HEADING_2,
