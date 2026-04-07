@@ -129,8 +129,8 @@ function EditorialPreview() {
   return (
     <svg viewBox="0 0 160 200" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
       <rect width="160" height="200" fill="#ffffff" />
-      {/* Name — large bold left-aligned */}
-      <rect x="16" y="14" width="90" height="9" rx="1" fill="#000000" />
+      {/* Name — centered, large bold */}
+      <rect x="35" y="14" width="90" height="9" rx="1" fill="#000000" />
       {/* Contact — right aligned */}
       <rect x="60" y="27" width="84" height="3" rx="1" fill="#555555" />
       <rect x="72" y="32" width="72" height="3" rx="1" fill="#555555" />
