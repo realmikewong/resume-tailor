@@ -125,6 +125,117 @@ function MinimalPreview() {
   );
 }
 
+function EditorialPreview() {
+  return (
+    <svg viewBox="0 0 160 200" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="200" fill="#ffffff" />
+      {/* Name — large bold left-aligned */}
+      <rect x="16" y="14" width="90" height="9" rx="1" fill="#000000" />
+      {/* Contact — right aligned */}
+      <rect x="60" y="27" width="84" height="3" rx="1" fill="#555555" />
+      <rect x="72" y="32" width="72" height="3" rx="1" fill="#555555" />
+      {/* Section heading — centered with underline */}
+      <rect x="45" y="44" width="70" height="5" rx="1" fill="#000000" />
+      <line x1="45" y1="51" x2="115" y2="51" stroke="#000000" strokeWidth="0.75" />
+      {/* Job 1 */}
+      <rect x="16" y="57" width="90" height="3.5" rx="1" fill="#222222" />
+      <rect x="110" y="57" width="34" height="3.5" rx="1" fill="#555555" />
+      <rect x="20" y="63" width="120" height="2.5" rx="1" fill="#cccccc" />
+      <rect x="20" y="67" width="114" height="2.5" rx="1" fill="#cccccc" />
+      <rect x="20" y="71" width="118" height="2.5" rx="1" fill="#cccccc" />
+      {/* Section heading 2 */}
+      <rect x="35" y="83" width="90" height="5" rx="1" fill="#000000" />
+      <line x1="35" y1="90" x2="125" y2="90" stroke="#000000" strokeWidth="0.75" />
+      {/* Job 2 */}
+      <rect x="16" y="96" width="85" height="3.5" rx="1" fill="#222222" />
+      <rect x="110" y="96" width="34" height="3.5" rx="1" fill="#555555" />
+      <rect x="20" y="102" width="120" height="2.5" rx="1" fill="#cccccc" />
+      <rect x="20" y="106" width="108" height="2.5" rx="1" fill="#cccccc" />
+      {/* Section heading 3 — Skills */}
+      <rect x="50" y="118" width="60" height="5" rx="1" fill="#000000" />
+      <line x1="50" y1="125" x2="110" y2="125" stroke="#000000" strokeWidth="0.75" />
+      <rect x="16" y="130" width="128" height="2.5" rx="1" fill="#cccccc" />
+      <rect x="16" y="135" width="100" height="2.5" rx="1" fill="#cccccc" />
+      {/* Section heading 4 — Education */}
+      <rect x="42" y="147" width="76" height="5" rx="1" fill="#000000" />
+      <line x1="42" y1="154" x2="118" y2="154" stroke="#000000" strokeWidth="0.75" />
+      <rect x="16" y="159" width="110" height="2.5" rx="1" fill="#cccccc" />
+      <rect x="16" y="164" width="85" height="2.5" rx="1" fill="#cccccc" />
+    </svg>
+  );
+}
+
+function BoldPreview() {
+  return (
+    <svg viewBox="0 0 160 200" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="200" fill="#ffffff" />
+      {/* Name */}
+      <rect x="16" y="14" width="85" height="9" rx="1" fill="#C2410C" />
+      {/* Contact */}
+      <rect x="16" y="27" width="110" height="3" rx="1" fill="#e8a87c" />
+      {/* Experience heading — terracotta, left-aligned bold */}
+      <rect x="16" y="40" width="55" height="5" rx="1" fill="#C2410C" />
+      {/* Job 1 */}
+      <rect x="16" y="49" width="88" height="3.5" rx="1" fill="#333333" />
+      <rect x="110" y="49" width="34" height="3.5" rx="1" fill="#e8a87c" />
+      <rect x="20" y="55" width="120" height="2.5" rx="1" fill="#d1d5db" />
+      <rect x="20" y="59" width="115" height="2.5" rx="1" fill="#d1d5db" />
+      <rect x="20" y="63" width="118" height="2.5" rx="1" fill="#d1d5db" />
+      {/* Job 2 */}
+      <rect x="16" y="72" width="82" height="3.5" rx="1" fill="#333333" />
+      <rect x="110" y="72" width="34" height="3.5" rx="1" fill="#e8a87c" />
+      <rect x="20" y="78" width="122" height="2.5" rx="1" fill="#d1d5db" />
+      <rect x="20" y="82" width="110" height="2.5" rx="1" fill="#d1d5db" />
+      {/* Skills heading */}
+      <rect x="16" y="94" width="32" height="5" rx="1" fill="#C2410C" />
+      <rect x="16" y="103" width="128" height="2.5" rx="1" fill="#d1d5db" />
+      <rect x="16" y="108" width="100" height="2.5" rx="1" fill="#d1d5db" />
+      {/* Education heading */}
+      <rect x="16" y="120" width="50" height="5" rx="1" fill="#C2410C" />
+      <rect x="16" y="129" width="110" height="2.5" rx="1" fill="#d1d5db" />
+      <rect x="16" y="134" width="90" height="2.5" rx="1" fill="#d1d5db" />
+    </svg>
+  );
+}
+
+function SharpPreview() {
+  return (
+    <svg viewBox="0 0 160 200" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="200" fill="#ffffff" />
+      {/* Name */}
+      <rect x="16" y="14" width="80" height="8" rx="1" fill="#0F172A" />
+      {/* Strong rule beneath name */}
+      <line x1="16" y1="26" x2="144" y2="26" stroke="#0F172A" strokeWidth="1.5" />
+      {/* Contact */}
+      <rect x="16" y="30" width="128" height="3" rx="1" fill="#64748B" />
+      {/* Experience heading with thin rule */}
+      <rect x="16" y="42" width="52" height="4" rx="1" fill="#0F172A" />
+      <line x1="16" y1="48" x2="144" y2="48" stroke="#94a3b8" strokeWidth="0.5" />
+      {/* Job 1 */}
+      <rect x="16" y="52" width="90" height="3.5" rx="1" fill="#1e293b" />
+      <rect x="110" y="52" width="34" height="3.5" rx="1" fill="#64748B" />
+      <rect x="20" y="58" width="120" height="2.5" rx="1" fill="#cbd5e1" />
+      <rect x="20" y="62" width="114" height="2.5" rx="1" fill="#cbd5e1" />
+      <rect x="20" y="66" width="118" height="2.5" rx="1" fill="#cbd5e1" />
+      {/* Job 2 */}
+      <rect x="16" y="74" width="84" height="3.5" rx="1" fill="#1e293b" />
+      <rect x="110" y="74" width="34" height="3.5" rx="1" fill="#64748B" />
+      <rect x="20" y="80" width="120" height="2.5" rx="1" fill="#cbd5e1" />
+      <rect x="20" y="84" width="108" height="2.5" rx="1" fill="#cbd5e1" />
+      {/* Skills heading with thin rule */}
+      <rect x="16" y="95" width="32" height="4" rx="1" fill="#0F172A" />
+      <line x1="16" y1="101" x2="144" y2="101" stroke="#94a3b8" strokeWidth="0.5" />
+      <rect x="16" y="105" width="128" height="2.5" rx="1" fill="#cbd5e1" />
+      <rect x="16" y="110" width="100" height="2.5" rx="1" fill="#cbd5e1" />
+      {/* Education heading with thin rule */}
+      <rect x="16" y="121" width="48" height="4" rx="1" fill="#0F172A" />
+      <line x1="16" y1="127" x2="144" y2="127" stroke="#94a3b8" strokeWidth="0.5" />
+      <rect x="16" y="131" width="115" height="2.5" rx="1" fill="#cbd5e1" />
+      <rect x="16" y="136" width="90" height="2.5" rx="1" fill="#cbd5e1" />
+    </svg>
+  );
+}
+
 const templates = [
   {
     id: "modern",
@@ -144,7 +255,25 @@ const templates = [
     description: "Maximum whitespace, typography-focused, no frills",
     Preview: MinimalPreview,
   },
-] as const;
+  {
+    id: "editorial",
+    name: "Editorial",
+    description: "Serif font, black & white, centered underlined section headers",
+    Preview: EditorialPreview,
+  },
+  {
+    id: "bold",
+    name: "Bold",
+    description: "Georgia font, warm terracotta accents, high contrast",
+    Preview: BoldPreview,
+  },
+  {
+    id: "sharp",
+    name: "Sharp",
+    description: "Clean sans-serif, dark navy headings, ruled section dividers",
+    Preview: SharpPreview,
+  },
+];
 
 export function TemplatePicker({
   selected,
