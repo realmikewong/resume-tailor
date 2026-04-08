@@ -12,7 +12,7 @@ Move from Stripe sandbox to live, introduce monthly subscriptions (Pro/Ultimate)
 | Ultimate Monthly | Recurring subscription | $19.99/mo | 300/mo | `subscription` |
 | Credit Pack | One-time payment | $3.99 | 30 | `payment` |
 
-Free tier (10 credits on signup) has no Stripe product — it is handled entirely in the database.
+Free tier has no Stripe product — it is handled entirely in the database. The pricing page advertises 10 free credits, but the current `handle_new_user` trigger and `profiles.credits_remaining` default give 3. **Decision:** Update the trigger and column default from 3 to 10 to match the pricing page. This is part of the database migration.
 
 ## Environment Variables
 
@@ -46,6 +46,31 @@ Remove deprecated vars:
 
 No changes to `credit_transactions` or `plan_type` enum (`free`, `credit_pack`, `subscription`).
 
+### New RPC: `reset_credits`
+
+The existing `add_credits` RPC adds on top of the current balance. Subscription renewals need to *reset* to the tier amount (no rollover). Add a new `reset_credits` RPC:
+
+```sql
+CREATE OR REPLACE FUNCTION reset_credits(p_user_id UUID, p_amount INTEGER, p_reason TEXT, p_stripe_payment_id TEXT DEFAULT NULL)
+RETURNS INTEGER AS $$
+DECLARE
+  remaining INTEGER;
+BEGIN
+  UPDATE profiles
+  SET credits_remaining = p_amount
+  WHERE user_id = p_user_id
+  RETURNING credits_remaining INTO remaining;
+
+  INSERT INTO credit_transactions (user_id, amount, reason, stripe_payment_id)
+  VALUES (p_user_id, p_amount, p_reason, p_stripe_payment_id);
+
+  RETURN remaining;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+```
+
+Also update `subscription_period_end` on every `invoice.paid` so the account page can display the renewal date for active subscribers (not just canceling ones).
+
 ## Credit Logic
 
 - **Subscription renewal:** Reset `credits_remaining` to the tier amount (60 or 300). No rollover — unused credits are lost.
@@ -74,7 +99,7 @@ const PRICE_CONFIG: Record<string, { tier?: string; credits: number }> = {
   1. Store `stripe_customer_id` and `stripe_subscription_id` on the profile.
   2. Look up the price ID from the session's line items. Resolve tier and credits from `PRICE_CONFIG`.
   3. Set `plan_type` to `subscription`, `subscription_tier` to the tier.
-  4. Call `add_credits` RPC with the tier's credit amount. Reason: `subscription_started`.
+  4. Call `reset_credits` RPC (not `add_credits`) with the tier's credit amount. This ensures the balance is set to the tier amount rather than adding on top of leftover free-tier credits. Reason: `subscription_started`.
 
 - **`mode: 'payment'`** — Credit pack purchase.
   1. Look up price ID from line items. Resolve credits from `PRICE_CONFIG`.
@@ -84,12 +109,12 @@ const PRICE_CONFIG: Record<string, { tier?: string; credits: number }> = {
 ### `invoice.paid`
 
 - Skip the first invoice (subscription activation is handled by `checkout.session.completed`).
-- On renewal invoices: reset `credits_remaining` to tier amount. Log a `credit_transaction` with reason `subscription_renewal`.
+- On renewal invoices: call `reset_credits` RPC to set `credits_remaining` to tier amount. Also update `subscription_period_end` from the invoice's `period_end`. Log a `credit_transaction` with reason `subscription_renewal`.
 
 ### `customer.subscription.updated`
 
 - If `cancel_at_period_end` changed to `true`: update `subscription_period_end` on the profile from the subscription's `current_period_end`.
-- If `cancel_at_period_end` changed to `false` (user re-activated): clear `subscription_period_end`.
+- If `cancel_at_period_end` changed to `false` (user re-activated): restore `subscription_period_end` from the subscription's `current_period_end` (do not clear it, since the account page uses it as the renewal date).
 
 ### `customer.subscription.deleted`
 
@@ -116,8 +141,9 @@ const PRICE_CONFIG: Record<string, { tier?: string; credits: number }> = {
 **File:** `src/app/dashboard/account/page.tsx`
 
 ### Current plan banner
-- Shows plan name, credit balance, and renewal date (if subscribed).
-- Cancel subscription link (only for subscribers) — calls Stripe API to set `cancel_at_period_end: true`.
+- Shows plan name, credit balance, and renewal date (from `subscription_period_end`, populated on every `invoice.paid`).
+- Cancel subscription link (only for subscribers) — server action calls Stripe API to set `cancel_at_period_end: true`.
+- Plan upgrades (Pro → Ultimate) are out of scope for this spec. Users must cancel and re-subscribe.
 
 ### Upgrade section
 - Two cards side-by-side: Pro and Ultimate.
