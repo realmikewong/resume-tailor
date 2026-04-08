@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Pricing | Taylor Resumé",
-  description: "Honest pricing for job seekers. Start free, no credit card required.",
+  description:
+    "Honest pricing for job seekers. Start free, no credit card required.",
 };
 
 const FEATURES = [
@@ -19,7 +21,41 @@ const SOLID_CTA =
 const OUTLINE_CTA =
   "block w-full text-center font-sans text-xs font-semibold tracking-[1.5px] uppercase border border-gray-300 text-foreground px-4 py-3 hover:border-gray-500 transition-colors mt-6";
 
-export default function PricingPage() {
+function FeatureList() {
+  return (
+    <ul className="flex-1 space-y-0">
+      {FEATURES.map((feature, i) => (
+        <li
+          key={feature}
+          className={`font-sans text-sm text-gray-700 py-1.5 flex items-start gap-2 ${
+            i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
+          }`}
+        >
+          <span
+            aria-hidden="true"
+            className="font-sans text-xs text-foreground mt-0.5 shrink-0"
+          >
+            ✓
+          </span>
+          {feature}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default async function PricingPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const isLoggedIn = !!user;
+
+  const freeCta = isLoggedIn ? "/dashboard" : "/auth/login";
+  const paidCta = isLoggedIn ? "/dashboard/account" : "/auth/login";
+  const freeCtaLabel = isLoggedIn ? "Current Plan" : "Get Started Free";
+
   return (
     <div>
       {/* Header */}
@@ -36,7 +72,6 @@ export default function PricingPage() {
 
       {/* Pricing grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0 bg-gray-200 border border-gray-200">
-
         {/* Free */}
         <div className="bg-white p-8 flex flex-col">
           <div className="h-[22px]" />
@@ -58,23 +93,9 @@ export default function PricingPage() {
           <p className="font-sans text-xs text-gray-500 mb-5 pb-5 border-b border-gray-200">
             resum&eacute;s + cover letters
           </p>
-          <ul className="flex-1 space-y-0">
-            {FEATURES.map((feature, i) => (
-              <li
-                key={feature}
-                className={`font-sans text-sm text-gray-700 py-1.5 flex items-start gap-2 ${
-                  i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
-                }`}
-              >
-                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
-                  ✓
-                </span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <Link href="/auth/login" className={OUTLINE_CTA}>
-            Get Started Free
+          <FeatureList />
+          <Link href={freeCta} className={OUTLINE_CTA}>
+            {freeCtaLabel}
           </Link>
         </div>
 
@@ -99,22 +120,8 @@ export default function PricingPage() {
           <p className="font-sans text-xs text-gray-500 mb-5 pb-5 border-b border-gray-200">
             resum&eacute;s + cover letters / mo
           </p>
-          <ul className="flex-1 space-y-0">
-            {FEATURES.map((feature, i) => (
-              <li
-                key={feature}
-                className={`font-sans text-sm text-gray-700 py-1.5 flex items-start gap-2 ${
-                  i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
-                }`}
-              >
-                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
-                  ✓
-                </span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <Link href="/auth/login" className={SOLID_CTA}>
+          <FeatureList />
+          <Link href={paidCta} className={SOLID_CTA}>
             Get Pro
           </Link>
         </div>
@@ -142,30 +149,40 @@ export default function PricingPage() {
           <p className="font-sans text-xs text-gray-500 mb-5 pb-5 border-b border-gray-200">
             resum&eacute;s + cover letters / mo
           </p>
-          <ul className="flex-1 space-y-0">
-            {FEATURES.map((feature, i) => (
-              <li
-                key={feature}
-                className={`font-sans text-sm text-gray-700 py-1.5 flex items-start gap-2 ${
-                  i < FEATURES.length - 1 ? "border-b border-gray-100" : ""
-                }`}
-              >
-                <span aria-hidden="true" className="font-sans text-xs text-foreground mt-0.5 shrink-0">
-                  ✓
-                </span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <Link href="/auth/login" className={SOLID_CTA}>
+          <FeatureList />
+          <Link href={paidCta} className={SOLID_CTA}>
             Get Ultimate
           </Link>
         </div>
+      </div>
 
+      {/* Credit pack callout */}
+      <div className="border-l-[3px] border-gray-300 bg-gray-50 px-5 py-4 mt-6">
+        <p className="text-sm text-gray-500 leading-relaxed">
+          <strong className="font-sans font-semibold text-gray-700">
+            Need a few more credits?
+          </strong>{" "}
+          Get 30 credits for $3.99 &mdash; no subscription required.{" "}
+          {isLoggedIn ? (
+            <Link
+              href="/dashboard/account"
+              className="underline hover:text-gray-600 transition-colors"
+            >
+              Buy credits
+            </Link>
+          ) : (
+            <Link
+              href="/auth/login"
+              className="underline hover:text-gray-600 transition-colors"
+            >
+              Sign up to buy credits
+            </Link>
+          )}
+        </p>
       </div>
 
       {/* Reset policy callout */}
-      <div className="border-l-[3px] border-gray-300 bg-gray-50 px-5 py-4 mt-6">
+      <div className="border-l-[3px] border-gray-300 bg-gray-50 px-5 py-4 mt-2">
         <p className="text-sm text-gray-500 leading-relaxed">
           <strong className="font-sans font-semibold text-gray-700">
             Credits reset monthly.
