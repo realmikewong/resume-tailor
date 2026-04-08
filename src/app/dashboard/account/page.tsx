@@ -154,11 +154,14 @@ export default async function AccountPage() {
       </div>
 
       {/* Subscription Plans */}
-      {(!isSubscribed || cancelAtPeriodEnd) && (
-        <>
-          <h2 className="text-lg font-medium mb-3">
-            {isSubscribed ? "Resubscribe" : "Upgrade Plan"}
-          </h2>
+      <h2 className="text-lg font-medium mb-3">
+        {isSubscribed && cancelAtPeriodEnd
+          ? "Resubscribe"
+          : isSubscribed
+            ? "Your Plan"
+            : "Upgrade Plan"}
+      </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {/* Pro */}
             <div
@@ -248,8 +251,6 @@ export default async function AccountPage() {
               )}
             </div>
           </div>
-        </>
-      )}
 
       {/* Credit Pack */}
       <h2 className="text-lg font-medium mb-3">Buy Credits</h2>
