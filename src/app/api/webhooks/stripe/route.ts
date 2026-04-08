@@ -51,7 +51,7 @@ export async function POST(request: Request) {
             subscription_tier: config.tier,
             plan_type: "subscription",
             subscription_period_end: new Date(
-              subscription.current_period_end * 1000
+              subscription.items.data[0].current_period_end * 1000
             ).toISOString(),
           })
           .eq("user_id", userId);
@@ -90,10 +90,13 @@ export async function POST(request: Request) {
 
       if (invoice.billing_reason === "subscription_create") break;
 
+      // In Stripe SDK v20+, subscription is on parent.subscription_details
+      const subDetails = invoice.parent?.subscription_details;
+      if (!subDetails) break;
       const subscriptionId =
-        typeof invoice.subscription === "string"
-          ? invoice.subscription
-          : invoice.subscription?.id;
+        typeof subDetails.subscription === "string"
+          ? subDetails.subscription
+          : subDetails.subscription?.id;
       if (!subscriptionId) break;
 
       const { data: profile } = await admin
@@ -144,7 +147,7 @@ export async function POST(request: Request) {
         .from("profiles")
         .update({
           subscription_period_end: new Date(
-            subscription.current_period_end * 1000
+            subscription.items.data[0].current_period_end * 1000
           ).toISOString(),
         })
         .eq("user_id", profile.user_id);
