@@ -12,10 +12,10 @@ ALTER TABLE profiles ALTER COLUMN credits_remaining SET DEFAULT 10;
 CREATE OR REPLACE FUNCTION handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
-  INSERT INTO profiles (user_id, full_name)
+  INSERT INTO public.profiles (user_id, full_name)
   VALUES (NEW.id, NEW.raw_user_meta_data->>'full_name');
 
-  INSERT INTO credit_transactions (user_id, amount, reason)
+  INSERT INTO public.credit_transactions (user_id, amount, reason)
   VALUES (NEW.id, 10, 'initial_free');
 
   RETURN NEW;
