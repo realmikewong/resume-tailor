@@ -5,14 +5,29 @@ import { trackEvent } from "@/lib/analytics";
 
 export function AccountAnalytics({
   creditBalance,
+  purchaseSuccess,
+  planType,
 }: {
   creditBalance: number;
+  purchaseSuccess?: boolean;
+  planType?: string;
 }) {
   useEffect(() => {
     if (creditBalance === 0) {
       trackEvent("credits_exhausted");
     }
   }, [creditBalance]);
+
+  useEffect(() => {
+    if (purchaseSuccess) {
+      trackEvent("purchase_completed", {
+        plan_type: planType,
+      });
+      // Clean up the URL so the event doesn't fire again on refresh
+      window.history.replaceState({}, "", "/dashboard/account");
+    }
+  }, [purchaseSuccess, planType]);
+
   return null;
 }
 

@@ -60,7 +60,12 @@ async function cancelSubscription() {
   redirect("/dashboard/account");
 }
 
-export default async function AccountPage() {
+export default async function AccountPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ success?: string }>;
+}) {
+  const { success } = await searchParams;
   const supabase = await createClient();
   const {
     data: { user },
@@ -111,7 +116,11 @@ export default async function AccountPage() {
 
   return (
     <div className="max-w-2xl">
-      <AccountAnalytics creditBalance={profile?.credits_remaining ?? 0} />
+      <AccountAnalytics
+        creditBalance={profile?.credits_remaining ?? 0}
+        purchaseSuccess={success === "true"}
+        planType={planType}
+      />
       <h1 className="text-2xl font-bold mb-6">Account & Billing</h1>
 
       {/* Current Plan Banner */}
