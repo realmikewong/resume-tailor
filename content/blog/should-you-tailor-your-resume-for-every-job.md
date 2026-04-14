@@ -6,7 +6,7 @@ category: "Resume Tips"
 excerpt: "The short answer is yes. Here's why it matters, where to draw the line, and how to make it practical when you're applying to dozens of roles."
 author: "Mike Wong"
 readingTime: 3
-published: false
+published: true
 faq:
   - q: "Is it really necessary to tailor my resume for every job?"
     a: "For jobs you're serious about, yes. A tailored resume significantly increases your chances of getting past ATS filters and catching a recruiter's attention."

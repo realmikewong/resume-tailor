@@ -6,7 +6,7 @@ category: "Resume Tips"
 excerpt: "Three real-looking before and after examples that show what changes when you tailor a resume to a specific job description."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "What does a tailored resume look like compared to a generic one?"
     a: "A tailored resume uses the same language as the job description, highlights the most relevant experience, and includes a summary written specifically for the target role."
