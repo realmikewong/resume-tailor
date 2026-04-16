@@ -21,10 +21,10 @@ export function UpgradeNudgeEmail({
     <Layout unsubscribeUrl={unsubscribeUrl}>
       <Text style={paragraph}>{greeting}</Text>
       <Text style={paragraph}>
-        You've been putting your credits to work — nice.
+        You{"'"}ve been putting your credits to work — nice.
       </Text>
       <Text style={paragraph}>
-        If you're actively applying, here are your options to keep going:
+        If you{"'"}re actively applying, here are your options to keep going:
       </Text>
       <Text style={paragraph}>
         → <strong>Pro Plan</strong> — 60 credits/month for $7.99

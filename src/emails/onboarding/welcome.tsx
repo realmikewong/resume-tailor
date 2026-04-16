@@ -22,15 +22,15 @@ export function WelcomeEmail({
       <Text style={paragraph}>{greeting}</Text>
       <Text style={paragraph}>Welcome to Taylor Resumé.</Text>
       <Text style={paragraph}>
-        You've got {creditsRemaining} free credits — each one turns your resume
+        You{"'"}ve got {creditsRemaining} free credits — each one turns your resume
         into a tailored, ATS-optimized version for a specific job. Plus a
         matching cover letter.
       </Text>
-      <Text style={paragraph}>Here's how it works:</Text>
+      <Text style={paragraph}>Here{"'"}s how it works:</Text>
       <Text style={paragraph}>
         1. Upload your baseline resume (just once)
         <br />
-        2. Paste a job posting you're interested in
+        2. Paste a job posting you{"'"}re interested in
         <br />
         3. Get a tailored resume + cover letter in minutes
       </Text>

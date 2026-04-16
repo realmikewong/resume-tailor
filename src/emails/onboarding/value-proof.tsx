@@ -28,9 +28,9 @@ export function ValueProofEmail({
   return (
     <Layout unsubscribeUrl={unsubscribeUrl}>
       <Text style={paragraph}>{greeting}</Text>
-      <Text style={paragraph}>Nice — you've got {jobDescription}.</Text>
+      <Text style={paragraph}>Nice — you{"'"}ve got {jobDescription}.</Text>
       <Text style={paragraph}>
-        Here's something worth knowing: over 75% of resumes are filtered out by
+        Here{"'"}s something worth knowing: over 75% of resumes are filtered out by
         ATS software before a recruiter ever sees them. Your tailored version is
         built to get through.
       </Text>
@@ -42,12 +42,12 @@ export function ValueProofEmail({
         <br />— Add this job to your tracker to follow up
       </Text>
       <Text style={paragraph}>
-        You've got {creditsRemaining} credits left. Every job you're serious
+        You{"'"}ve got {creditsRemaining} credits left. Every job you{"'"}re serious
         about deserves a tailored resume.
       </Text>
       <Button href={`${BASE_URL}/dashboard/jobs`}>View Your Generation</Button>
       <Text style={smallText}>
-        Tip: Use the Job Tracker to keep tabs on where you've applied.
+        Tip: Use the Job Tracker to keep tabs on where you{"'"}ve applied.
       </Text>
     </Layout>
   );

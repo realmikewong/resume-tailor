@@ -22,7 +22,7 @@ export function ResumeNudgeEmail({
         Quick one — have you uploaded your baseline resume yet?
       </Text>
       <Text style={paragraph}>
-        It takes about 30 seconds. Once it's in, you can tailor it to any job
+        It takes about 30 seconds. Once it{"'"}s in, you can tailor it to any job
         posting without re-uploading.
       </Text>
       <Text style={paragraph}>Just drag and drop your Word doc or PDF.</Text>

@@ -67,7 +67,7 @@ export function Layout({ children, unsubscribeUrl }: LayoutProps) {
                 margin: 0,
               }}
             >
-              You're receiving this because you signed up for Taylor Resumé.
+              You{"'"}re receiving this because you signed up for Taylor Resumé.
               <br />
               <Link href={unsubscribeUrl} style={{ color: "#999" }}>
                 Unsubscribe

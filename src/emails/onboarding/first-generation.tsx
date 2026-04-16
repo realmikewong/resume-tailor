@@ -21,7 +21,7 @@ export function FirstGenerationEmail({
     <Layout unsubscribeUrl={unsubscribeUrl}>
       <Text style={paragraph}>{greeting}</Text>
       <Text style={paragraph}>
-        If you've got a job posting you're eyeing, now's the time to try Taylor.
+        If you{"'"}ve got a job posting you{"'"}re eyeing, now{"'"}s the time to try Taylor.
       </Text>
       <Text style={paragraph}>
         Paste the job description, pick a template (Modern, Classic, or
@@ -36,7 +36,7 @@ export function FirstGenerationEmail({
         <br />— Score your ATS compatibility before and after
       </Text>
       <Text style={paragraph}>
-        The whole thing takes a few minutes. And it's free — you've got{" "}
+        The whole thing takes a few minutes. And it{"'"}s free — you{"'"}ve got{" "}
         {creditsRemaining} credits.
       </Text>
       <Button href={`${BASE_URL}/dashboard/jobs/new`}>

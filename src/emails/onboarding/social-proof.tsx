@@ -21,7 +21,7 @@ export function SocialProofEmail({
     <Layout unsubscribeUrl={unsubscribeUrl}>
       <Text style={paragraph}>{greeting}</Text>
       <Text style={paragraph}>
-        Most people send the same resume everywhere and wonder why they don't
+        Most people send the same resume everywhere and wonder why they don{"'"}t
         hear back. The ones who land interviews do something different — they
         tailor.
       </Text>
