@@ -52,9 +52,8 @@ ALTER TABLE email_events ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users read own email events" ON email_events
   FOR SELECT USING (auth.uid() = user_id);
 
--- Only service role can insert (API routes use admin client)
-CREATE POLICY "Service role inserts email events" ON email_events
-  FOR INSERT WITH CHECK (true);
+-- No INSERT policy needed — API routes use the admin client (service role),
+-- which bypasses RLS entirely. This prevents unauthorized inserts.
 ```
 
 ### New column on `profiles`
@@ -78,7 +77,7 @@ No onboarding-specific columns on profiles. The cron job derives sequence state 
 
 1. Validate `x-webhook-secret` header against `SUPABASE_WEBHOOK_SECRET` env var
 2. Parse body, extract user `id` and `email`
-3. Check `profiles.email_opt_out` (defensive — should be false for new users)
+3. Check `profiles.email_opt_out` (defensive — should be false for new users). If profile row not found yet (race condition with `handle_new_user()` trigger), treat as opt-in and proceed.
 4. Send welcome email via Resend
 5. Insert into `email_events` (sequence: `onboarding`, step: `welcome`)
 6. Return 200 even on email failure — user signup must never fail because of email. Failed sends are retried by the next cron run.
@@ -120,7 +119,7 @@ const ONBOARDING_SEQUENCE = [
 
 - `delay` — days after signup (or after `afterEvent` if specified)
 - `skipIf` — condition that skips this email entirely
-- `afterEvent` — delay is relative to this event, not signup date
+- `afterEvent` — delay is calculated from `first_generation_at` (from the activity query) rather than `u.created_at`. If the event hasn't occurred, the email is not eligible to send.
 
 ### Cron Logic
 
@@ -134,7 +133,7 @@ const ONBOARDING_SEQUENCE = [
    - has_resume (resumes table count > 0)
    - has_generation (generations table count > 0)
    - first_generation_at (MIN created_at from generations)
-   - has_paid_plan (profiles.plan != 'free' or null)
+   - has_paid_plan (profiles.plan_type NOT IN ('free', 'credit_pack') — i.e., has an active subscription)
    - credits_remaining (from profiles)
    - emails already sent (from email_events)
 
@@ -152,18 +151,47 @@ const ONBOARDING_SEQUENCE = [
 
 ### Activity Check Query
 
+This query must be implemented as a Postgres function (RPC) since `auth.users` is not accessible via the Supabase client's `.from()` method. The admin client calls it via `supabase.rpc('get_onboarding_eligible_users')`.
+
 ```sql
-SELECT
-  p.user_id, p.email_opt_out, p.plan, p.credits_remaining,
-  u.email, u.created_at,
-  u.raw_user_meta_data->>'full_name' AS full_name,
-  (SELECT COUNT(*) FROM resumes r WHERE r.user_id = p.user_id) > 0 AS has_resume,
-  (SELECT COUNT(*) FROM generations g WHERE g.user_id = p.user_id) > 0 AS has_generation,
-  (SELECT MIN(g.created_at) FROM generations g WHERE g.user_id = p.user_id) AS first_generation_at
-FROM profiles p
-JOIN auth.users u ON u.id = p.user_id
-WHERE u.created_at > NOW() - INTERVAL '21 days'
-  AND p.email_opt_out = false
+CREATE OR REPLACE FUNCTION get_onboarding_eligible_users()
+RETURNS TABLE (
+  user_id UUID,
+  email TEXT,
+  full_name TEXT,
+  created_at TIMESTAMPTZ,
+  email_opt_out BOOLEAN,
+  plan_type TEXT,
+  credits_remaining INTEGER,
+  has_resume BOOLEAN,
+  has_generation BOOLEAN,
+  first_generation_at TIMESTAMPTZ,
+  first_generation_job_title TEXT,
+  first_generation_company TEXT
+) AS $$
+BEGIN
+  RETURN QUERY
+  SELECT
+    p.user_id,
+    u.email::TEXT,
+    (u.raw_user_meta_data->>'full_name')::TEXT,
+    u.created_at,
+    p.email_opt_out,
+    p.plan_type::TEXT,
+    p.credits_remaining,
+    (SELECT COUNT(*) FROM resumes r WHERE r.user_id = p.user_id) > 0,
+    (SELECT COUNT(*) FROM generations g WHERE g.user_id = p.user_id) > 0,
+    (SELECT MIN(g.created_at) FROM generations g WHERE g.user_id = p.user_id),
+    (SELECT j.title FROM generations g JOIN jobs j ON j.id = g.job_id
+     WHERE g.user_id = p.user_id ORDER BY g.created_at LIMIT 1),
+    (SELECT j.company_name FROM generations g JOIN jobs j ON j.id = g.job_id
+     WHERE g.user_id = p.user_id ORDER BY g.created_at LIMIT 1)
+  FROM profiles p
+  JOIN auth.users u ON u.id = p.user_id
+  WHERE u.created_at > NOW() - INTERVAL '21 days'
+    AND p.email_opt_out = false;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 ```
 
 ### Edge Cases
@@ -255,7 +283,7 @@ Each email: 100-250 words, one CTA button, conversational tone, mobile-first.
 **Email 1 — Welcome** (immediate)
 - Subject: "Welcome to Taylor — your 10 free credits are ready"
 - CTA: Upload Your Resume → /dashboard/resumes
-- Props: firstName
+- Props: firstName, creditsRemaining (use actual value from DB, not hardcoded — in case initial credit amount changes)
 
 **Email 2 — Resume Nudge** (day 1, skip if has_resume)
 - Subject: "One upload, unlimited tailoring"
