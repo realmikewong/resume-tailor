@@ -12,7 +12,6 @@ interface UpgradeNudgeEmailProps {
 
 export function UpgradeNudgeEmail({
   firstName,
-  creditsRemaining,
   unsubscribeUrl,
 }: UpgradeNudgeEmailProps) {
   const greeting = firstName ? `Hey ${firstName},` : "Hey there,";
