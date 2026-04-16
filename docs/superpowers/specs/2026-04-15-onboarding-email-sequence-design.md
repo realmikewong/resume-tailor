@@ -182,7 +182,7 @@ BEGIN
     (SELECT COUNT(*) FROM resumes r WHERE r.user_id = p.user_id) > 0,
     (SELECT COUNT(*) FROM generations g WHERE g.user_id = p.user_id) > 0,
     (SELECT MIN(g.created_at) FROM generations g WHERE g.user_id = p.user_id),
-    (SELECT j.title FROM generations g JOIN jobs j ON j.id = g.job_id
+    (SELECT j.job_title FROM generations g JOIN jobs j ON j.id = g.job_id
      WHERE g.user_id = p.user_id ORDER BY g.created_at LIMIT 1),
     (SELECT j.company_name FROM generations g JOIN jobs j ON j.id = g.job_id
      WHERE g.user_id = p.user_id ORDER BY g.created_at LIMIT 1)
