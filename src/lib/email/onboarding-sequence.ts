@@ -57,10 +57,12 @@ export function getNextOnboardingStep(
   now: Date
 ): { step: string } | null {
   // Special case: early upgrade nudge when credits are low
+  // Only fires after welcome has been sent to avoid preempting the onboarding start
   if (
     user.creditsRemaining <= 2 &&
     !user.hasPaidPlan &&
-    !user.emailsSent.includes("upgrade_nudge")
+    !user.emailsSent.includes("upgrade_nudge") &&
+    user.emailsSent.includes("welcome")
   ) {
     return { step: "upgrade_nudge" };
   }
