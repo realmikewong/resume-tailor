@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { trackEvent } from "@/lib/analytics";
+import { safeNextPath } from "@/lib/auth/safe-next";
 
 export default function AuthCallbackPage() {
   const router = useRouter();
@@ -20,7 +21,9 @@ export default function AuthCallbackPage() {
             user_id: session.user.id,
           });
         }
-        router.replace("/dashboard");
+        const rawNext = new URLSearchParams(window.location.search).get("next");
+        const destination = safeNextPath(rawNext) ?? "/dashboard";
+        router.replace(destination);
       } else if (event === "PASSWORD_RECOVERY") {
         router.replace("/dashboard");
       }
