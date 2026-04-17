@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { RoadmapSection } from "@/components/roadmap/roadmap-section";
+import { RequestForm } from "@/components/roadmap/request-form";
 import type { RoadmapItem, RoadmapStatus } from "@/lib/roadmap/types";
 import { SECTION_ORDER } from "@/lib/roadmap/types";
 
@@ -65,6 +66,20 @@ export default async function RoadmapPage() {
       {items.length === 0 && (
         <p className="mt-10 text-center text-gray-500">Nothing here yet. Check back soon.</p>
       )}
+
+      <section className="mt-14 border-t pt-8">
+        <h2 className="font-sans text-xl font-bold text-gray-900">Don&apos;t see what you want?</h2>
+        {user ? (
+          <>
+            <p className="mt-1 text-gray-600">Send me a note — I read every request.</p>
+            <RequestForm />
+          </>
+        ) : (
+          <p className="mt-1 text-gray-600">
+            <a href="/auth/login?next=/roadmap" className="text-blue-600 underline">Log in</a> to request a feature.
+          </p>
+        )}
+      </section>
     </main>
   );
 }
