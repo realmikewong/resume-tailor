@@ -1,12 +1,12 @@
 ---
 title: "What Is an ATS and Why Does It Matter for Your Resume?"
 slug: "what-is-an-ats-and-why-does-it-matter"
-date: "2026-04-20"
+date: "2026-04-18"
 category: "Resume Tips"
 excerpt: "Most resumes get filtered by software before a human reads them. Here's how applicant tracking systems work and what you can do about it."
 author: "Mike Wong"
 readingTime: 3
-published: false
+published: true
 faq:
   - q: "What is an ATS?"
     a: "An applicant tracking system is software that companies use to collect, filter, and rank resumes based on how well they match a job description."

@@ -1,12 +1,12 @@
 ---
 title: "How to Tailor Your Resume to a Specific Job (With Examples)"
 slug: "how-to-tailor-your-resume-to-a-specific-job"
-date: "2026-04-22"
+date: "2026-04-18"
 category: "Resume Tips"
 excerpt: "A walkthrough of tailoring a resume to one specific job posting, with a full before-and-after example."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "How do I tailor my resume to a specific job?"
     a: "Read the job description carefully, identify the key requirements and skills, then rewrite your summary, adjust your bullet points, and update your skills section to match the posting's language."
