@@ -7,6 +7,12 @@ export function Footer() {
         </p>
         <nav className="flex items-center gap-5">
           <a
+            href="/roadmap"
+            className="font-sans text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            Roadmap
+          </a>
+          <a
             href="/privacy"
             className="font-sans text-xs text-gray-400 hover:text-gray-600 transition-colors"
           >

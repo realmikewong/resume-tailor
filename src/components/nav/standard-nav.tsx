@@ -31,6 +31,12 @@ export default function StandardNav() {
             Pricing
           </Link>
           <Link
+            href="/roadmap"
+            className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
+          >
+            Roadmap
+          </Link>
+          <Link
             href="/auth/login"
             className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
           >
@@ -91,6 +97,13 @@ export default function StandardNav() {
             className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
           >
             Pricing
+          </Link>
+          <Link
+            href="/roadmap"
+            onClick={() => setOpen(false)}
+            className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
+          >
+            Roadmap
           </Link>
           <Link
             href="/auth/login"

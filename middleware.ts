@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { safeNextPath } from "@/lib/auth/safe-next";
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
@@ -48,8 +49,14 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith("/auth") &&
     !AUTH_ROUTES_ACCESSIBLE_WHEN_AUTHENTICATED.includes(request.nextUrl.pathname)
   ) {
+    const destination = safeNextPath(request.nextUrl.searchParams.get("next")) ?? "/dashboard";
+    // destination may include a query string (e.g. "/dashboard?tab=x"); use URL
+    // parsing so pathname and search are preserved correctly and we don't
+    // accidentally encode "?" into the pathname.
+    const target = new URL(destination, request.nextUrl.origin);
     const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
+    url.pathname = target.pathname;
+    url.search = target.search;
     return NextResponse.redirect(url);
   }
 

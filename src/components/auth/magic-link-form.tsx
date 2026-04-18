@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { safeNextPath } from "@/lib/auth/safe-next";
 
-export function MagicLinkForm() {
+export function MagicLinkForm({ next }: { next: string | null }) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -15,11 +16,13 @@ export function MagicLinkForm() {
     setError(null);
 
     const supabase = createClient();
+    const nextPath = safeNextPath(next);
+    const redirectTo = `${window.location.origin}/auth/callback${
+      nextPath ? `?next=${encodeURIComponent(nextPath)}` : ""
+    }`;
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
+      options: { emailRedirectTo: redirectTo },
     });
 
     if (error) {
