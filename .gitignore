@@ -37,6 +37,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# agent harness / plugin state
+.claude
+.superpowers
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
