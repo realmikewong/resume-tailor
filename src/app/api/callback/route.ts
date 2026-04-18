@@ -96,7 +96,8 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("[callback] generateDocuments failed:", err);
     await admin
       .from("generations")
       .update({ status: "failed" })
