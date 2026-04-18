@@ -39,15 +39,20 @@ export function AdminTable({ initialItems }: { initialItems: RoadmapItem[] }) {
   }
 
   async function updateStatus(id: string, status: RoadmapStatus) {
-    const prev = items;
-    setItems(items.map((i) => (i.id === id ? { ...i, status } : i)));
+    let snapshot: RoadmapItem[] = [];
+    setItems((cur) => {
+      snapshot = cur;
+      return cur.map((i) => (i.id === id ? { ...i, status } : i));
+    });
     const res = await fetch(`/api/admin/roadmap/${id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),
     });
-    if (!res.ok) setItems(prev);
-    else {
+    if (!res.ok) {
+      setItems(snapshot);
+      setError("Couldn't update status — please try again.");
+    } else {
       const { item } = (await res.json()) as { item: RoadmapItem };
       setItems((cur) => cur.map((i) => (i.id === id ? item : i)));
     }
@@ -71,7 +76,11 @@ export function AdminTable({ initialItems }: { initialItems: RoadmapItem[] }) {
   async function deleteItem(id: string) {
     if (!confirm("Delete this item? Votes are also deleted.")) return;
     const res = await fetch(`/api/admin/roadmap/${id}`, { method: "DELETE" });
-    if (res.ok) setItems((cur) => cur.filter((i) => i.id !== id));
+    if (res.ok) {
+      setItems((cur) => cur.filter((i) => i.id !== id));
+    } else {
+      setError("Couldn't delete — please try again.");
+    }
   }
 
   return (
@@ -79,6 +88,7 @@ export function AdminTable({ initialItems }: { initialItems: RoadmapItem[] }) {
       <form onSubmit={createItem} className="bg-white border rounded-lg p-4 space-y-3">
         <h2 className="font-sans font-bold">Add feature</h2>
         <input
+          aria-label="New feature title"
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
           placeholder="Title"
@@ -86,6 +96,7 @@ export function AdminTable({ initialItems }: { initialItems: RoadmapItem[] }) {
           required
         />
         <textarea
+          aria-label="New feature description (markdown)"
           value={newDescription}
           onChange={(e) => setNewDescription(e.target.value)}
           placeholder="Markdown description (optional)"

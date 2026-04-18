@@ -40,7 +40,11 @@ export function RequestForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+      <label htmlFor="feature-request-description" className="sr-only">
+        Feature request description
+      </label>
       <textarea
+        id="feature-request-description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         rows={4}
