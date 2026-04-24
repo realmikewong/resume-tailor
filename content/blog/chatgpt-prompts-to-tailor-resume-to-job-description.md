@@ -6,7 +6,7 @@ category: "AI Tools"
 excerpt: "Specific prompts you can copy and paste into ChatGPT to help tailor your resume to a job posting, with tips on getting better results."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "Can ChatGPT tailor my resume to a job description?"
     a: "Yes, but the quality depends on your prompts. Vague prompts produce generic results. Specific prompts that tell ChatGPT exactly what to do produce much better output."
