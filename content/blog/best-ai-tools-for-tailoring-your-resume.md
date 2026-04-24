@@ -6,7 +6,7 @@ category: "Resume Tips"
 excerpt: "A look at the AI tools available for resume tailoring, what they do well, and where they fall short."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "Can AI tailor my resume to a job description?"
     a: "Yes. Several tools can analyze a job description and adjust your resume to match. The quality varies depending on the tool, and you should always review the output before submitting."
