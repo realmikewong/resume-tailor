@@ -1,12 +1,12 @@
 ---
 title: "Getting Started with ATS Optimization"
 slug: "getting-started-with-ats"
-date: "2026-03-20"
+date: "2026-01-10"
 category: "Resume Tips"
 excerpt: "Learn the basics of how applicant tracking systems work and what you can do to ensure your resume gets past automated screening."
 author: "Nate Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "What is an ATS?"
     a: "An Applicant Tracking System (ATS) is software used by employers to filter and rank resumes before a human reviews them."

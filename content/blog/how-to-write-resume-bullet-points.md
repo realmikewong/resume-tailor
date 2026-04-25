@@ -1,12 +1,12 @@
 ---
 title: "How to Write Resume Bullet Points That Show Impact"
 slug: "how-to-write-resume-bullet-points"
-date: "2026-05-20"
+date: "2026-02-11"
 category: Resume Tips
 excerpt: "Most resume bullets describe job duties. The best ones prove you made a difference. Here's the formula and 6 before-and-after examples."
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Do I need to quantify every bullet point?"
     a: "Numbers are powerful, but not required. What matters is showing impact. If you can say 'increased X by Y', that's better than 'responsible for X'. But if you don't have numbers, show what changed as a result of your work."

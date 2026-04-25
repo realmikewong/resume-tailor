@@ -1,12 +1,12 @@
 ---
 title: "Your First 90 Days at a New Job: What to Focus On"
 slug: "first-90-days-at-a-new-job"
-date: "2026-07-06"
+date: "2026-04-05"
 category: Career Growth
 excerpt: You don't have to prove yourself in 90 days, but this period sets the tone for your entire tenure. Here's where to focus.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Is the 90-day probation period as critical as everyone says?"
     a: "It matters, but not as a judgment day. You're not being secretly evaluated for firing. Instead, you're all forming impressions of each other. Use it to understand the role, build relationships, and start delivering."

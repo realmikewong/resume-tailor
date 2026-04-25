@@ -1,12 +1,12 @@
 ---
 title: "How to Handle Job Rejection (And Keep Moving Forward)"
 slug: "how-to-handle-job-rejection"
-date: "2026-06-29"
+date: "2026-03-28"
 category: Job Search
 excerpt: Rejection is part of job searching. Here's how to process it, learn from it, and not let it derail your momentum.
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "Is it normal to get rejected a lot when job searching?"
     a: "Yes. Most job seekers face rejection rates between 50-90%. You might get rejected from a job you're perfectly qualified for just because someone else was slightly more qualified or the company's needs shifted. It's not always about you."

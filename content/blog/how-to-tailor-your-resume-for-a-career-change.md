@@ -1,12 +1,12 @@
 ---
 title: "How to Tailor Your Resume When You're Changing Careers"
 slug: "how-to-tailor-your-resume-for-a-career-change"
-date: "2026-05-11"
+date: "2026-01-31"
 category: Resume Tips
 excerpt: "Changing careers is hard enough. Your resume shouldn't make it harder. Here's how to reframe your experience so hiring managers see the value in your background."
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "Should I hide my old career on my resume?"
     a: "No. Be transparent about your background, but reorganize to emphasize transferable skills. A career change shows growth, not weakness, when presented clearly."

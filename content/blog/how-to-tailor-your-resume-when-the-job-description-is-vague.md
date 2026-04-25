@@ -1,12 +1,12 @@
 ---
 title: "How to Tailor Your Resume When the Job Description Is Vague"
 slug: "how-to-tailor-your-resume-when-the-job-description-is-vague"
-date: "2026-07-08"
+date: "2026-04-07"
 category: Resume Tips
 excerpt: Some job postings are frustratingly vague. Here's how to research the actual role and tailor your resume when the description doesn't give you much to work with.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Is a vague job description a red flag?"
     a: "Sometimes. It can mean the company hasn't thought through the role clearly. It can also just mean they posted a template without customizing. Apply anyway if you're interested, but vague can signal unclear leadership or poor communication."

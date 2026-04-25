@@ -1,12 +1,12 @@
 ---
 title: "STAR Method for Interview Answers: How It Works"
 slug: "star-method-for-interview-answers"
-date: "2026-07-03"
+date: "2026-04-02"
 category: Interview Prep
 excerpt: The STAR method is the most effective way to answer behavioral interview questions. Learn the framework, see examples, and know when to break it.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Do I have to use STAR for every interview question?"
     a: "No. Use it for behavioral questions like 'Tell me about a time when...' or 'How have you handled...?' For technical questions, practical questions, or open-ended questions about yourself, a more direct answer often works better."

@@ -1,12 +1,12 @@
 ---
 title: "The Best Way to Tailor Your Resume to a Job Description"
 slug: "best-way-to-tailor-your-resume"
-date: "2026-06-01"
+date: "2026-02-24"
 category: "Resume Tips"
 excerpt: "Skip the overthinking. Here's the single fastest approach to tailoring that actually works."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "How much of my resume needs to change when I tailor it?"
     a: "Usually 20 to 30 percent. Your experience and education stay the same. You're rewriting your summary, adjusting 3 to 5 bullet points, and refreshing your skills section to match the job description."

@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Prompts for Tailoring Your Resume to a Job Description"
 slug: "chatgpt-prompts-to-tailor-resume-to-job-description"
-date: "2026-04-20"
+date: "2026-01-13"
 category: "AI Tools"
 excerpt: "Specific prompts you can copy and paste into ChatGPT to help tailor your resume to a job posting, with tips on getting better results."
 author: "Mike Wong"

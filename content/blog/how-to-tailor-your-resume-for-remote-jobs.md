@@ -1,12 +1,12 @@
 ---
 title: "How to Tailor Your Resume for Remote Jobs"
 slug: "how-to-tailor-your-resume-for-remote-jobs"
-date: "2026-06-15"
+date: "2026-03-12"
 category: "Resume Tips"
 excerpt: "Remote jobs look for different things. Here's what to emphasize in your background."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "What are the most important skills for a remote job?"
     a: "Self-management, async communication, written communication, time management, and experience with remote tools like Slack, Asana, or Zoom. If you've worked remotely before, lead with that."

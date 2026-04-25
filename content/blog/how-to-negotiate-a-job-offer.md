@@ -1,12 +1,12 @@
 ---
 title: "How to Negotiate a Job Offer Without Losing It"
 slug: "how-to-negotiate-a-job-offer"
-date: "2026-06-12"
+date: "2026-03-09"
 category: "Job Search"
 excerpt: "You got the offer. Now comes the part that scares everyone. Here's how to negotiate without blowing it up."
 author: "Mike Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "Is it okay to negotiate salary if I'm a junior or early-career person?"
     a: "Yes. Salary negotiation is expected at all levels. It's not rude or greedy. Companies expect it. The only time you might skip it is if you're getting a significantly higher offer than you expected or if the company explicitly says the offer is non-negotiable."

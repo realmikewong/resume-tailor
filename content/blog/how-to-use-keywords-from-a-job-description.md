@@ -1,12 +1,12 @@
 ---
 title: "How to Use Keywords From a Job Description in Your Resume"
 slug: "how-to-use-keywords-from-a-job-description"
-date: "2026-06-24"
+date: "2026-03-22"
 category: Resume Tips
 excerpt: Extract the right keywords from a job posting and place them strategically in your resume so both ATS systems and hiring managers notice them.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Won't I look like I'm just copying the job description?"
     a: "No. You're using language the employer already uses to describe what they need. That's not plagiarism, it's translation. Your actual experience is yours; the words come from their vocabulary."

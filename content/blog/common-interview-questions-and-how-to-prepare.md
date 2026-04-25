@@ -1,12 +1,12 @@
 ---
 title: "The Most Common Interview Questions (And How to Prepare for Them)"
 slug: "common-interview-questions-and-how-to-prepare"
-date: "2026-06-17"
+date: "2026-03-15"
 category: "Interview Prep"
 excerpt: "You'll probably hear most of these. Here's how to structure answers that don't sound rehearsed."
 author: "Mike Wong"
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "Should I memorize my answers to interview questions?"
     a: "No. Memorized answers sound stiff and robotic. Practice until you know the framework and key points, then let yourself answer naturally. The interviewer wants to hear you think, not recite."

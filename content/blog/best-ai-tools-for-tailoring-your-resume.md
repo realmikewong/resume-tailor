@@ -1,7 +1,7 @@
 ---
 title: "The Best AI Tools for Tailoring Your Resume to a Job Description"
 slug: "best-ai-tools-for-tailoring-your-resume"
-date: "2026-04-24"
+date: "2026-01-15"
 category: "Resume Tips"
 excerpt: "A look at the AI tools available for resume tailoring, what they do well, and where they fall short."
 author: "Mike Wong"

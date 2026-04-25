@@ -1,12 +1,12 @@
 ---
 title: "How to Explain Career Gaps on Your Resume"
 slug: "how-to-explain-career-gaps-on-your-resume"
-date: "2026-05-29"
+date: "2026-02-21"
 category: Resume Tips
 excerpt: "Career gaps are common. Hiring managers expect them. Here's how to address them on your resume and cover letter so they're not a red flag."
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Should I even mention a short gap on my resume?"
     a: "Gaps of 1-2 months typically don't need explanation on your resume. If you have a gap of three months or longer, address it briefly. If asked in an interview, be ready with an answer regardless of the gap length."

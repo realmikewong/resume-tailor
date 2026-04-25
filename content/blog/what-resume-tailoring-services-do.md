@@ -1,12 +1,12 @@
 ---
 title: "What Resume Tailoring Services Do (And Whether They're Worth It)"
 slug: "what-resume-tailoring-services-do"
-date: "2026-05-22"
+date: "2026-02-13"
 category: Resume Tips
 excerpt: "Resume tailoring services aren't resume writing or templates. Here's what they actually do, what to expect, and whether one makes sense for you."
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "How is a tailoring service different from hiring a resume writer?"
     a: "Resume writers create a brand-new document from scratch. Tailoring services take your existing resume and adapt it to specific jobs. Writers help if you're starting from zero. Tailoring helps if you already have a solid resume but need multiple versions."

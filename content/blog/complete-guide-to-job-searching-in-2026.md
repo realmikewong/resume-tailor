@@ -1,12 +1,12 @@
 ---
 title: "The Complete Guide to Job Searching in 2026"
 slug: "complete-guide-to-job-searching-in-2026"
-date: "2026-07-10"
+date: "2026-04-10"
 category: Job Search
 excerpt: A comprehensive guide to the entire job search process, from resume tailoring to offer negotiation. Everything you need to get hired.
 author: Mike Wong
 readingTime: 15
-published: false
+published: true
 faq:
   - q: "How long does a typical job search take?"
     a: "Three to six months is normal for most people. Some find something in weeks, others take longer. A lot depends on your industry, seniority, and how targeted your search is. Plan for the long game."

@@ -1,12 +1,12 @@
 ---
 title: "How to Prepare for a Job Interview: The Complete Checklist"
 slug: "how-to-prepare-for-a-job-interview"
-date: "2026-05-27"
+date: "2026-02-19"
 category: Interview Prep
 excerpt: "Most interview preparation is wasted effort. Here's what actually matters, what to skip, and a concrete checklist to work through before you walk in."
 author: Mike Wong
 readingTime: 8
-published: false
+published: true
 faq:
   - q: "How far in advance should I start preparing for an interview?"
     a: "Three to five days out is ideal. That gives you time to research without it being stale, and to practice without overthinking. More than a week out and you'll overthink. Less than a day and you'll panic."

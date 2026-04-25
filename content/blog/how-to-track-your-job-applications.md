@@ -1,12 +1,12 @@
 ---
 title: "How to Track Your Job Applications (Without Losing Your Mind)"
 slug: "how-to-track-your-job-applications"
-date: "2026-06-22"
+date: "2026-03-20"
 category: Job Search
 excerpt: A simple system to keep all your applications, follow-ups, and notes in one place so you don't miss opportunities or duplicate effort.
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "What's the minimum information I need to track?"
     a: "Company name, job title, date applied, application status (applied, interview scheduled, rejected), and the date you plan to follow up. Everything else is bonus."

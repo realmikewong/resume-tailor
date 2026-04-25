@@ -1,12 +1,12 @@
 ---
 title: "10 Resume Mistakes That Get You Filtered Out Before a Human Sees It"
 slug: "resume-mistakes-that-get-you-filtered-out"
-date: "2026-05-08"
+date: "2026-01-29"
 category: "Resume Tips"
 excerpt: "The most common reasons resumes get rejected by ATS software or dismissed by recruiters in under 10 seconds, and how to fix each one."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "Why isn't my resume getting responses?"
     a: "The most likely reasons are keyword mismatches with the job description, formatting that ATS software can't parse, or a generic summary that doesn't connect to the specific role."

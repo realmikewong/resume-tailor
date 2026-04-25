@@ -1,12 +1,12 @@
 ---
 title: "How to Answer 'Tell Me About Yourself' in a Job Interview"
 slug: "how-to-answer-tell-me-about-yourself"
-date: "2026-06-03"
+date: "2026-02-27"
 category: "Interview Prep"
 excerpt: "This is usually the first question. Structure your answer with past, present, and future to show the interviewer why you're here."
 author: "Mike Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "How long should my 'tell me about yourself' answer be?"
     a: "60 to 90 seconds. That's roughly 150 to 200 words. Long enough to show depth, short enough to keep the interviewer engaged."

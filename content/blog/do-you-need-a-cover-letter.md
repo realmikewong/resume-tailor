@@ -1,12 +1,12 @@
 ---
 title: "Do You Really Need a Cover Letter in 2026?"
 slug: "do-you-need-a-cover-letter"
-date: "2026-05-13"
+date: "2026-02-03"
 category: Cover Letters
 excerpt: "The honest answer: sometimes yes, sometimes no. Here's how to know whether a cover letter helps your chances or wastes your time."
 author: Mike Wong
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "Do employers even read cover letters?"
     a: "It depends on the role and company. Competitive roles and smaller companies are more likely to read them. But many large companies with high application volume skip them. When in doubt, assume it will be read."

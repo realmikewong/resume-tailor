@@ -1,12 +1,12 @@
 ---
 title: "How to Use LinkedIn to Find Jobs (Beyond Just Scrolling)"
 slug: "how-to-use-linkedin-for-job-search"
-date: "2026-05-15"
+date: "2026-02-05"
 category: Job Search
 excerpt: "LinkedIn is a job search tool most people use like Twitter. Here's how to actually leverage it to find roles, get noticed, and land interviews."
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Does setting 'Open to Work' on LinkedIn actually help?"
     a: "Yes. Recruiters filter by this flag. It signals that you're serious and available. Set it and choose who can see it if you're employed and don't want your current company to know."

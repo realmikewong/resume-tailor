@@ -1,12 +1,12 @@
 ---
 title: "How to Ask ChatGPT to Tailor Your Resume (With Examples)"
 slug: "how-to-ask-chatgpt-to-tailor-your-resume"
-date: "2026-05-18"
+date: "2026-02-08"
 category: AI Tools
 excerpt: "ChatGPT can help tailor your resume, but most people ask it wrong. Here's exactly what to paste, how to frame the request, and how to use the output."
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "Should I rely on ChatGPT to tailor my whole resume?"
     a: "ChatGPT is great for brainstorming, but you should always review and edit its suggestions. It sometimes adds fluff or misses what makes you unique. Use it as a starting point, not the final answer."

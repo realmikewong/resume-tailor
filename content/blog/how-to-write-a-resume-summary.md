@@ -1,12 +1,12 @@
 ---
 title: "How to Write a Resume Summary That Gets You Interviews"
 slug: "how-to-write-a-resume-summary"
-date: "2026-04-27"
+date: "2026-01-18"
 category: "Resume Tips"
 excerpt: "Your resume summary is the first thing a recruiter reads. Here's how to write one that ties directly to the job you're targeting."
 author: "Mike Wong"
 readingTime: 3
-published: false
+published: true
 faq:
   - q: "What is a resume summary?"
     a: "A resume summary is a 2 to 3 sentence section at the top of your resume that highlights your most relevant experience, skills, and qualifications for the specific role you're applying for."

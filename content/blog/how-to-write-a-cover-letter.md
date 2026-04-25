@@ -1,12 +1,12 @@
 ---
 title: "How to Write a Cover Letter That Matches Your Resume"
 slug: "how-to-write-a-cover-letter"
-date: "2026-05-04"
+date: "2026-01-23"
 category: "Cover Letters"
 excerpt: "A cover letter should complement your resume, not repeat it. Here's how to write one that connects your experience to the specific job."
 author: "Mike Wong"
 readingTime: 3
-published: false
+published: true
 faq:
   - q: "What should a cover letter include?"
     a: "A strong opening that names the role and your fit, 1 to 2 paragraphs connecting your experience to the job's requirements, and a closing with a clear next step."

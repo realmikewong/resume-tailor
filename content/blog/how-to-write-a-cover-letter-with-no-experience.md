@@ -1,12 +1,12 @@
 ---
 title: "How to Write a Cover Letter With No Experience"
 slug: "how-to-write-a-cover-letter-with-no-experience"
-date: "2026-06-05"
+date: "2026-03-01"
 category: "Cover Letters"
 excerpt: "You don't have the job yet, but you have relevant things to show. Here's what to emphasize."
 author: "Mike Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "Should I mention that I'm a recent graduate in my cover letter?"
     a: "Yes, but frame it positively. Instead of apologizing for lack of experience, highlight the relevant projects, internships, or volunteer work you've done. Show that you understand what the role needs and that you've already started building those skills."

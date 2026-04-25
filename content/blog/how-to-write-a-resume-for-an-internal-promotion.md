@@ -1,12 +1,12 @@
 ---
 title: "How to Write a Resume for a Promotion (Internal Applications)"
 slug: "how-to-write-a-resume-for-an-internal-promotion"
-date: "2026-07-01"
+date: "2026-03-30"
 category: Resume Tips
 excerpt: Applying for a promotion inside your company requires a different resume strategy. Here's how to position yourself as the obvious choice.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Do I really need a resume for an internal promotion?"
     a: "Many companies do require one, even though they already know you. It's a documentation requirement. Treat it seriously. It sets the official record of why you're the right person for the role."

@@ -1,12 +1,12 @@
 ---
 title: "Resume Formats Explained: Chronological, Functional, and Hybrid"
 slug: "resume-formats-explained"
-date: "2026-05-01"
+date: "2026-01-21"
 category: "Resume Tips"
 excerpt: "The three main resume formats, when to use each one, and which one most hiring managers prefer."
 author: "Mike Wong"
 readingTime: 3
-published: false
+published: true
 faq:
   - q: "What are the three main resume formats?"
     a: "Chronological (lists experience in reverse order), functional (groups experience by skill area), and hybrid (combines both with a skills section up top followed by work history)."

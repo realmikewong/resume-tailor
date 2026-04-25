@@ -1,12 +1,12 @@
 ---
 title: "What Hiring Managers Look for in a Resume"
 slug: "what-hiring-managers-look-for-in-a-resume"
-date: "2026-06-26"
+date: "2026-03-25"
 category: Resume Tips
 excerpt: When a human picks up your resume, they're looking for specific signals. Here's what actually matters in those six seconds.
 author: Mike Wong
 readingTime: 7
-published: false
+published: true
 faq:
   - q: "Do hiring managers actually only look at resumes for six seconds?"
     a: "That's an average for a first screening pass. If your resume clears that initial scan, they'll read it carefully. But yes, you get about six seconds to make a case for a closer look."

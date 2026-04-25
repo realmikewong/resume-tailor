@@ -1,12 +1,12 @@
 ---
 title: "How to Tailor a Cover Letter to a Job Posting"
 slug: "how-to-tailor-a-cover-letter-to-a-job-posting"
-date: "2026-05-25"
+date: "2026-02-16"
 category: Cover Letters
 excerpt: "Cover letter tailoring works the same way as resume tailoring, just with a different goal. Here's how to pull requirements from a job posting and reflect them in your letter."
 author: Mike Wong
 readingTime: 6
-published: false
+published: true
 faq:
   - q: "Should a cover letter match my resume word-for-word?"
     a: "No. Your cover letter should expand on your resume. If your resume says 'Led cross-functional team', your cover letter might explain why that project mattered or what you learned. Same accomplishment, deeper context."

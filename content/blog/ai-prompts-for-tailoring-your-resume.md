@@ -1,12 +1,12 @@
 ---
 title: "AI Prompts for Tailoring Your Resume: What Works and What Doesn't"
 slug: "ai-prompts-for-tailoring-your-resume"
-date: "2026-05-06"
+date: "2026-01-26"
 category: "AI Tools"
 excerpt: "Prompts that work across ChatGPT, Claude, Gemini, and Copilot for resume tailoring, plus the common mistakes that produce generic output."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "Which AI tool is best for resume tailoring?"
     a: "They all have strengths. ChatGPT and Claude are the most consistent for long-form rewriting. Gemini integrates with Google Workspace. The tool matters less than the quality of your prompts."

@@ -2,11 +2,11 @@
 title: "How to Follow Up After a Job Interview (With Email Templates)"
 slug: "how-to-follow-up-after-a-job-interview"
 category: "Interview Prep"
-date: "2026-06-08"
+date: "2026-03-04"
 excerpt: "The thank-you email matters more than you think. Here's when, how, and what to say."
 author: "Mike Wong"
 readingTime: 4
-published: false
+published: true
 faq:
   - q: "How soon should I send the thank-you email after an interview?"
     a: "Within 24 hours. Ideally within a few hours if the interview went particularly well and you're excited. Any longer and you risk looking like you forgot to follow up."

@@ -1,12 +1,12 @@
 ---
 title: "How to Write a Resume With No Experience"
 slug: "how-to-write-a-resume-with-no-experience"
-date: "2026-06-19"
+date: "2026-03-17"
 category: "Resume Tips"
 excerpt: "You don't have work history yet. But you have things to show. Here's what to put on a resume when you're starting from zero."
 author: "Mike Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "Should I include a summary section if I don't have any job experience?"
     a: "Yes, but make it about your skills and background, not your career history. Focus on what you're able to do and what you're looking for in your first role."

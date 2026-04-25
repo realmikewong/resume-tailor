@@ -1,12 +1,12 @@
 ---
 title: "Should You Tailor Your Resume for Each Job? What Reddit Says"
 slug: "should-you-tailor-your-resume-reddit"
-date: "2026-06-10"
+date: "2026-03-07"
 category: "Resume Tips"
 excerpt: "The internet debates this constantly. Here's what job seekers and recruiters on Reddit actually think, and when each approach makes sense."
 author: "Mike Wong"
 readingTime: 5
-published: false
+published: true
 faq:
   - q: "What do recruiters say about tailored resumes on Reddit?"
     a: "Most say they notice when a resume is tailored to the role and it makes a difference. Several mention that resumes that use the same language as the job description are more likely to pass ATS filters and catch their attention."
