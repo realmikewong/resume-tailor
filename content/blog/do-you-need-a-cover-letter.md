@@ -36,7 +36,7 @@ If the job posting doesn't mention cover letters, you don't have to write one. P
 
 If you're applying through an ATS system that doesn't give you a cover letter upload field, that's a signal they don't read them. Don't waste the time.
 
-If you're applying to a large company with thousands of applicants per role, your cover letter probably won't be read. Your tailored resume matters far more. [Make sure you're using the right keywords to pass their screening](/blog/what-is-an-ats-and-why-does-it-matter).
+If you're applying to a large company with thousands of applicants per role, your cover letter probably won't be read. Your tailored resume matters far more. [Make sure you're using the right keywords to pass their screening](/blog/what-is-an-ats-and-why-does-it-matter). Use our [free ATS score checker](/tools/ats-score) to verify your resume's match before submitting.
 
 If you're applying to a job where the main qualifier is a specific technical skill or certification, and you have it, a cover letter doesn't move the needle.
 
@@ -46,7 +46,7 @@ Most of the time, you're somewhere in the middle. The job posting doesn't say "r
 
 If it's a role you'd genuinely be excited about, write a cover letter. If it's a "eh, I could do this" application, skip it.
 
-But if you do write one, [make it count](/blog/how-to-write-a-cover-letter). A generic cover letter is worse than no cover letter. It signals you spray and prayed. A strong one signals you thought about why this specific role matters to you.
+But if you do write one, [make it count](/blog/how-to-tailor-a-cover-letter-to-a-job-posting). A generic cover letter is worse than no cover letter. It signals you spray and prayed. A strong one signals you thought about why this specific role matters to you.
 
 ## The Real Advantage
 

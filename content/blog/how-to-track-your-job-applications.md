@@ -18,7 +18,7 @@ faq:
 
 When you're applying to jobs, it's easy to lose track. After your fifth or tenth application, they start to blur together. Did you already email that contact at Company X? When did you say you'd follow up with Company Y? Without a system, you end up either pestering hiring managers with duplicate messages or missing your own follow-up deadlines.
 
-A job application tracker doesn't need to be complicated. It needs to be something you'll actually use.
+A job application tracker doesn't need to be complicated. It needs to be something you'll actually use. The tracker works best alongside [tailoring your resume for each application](/blog/should-you-tailor-your-resume-for-every-job) — which we recommend doing every time.
 
 ## What to Track
 
@@ -32,7 +32,7 @@ Keep it simple at first. These are the non-negotiable columns:
 
 **Status.** Where things stand: Applied, Phone Screen Scheduled, Interview Round 1, Interview Round 2, Offer Received, Rejected, or Ghosted.
 
-**Follow-up date.** When you plan to send that "just checking in" email.
+**Follow-up date.** When you plan to send that "just checking in" email. See our guide on [how to write a follow-up email after an interview](/blog/how-to-follow-up-after-a-job-interview) when that date arrives.
 
 **Contact.** The name and email of the person you connected with, if you have one. This matters more than you think.
 

@@ -62,7 +62,7 @@ You know your company's culture. If it's casual, a resume can be slightly less s
 
 If you're applying for a manager role, emphasize leadership and mentoring. If you're applying for a more senior individual contributor role, emphasize expertise and impact.
 
-Read the job description for your promoted role. Tailor your resume to that description just as you would for an external application. Show that you already exemplify the skills they need at the next level.
+Read the job description for your promoted role. Even for internal roles at larger companies, you can [check how your resume reads against the job description](/tools/ats-score) using our ATS checker. Tailor your resume to that description [just as you would for an external application](/blog/how-to-tailor-your-resume-to-a-job-description). Show that you already exemplify the skills they need at the next level.
 
 ## The Follow-Up Conversation
 

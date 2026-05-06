@@ -18,6 +18,8 @@ faq:
 
 Most candidates either don't follow up after an interview or they send a generic thank-you that could apply to anyone.
 
+If you haven't yet, read our guide on [how to prepare for the interview itself](/blog/how-to-prepare-for-a-job-interview) — this article picks up where that one leaves off.
+
 Your follow-up email is a chance to reinforce why you're a good fit, to show that you were paying attention, and to keep yourself top of mind. It matters more than you'd expect.
 
 ## The Thank-You Email
@@ -98,7 +100,7 @@ Thanks,
 
 ---
 
-That's it. If you send that and still don't hear anything after another week, it's time to assume you didn't make the cut and move on.
+That's it. If you send that and still don't hear anything after another week, it's time to assume you didn't make the cut and move on. For guidance on processing that outcome, see [how to handle job rejection](/blog/how-to-handle-job-rejection).
 
 ## If You Get Feedback (Good or Bad)
 

@@ -66,6 +66,8 @@ Example stories to have ready:
 - A time you solved a hard problem with limited resources
 - A time you changed your mind about something important
 
+This is the foundation of [the STAR method for behavioral stories](/blog/star-method-for-interview-answers) — worth practicing before your interview.
+
 You're not memorizing these as speeches. You're memorizing the bones so when an interviewer asks "Tell me about a time you..." you can pull the right story and tell it naturally.
 
 Most interviews ask the same things in different ways. A few solid stories cover dozens of questions.
@@ -104,7 +106,7 @@ You're going to talk about your background. Your resume is the script.
 
 Review it before the interview. Know which accomplishments you want to emphasize. If they ask about a gap, have your story ready. If they ask about a project, know the details.
 
-You're not reading your resume. You're making sure you remember it clearly so you can discuss it naturally.
+You're not reading your resume. You're making sure you remember it clearly so you can discuss it naturally. It's also worth running it through an [ATS score check](/tools/ats-score) to make sure it's still aligned with the posting.
 
 ### Plan Your Logistics
 
@@ -147,7 +149,7 @@ You know what to emphasize in your stories. You know what questions to ask. The 
 
 ## One More Thing
 
-After the interview, send a quick thank-you email within a few hours. One paragraph. Say what you enjoyed learning and reiterate one reason you're excited about the role.
+After the interview, [send a quick thank-you email within a few hours](/blog/how-to-follow-up-after-a-job-interview). One paragraph. Say what you enjoyed learning and reiterate one reason you're excited about the role.
 
 That's it. Don't be weird about it. A brief note saying "I enjoyed learning about your work and I'm more convinced this role is a great fit" is enough.
 

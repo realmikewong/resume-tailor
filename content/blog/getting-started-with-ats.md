@@ -24,7 +24,7 @@ An ATS is software that companies use to manage their hiring process. It collect
 
 ## Why Your Resume Might Not Make It Through
 
-The most common reasons resumes get filtered out include missing keywords, non-standard formatting, and irrelevant content that dilutes your match score.
+The most common reasons resumes get filtered out include missing keywords, non-standard formatting, and irrelevant content that dilutes your match score. See also: [common mistakes that get resumes filtered out](/blog/resume-mistakes-that-get-you-filtered-out).
 
 ## How to Improve Your ATS Score
 
@@ -35,4 +35,4 @@ The most common reasons resumes get filtered out include missing keywords, non-s
 
 ## Check Your Score for Free
 
-Want to see how your resume scores? Try our [free ATS Score Checker](/tools/ats-score) — no signup required.
+Want to see how your resume scores? Try our [free ATS Score Checker](/tools/ats-score) — no signup required. For a deeper look at how ATS systems work, see [what is an ATS and why does it matter](/blog/what-is-an-ats-and-why-does-it-matter).

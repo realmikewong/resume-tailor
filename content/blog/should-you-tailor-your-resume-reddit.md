@@ -59,6 +59,8 @@ Read through enough Reddit threads and a pattern emerges. Tailoring helps most w
 - You're applying directly through the company's website. These often feed into ATS systems. Keyword matching directly affects whether you get seen.
 - You really want the job. If you're applying casually, don't bother. If this is a target role, invest the 20 minutes.
 
+You can [check your resume's ATS match](/tools/ats-score) before submitting to confirm you're hitting the right keywords.
+
 ## When Tailoring Doesn't Matter
 
 Skip tailoring when:
@@ -74,6 +76,8 @@ When you combine all the threads, here's what actually resonates:
 Have a strong base resume first. Make sure it's clear, well-organized, and highlights your relevant experience. That matters more than anything. Then, for applications that matter to you, spend 15 to 20 minutes tailoring your summary and adjusting a few bullet points to match the specific role.
 
 You're not doing a complete rewrite. You're making your existing background more visible to the specific role you're pursuing.
+
+For the practical how-to, see [the complete guide to tailoring every application](/blog/should-you-tailor-your-resume-for-every-job).
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

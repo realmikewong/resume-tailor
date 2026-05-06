@@ -44,7 +44,7 @@ If you're considering a functional resume, the hybrid format below is almost alw
 
 A hybrid resume starts with a skills summary or qualifications section at the top, followed by a standard chronological work history. It gives you the benefit of leading with your most relevant skills while still showing your career timeline.
 
-**Use it when:** You want to emphasize specific skills or accomplishments that might get buried in a standard chronological layout. Career changers, people with diverse experience, and candidates with strong transferable skills benefit from this format.
+**Use it when:** You want to emphasize specific skills or accomplishments that might get buried in a standard chronological layout. Career changers, people with diverse experience, and candidates with strong transferable skills benefit from this format. If you're making a career change, see [how to tailor your resume for a career change](/blog/how-to-tailor-your-resume-for-a-career-change) for format-specific advice.
 
 **Why it works:** You get the keyword-rich skills section that helps with [ATS matching](/blog/what-is-an-ats-and-why-does-it-matter), and the recruiter still sees a clear employment history. It's the best of both formats without the red flags of a functional resume.
 
@@ -58,7 +58,7 @@ For most people, the choice comes down to chronological or hybrid. If your recen
 
 ## Get your format right, then tailor
 
-Format is the foundation. Once you've picked the right structure, the next step is tailoring the content to each job. [Taylor Resume](https://taylorresume.com) handles that part for you, producing a tailored resume and cover letter based on your experience and the specific job description.
+Format is the foundation. Once you've chosen your format, [check if it passes ATS](/tools/ats-score) before sending it out. Once you've picked the right structure, the next step is tailoring the content to each job. [Taylor Resume](https://taylorresume.com) handles that part for you, producing a tailored resume and cover letter based on your experience and the specific job description.
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

@@ -73,11 +73,13 @@ People tend to focus on bullet points and forget the summary and skills section.
 
 The summary is the first thing a recruiter reads and the fastest section to tailor. Two to three sentences that directly address the role. If a recruiter reads nothing else, this should tell them you're a fit.
 
-The skills section is where [ATS matching](/blog/what-is-an-ats-and-why-does-it-matter) happens most directly. If the posting says "Gainsight" and your resume doesn't mention it, the ATS will dock your score, even if you've used it for years.
+The skills section is where [ATS matching](/blog/what-is-an-ats-and-why-does-it-matter) happens most directly. If the posting says "Gainsight" and your resume doesn't mention it, the ATS will dock your score, even if you've used it for years. You can also [check your ATS score](/tools/ats-score) directly to see how well your resume matches.
 
 ## Try it yourself
 
 Pick a job posting you're interested in. Read it twice. Pull out the 8 to 10 most important terms. Then compare them against your current resume. If the overlap is low, that's where to focus your tailoring.
+
+For more full resume transformations, [see before-and-after examples](/blog/tailored-resume-examples-before-and-after).
 
 Or let [Taylor Resume](https://taylorresume.com) do it for you. Upload your resume and a job description, and get a tailored version back in minutes.
 

@@ -18,7 +18,7 @@ faq:
 
 You're a recent graduate or changing careers. You don't have 5 years of direct experience. A cover letter feels like a waste because you think the employer won't read it.
 
-Actually, the cover letter is your best tool. It's where you prove that you understand the role, that you've done your research, and that you're coachable. Those things matter more than experience when you're starting out.
+Actually, the cover letter is your best tool. It's where you prove that you understand the role, that you've done your research, and that you're coachable. Those things matter more than experience when you're starting out. If you're also working on your resume, see our guide to [writing a resume with no experience](/blog/how-to-write-a-resume-with-no-experience). Not sure if a cover letter is even needed for this application? Read [when a cover letter actually matters](/blog/do-you-need-a-cover-letter) first.
 
 Here's how to write one that lands.
 

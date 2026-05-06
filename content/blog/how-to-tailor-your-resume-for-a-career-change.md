@@ -56,7 +56,7 @@ This tells the story. It's honest about the shift and claims the relevant skills
 
 The standard reverse-chronological format works for most career changes. But if your job titles are a real mismatch, a hybrid format can help. It groups accomplishments by skill area instead of leading with company and title.
 
-Use a hybrid format only if it genuinely improves readability. Don't use it to hide gaps or make your experience look better than it is. Hiring managers see through that and it can hurt you.
+Use a hybrid format only if it genuinely improves readability. Don't use it to hide gaps or make your experience look better than it is. Hiring managers see through that and it can hurt you. For a full breakdown of your options, see [resume formats explained](/blog/resume-formats-explained).
 
 ## Tailor More Aggressively for Career Changers
 
@@ -64,13 +64,13 @@ When you're changing careers, the stakes for tailoring are higher. You need to p
 
 If the posting mentions "cross-functional collaboration," you should have a bullet point showing exactly that. If it says "user research," find a project where you talked to customers and learned from their needs.
 
-This is where [tailoring each resume to the job description](/blog/how-to-tailor-your-resume-to-a-job-description) becomes essential for career changers. Generic resumes get rejected immediately.
+This is where [tailoring each resume to the job description](/blog/how-to-tailor-your-resume-to-a-job-description) becomes essential for career changers. Generic resumes get rejected immediately. Use our [ATS score checker](/tools/ats-score) to verify your career-change resume is hitting the right terms.
 
 ## Be Honest About the Gap
 
 If there's a skills gap, name it in your cover letter, not your resume. Explain briefly what you've done to close it: courses taken, projects built, communities joined, mentorship sought.
 
-Your resume should answer "Can this person do the job?" Your cover letter can answer "Why should we take a chance on someone new to the industry?"
+Your resume should answer "Can this person do the job?" Your cover letter can answer "Why should we take a chance on someone new to the industry?" See also: [do you need a cover letter](/blog/do-you-need-a-cover-letter) — and if so, how to use it to your advantage.
 
 Career changes are increasingly normal. Hiring managers know people grow and evolve. What they need to see is that you've thought seriously about the transition and you're not just guessing.
 

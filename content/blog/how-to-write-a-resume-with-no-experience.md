@@ -30,7 +30,7 @@ This is different from a mid-career resume where work experience comes first. Fl
 
 ## Your Professional Summary
 
-2 to 3 sentences. Be specific.
+2 to 3 sentences. Be specific. For a full guide, see [how to write a strong resume summary](/blog/how-to-write-a-resume-summary).
 
 Bad: "Recent graduate seeking a role to apply my skills in a fast-paced environment."
 
@@ -127,7 +127,7 @@ When you list projects, include:
 
 ## The ATS Consideration
 
-Even with limited experience, ATS systems are still looking for keyword matches. If the job posting mentions "JavaScript, React, and PostgreSQL," those exact words should appear in your resume. You don't have to list skills you don't have, but make sure what you do have is visible.
+Even with limited experience, [ATS systems](/tools/ats-score) are still looking for keyword matches. If the job posting mentions "JavaScript, React, and PostgreSQL," those exact words should appear in your resume. You don't have to list skills you don't have, but make sure what you do have is visible.
 
 ## The Real Edge
 

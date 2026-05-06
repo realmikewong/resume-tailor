@@ -18,6 +18,8 @@ faq:
 
 Most people handle a job offer poorly. They either accept immediately without thinking about it, or they ask for more and then panic when the company says no.
 
+If you're still in the interview loop, make sure you [follow up after your interviews](/blog/how-to-follow-up-after-a-job-interview) to stay top of mind.
+
 Negotiation is straightforward if you remember one thing: the company wants you to take the job. That's why they made the offer. They don't want to start the hiring process over. You have leverage. Use it.
 
 ## Step 1: Buy Yourself Time
@@ -96,6 +98,8 @@ People worry that asking for more will make the company rescind the offer. That 
 What could blow up the offer is being rude, unreasonable, or doubling your ask three times. Be professional, be clear about what you want, and be willing to accept a no.
 
 That's it. The negotiation usually takes one phone call and one email. Then you either accept a new number or you accept the original offer.
+
+Once you've accepted, read up on [what to focus on in your first 90 days](/blog/first-90-days-at-a-new-job).
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

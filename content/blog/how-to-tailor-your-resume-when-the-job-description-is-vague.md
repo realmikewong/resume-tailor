@@ -24,7 +24,7 @@ Here's how to tailor your resume when the job posting doesn't give you much to w
 
 ## Where to Find Real Information
 
-**LinkedIn.** Search for the company and the job title. Look at people currently or recently in that role. What's their background? What skills are most common? Do they all come from a certain industry or function? That tells you what the company actually values.
+**LinkedIn.** Search for the company and the job title. Look at people currently or recently in that role. What's their background? What skills are most common? Do they all come from a certain industry or function? That tells you what the company actually values. For a full strategy, see [how to use LinkedIn for job search](/blog/how-to-use-linkedin-for-job-search).
 
 **Glassdoor.** Employees and former employees review jobs and sometimes describe what they actually do. Read reviews from people in roles similar to the one you're applying for. You'll get candid information about daily responsibilities and pain points.
 
@@ -55,6 +55,8 @@ Put your most relevant skills at the top, in your summary or headline. If you th
 Your bullet points should reflect both what the vague job description mentions and what you've learned through research. If they mention "stakeholder management" and you learned from LinkedIn that the role involves cross-departmental projects, write a bullet about managing complex cross-departmental projects.
 
 Don't invent qualifications. But do translate your experience into the language of the role.
+
+Once you've tailored it, [run your resume through an ATS check](/tools/ats-score) to confirm your keyword choices are landing.
 
 ## Using Your Cover Letter
 

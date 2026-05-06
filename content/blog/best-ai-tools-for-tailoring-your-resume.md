@@ -28,7 +28,7 @@ Tools like ChatGPT, Claude, and Gemini can all help with resume tailoring if you
 
 **Where they fall short:** You need to know what to ask for. If your prompt is vague ("make my resume better for this job"), the output will be generic. You also need to review everything carefully. Chatbots can introduce phrasing that sounds good but doesn't reflect your actual experience. And they sometimes hallucinate details, adding skills or accomplishments you never mentioned.
 
-If you want to go the chatbot route, we've written a full guide on [ChatGPT prompts for resume tailoring](/blog/chatgpt-prompts-to-tailor-resume-to-job-description) that covers specific prompts and how to get better results.
+If you want to go the chatbot route, we've written a full guide on [ChatGPT prompts for resume tailoring](/blog/chatgpt-prompts-to-tailor-resume-to-job-description) that covers specific prompts and how to get better results. For [prompts that work across multiple AI tools](/blog/ai-prompts-for-tailoring-your-resume), see our dedicated prompt guide.
 
 ## Purpose-built resume tailoring tools
 
@@ -50,7 +50,7 @@ Not all resume tailoring tools are equal. Here's what separates the useful ones 
 
 **Does it handle cover letters too?** If you're tailoring your resume, you'll likely need a matched cover letter. Tools that generate both save you a second round of work.
 
-**Does it score your match?** Some tools include an ATS compatibility score that tells you how well your resume aligns with the posting before you submit. That feedback loop is useful for iterating.
+**Does it score your match?** Some tools include an [ATS compatibility score](/tools/ats-score) that tells you how well your resume aligns with the posting before you submit. That feedback loop is useful for iterating.
 
 ## Where Taylor Resume fits
 

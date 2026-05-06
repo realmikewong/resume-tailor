@@ -28,7 +28,7 @@ Most mid-size and large companies use some form of ATS. If you're applying throu
 
 ## Why resumes get filtered out
 
-The most common reasons have nothing to do with qualifications. They're formatting and language problems.
+The most common reasons have nothing to do with qualifications. They're formatting and language problems. See also: [common mistakes that get resumes filtered out](/blog/resume-mistakes-that-get-you-filtered-out).
 
 **Formatting issues** are the most preventable. Tables, columns, headers, footers, text boxes, and images can all confuse ATS parsers. The system can't read your resume if it can't parse the layout. Stick with a single-column format, standard fonts, and simple section headings.
 
@@ -54,7 +54,9 @@ Use keywords from the job description. Read the posting carefully and mirror the
 
 ## Check your score
 
-Want to see how your resume stacks up against a specific job posting? Try the free [ATS Score Checker](https://taylorresume.com/tools/ats-score). Upload your resume and a job description, and see where you match and where you don't.
+Want to see how your resume stacks up against a specific job posting? Try the free [ATS Score Checker](/tools/ats-score). Upload your resume and a job description, and see where you match and where you don't.
+
+Ready to put this into practice? Start with [getting started with ATS optimization](/blog/getting-started-with-ats).
 
 Or skip the manual work entirely. [Taylor Resume](https://taylorresume.com) tailors your resume to any job description and gives you a matched cover letter too.
 

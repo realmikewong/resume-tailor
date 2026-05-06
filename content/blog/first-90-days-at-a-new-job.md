@@ -22,7 +22,7 @@ You don't need to save the company in this period. You need to learn the landsca
 
 ## Days 1-30: Listen More Than You Talk
 
-Your first month is about intake, not output.
+Your first month is about intake, not output. If you're still in the offer stage, make sure you [negotiate the offer before you start](/blog/how-to-negotiate-a-job-offer).
 
 In your first week, you're probably in onboarding. Logistics, tech setup, intro meetings. That's fine. Take notes, learn names, get oriented.
 
@@ -81,6 +81,8 @@ Don't think of 90 days as a test you pass or fail. Think of it as the foundation
 By day 90, you should feel less lost. You should have one or two genuine relationships with coworkers. You should have completed something you can point to. Your manager should be confident you won't quit next week.
 
 That's not a high bar. But it's a solid start. From there, your real work begins.
+
+For the steps that got you here, see our [complete guide to job searching in 2026](/blog/complete-guide-to-job-searching-in-2026).
 
 ---
 

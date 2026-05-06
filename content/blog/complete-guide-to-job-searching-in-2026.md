@@ -138,7 +138,7 @@ Want to see what this looks like in practice? Check out [tailored resume example
 
 ## Tools and Resources
 
-Use the right tools to stay organized. [Check your resume's ATS score](https://taylorresume.com/tools/ats-score) to make sure it's formatted correctly. This catches a lot of preventable issues.
+Use the right tools to stay organized. [Check your resume's ATS score](/tools/ats-score) to make sure it's formatted correctly. This catches a lot of preventable issues.
 
 Build a tailored resume for each application. [Start with our free tools](https://taylorresume.com) and create as many versions as you need.
 

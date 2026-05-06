@@ -16,7 +16,7 @@ faq:
     a: "You can practice until it sounds natural, but don't memorize it. Memorized answers sound stiff. Practice until you can say it confidently in your own words, then let it flow naturally."
 ---
 
-"Tell me about yourself" is usually the opening question in an interview. It feels casual, but it's not. The interviewer is listening to see if you can communicate clearly, if you understand the role, and if there's a good fit.
+"Tell me about yourself" is usually the opening question in an interview. It feels casual, but it's not. The interviewer is listening to see if you can communicate clearly, if you understand the role, and if there's a good fit. For a full list of questions to prep, see our guide to [common interview questions and how to prepare](/blog/common-interview-questions-and-how-to-prepare).
 
 Most candidates stumble because they either give a rambling life story or recite their entire resume. Here's the structure that works.
 
@@ -45,6 +45,8 @@ The future part is critical. Don't say "I'm looking for a new opportunity." Inst
 Read the job description carefully. Look at their website, their product, their recent announcements. Pick one thing that genuinely interests you. That specificity separates candidates.
 
 ## Example Scripts by Career Stage
+
+For any behavioral follow-ups, [use the STAR method for behavioral answers](/blog/star-method-for-interview-answers).
 
 **Early career (0 to 2 years):**
 

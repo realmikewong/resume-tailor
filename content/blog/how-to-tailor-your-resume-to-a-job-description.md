@@ -16,7 +16,7 @@ faq:
     a: "No. Most of your resume stays the same. You're adjusting the summary, a few bullet points, and your skills section to match the specific role."
 ---
 
-Most job seekers send the same resume to every job they apply for. And most of them never hear back. The reason is usually simple: employers use applicant tracking systems (ATS) to filter resumes before a human ever reads them. If your resume doesn't match the language in the job description, it gets filtered out. Even if you're qualified.
+Most job seekers send the same resume to every job they apply for. And most of them never hear back. The reason is usually simple: employers use [applicant tracking systems (ATS)](/tools/ats-score) to filter resumes before a human ever reads them. If your resume doesn't match the language in the job description, it gets filtered out. Even if you're qualified.
 
 Tailoring your resume fixes that. Here's how to do it, step by step.
 
@@ -40,6 +40,8 @@ Most people find gaps here. That's normal. You're not fabricating experience you
 
 ## Step 3: Rewrite Your Summary
 
+For detailed help with this step, see our guide to [how to rewrite your resume summary](/blog/how-to-write-a-resume-summary).
+
 Your summary is the first thing a recruiter reads, and it's the easiest section to tailor. Write 2 to 3 sentences that connect your background to the specific role.
 
 Bad example: "Experienced professional with a track record of success in fast-paced environments."
@@ -49,6 +51,8 @@ Better example: "Operations manager with 6 years of experience leading cross-fun
 The second version names a job title, a specific skill area, and a measurable result. It gives the reader something concrete to hold on to.
 
 ## Step 4: Adjust Your Bullet Points
+
+For a deep dive on keyword selection, see [how to use keywords from a job description](/blog/how-to-use-keywords-from-a-job-description).
 
 You don't need to rewrite every bullet. Focus on the 3 to 5 most relevant ones and update them to mirror the job description.
 

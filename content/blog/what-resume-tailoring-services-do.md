@@ -53,9 +53,11 @@ Many people do both: hire a writer once to build a strong base resume, then use 
 
 ## The DIY vs. Service Question
 
+Before deciding, [check your resume's ATS score for free](/tools/ats-score) — you may find you can close the gap yourself.
+
 The real decision isn't "tailoring service or not," it's "how much time do I want to spend?"
 
-A DIY tailoring tool costs $20-100 per month. You upload your resume and each job posting, the tool guides you through customizing your resume. You do the thinking, you keep full control, and you can tailor as many resumes as you want.
+A DIY tailoring tool costs $20-100 per month. You upload your resume and each job posting, the tool guides you through customizing your resume. You do the thinking, you keep full control, and you can tailor as many resumes as you want. For a comparison of [AI tools built for resume tailoring](/blog/best-ai-tools-for-tailoring-your-resume), see our dedicated review.
 
 A human tailoring service costs $50-300 per tailored resume. Someone reads your resume and the job posting, then handles the adaptation. You don't do the work, but you pay per resume and results depend on the service's quality.
 

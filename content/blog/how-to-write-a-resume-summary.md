@@ -61,7 +61,9 @@ Each one names the role, states relevant experience, and includes at least one s
 
 ## Tailor it every time
 
-Your summary should change for each application. Read the job description, identify the top 2 to 3 requirements, and make sure your summary addresses them directly. This is the single fastest way to improve your resume's match rate with both [ATS systems](/blog/what-is-an-ats-and-why-does-it-matter) and human reviewers.
+Your summary should change for each application. Read the job description, identify the top 2 to 3 requirements, and make sure your summary addresses them directly. This is the single fastest way to improve your resume's match rate with both [ATS systems](/tools/ats-score) and human reviewers.
+
+Once your summary is strong, focus on [writing strong bullet points](/blog/how-to-write-resume-bullet-points) for each role.
 
 If you want to skip the manual rewriting, [Taylor Resume](https://taylorresume.com) generates a tailored summary (and full resume) based on your experience and the specific job description.
 

@@ -50,7 +50,9 @@ That's it. Your job titles, dates, education, and most of your content stay the 
 
 ## Make It Faster
 
-If tailoring every resume manually sounds like a grind, it doesn't have to be. [Taylor Resume](https://taylorresume.com) analyzes your resume against any job description and produces a tailored version in 1 to 2 minutes. You can also check how well your current resume matches a specific job with the free [ATS Score Checker](https://taylorresume.com/tools/ats-score).
+For the most efficient approach, see [the fastest way to tailor your resume](/blog/best-way-to-tailor-your-resume).
+
+If tailoring every resume manually sounds like a grind, it doesn't have to be. [Taylor Resume](https://taylorresume.com) analyzes your resume against any job description and produces a tailored version in 1 to 2 minutes. You can also check how well your current resume matches a specific job with the free [ATS Score Checker](/tools/ats-score).
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

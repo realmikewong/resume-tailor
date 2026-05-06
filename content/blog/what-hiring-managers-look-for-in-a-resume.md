@@ -32,7 +32,7 @@ If all your jobs look identical with no growth, even if you're overqualified, th
 
 **Proof of impact.** This is where numbers matter. Not busywork ("Responsible for updating the social media calendar"). Outcomes. "Grew Instagram followers from 50K to 250K in eight months, increasing qualified leads by 34%."
 
-Look at your bullet points. If you see a lot of "was responsible for," "oversaw," or "worked on," rewrite them to show what changed because of your work.
+Look at your bullet points. If you see a lot of "was responsible for," "oversaw," or "worked on," rewrite them to show what changed because of your work. For the full how-to, see our guide to [rewriting your bullet points to show impact](/blog/how-to-write-resume-bullet-points).
 
 **Clarity and precision.** They're looking for someone who can communicate. Your resume is your writing sample. Spelling errors, confusing jargon, run-on sentences, or buried information all signal: this person doesn't communicate clearly.
 
@@ -49,6 +49,8 @@ A tight, well-organized resume sends the opposite message.
 **Gaps in your resume if you can address them.** They notice gaps, but they're not automatically disqualifying. Learn how to [explain career gaps](/blog/how-to-explain-career-gaps-on-your-resume) properly and most hiring managers move forward anyway.
 
 ## How This Differs from ATS Filters
+
+Before it reaches a human, [check how your resume scores](/tools/ats-score) against the job description.
 
 [An ATS system](/blog/what-is-an-ats-and-why-does-it-matter) is looking for keyword matches. Exact terms. Hard skills listed somewhere.
 

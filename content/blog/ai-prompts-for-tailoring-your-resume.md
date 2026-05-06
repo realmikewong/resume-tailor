@@ -16,7 +16,7 @@ faq:
     a: "Yes. The prompts in this article work across ChatGPT, Claude, Gemini, and Copilot. You may need to adjust slightly based on how each tool handles instructions, but the structure is the same."
 ---
 
-We covered [ChatGPT-specific prompts](/blog/chatgpt-prompts-to-tailor-resume-to-job-description) in an earlier article. This one goes broader. The prompts below work across ChatGPT, Claude, Gemini, and Copilot, and we'll focus on what separates prompts that produce useful output from ones that waste your time.
+We covered [ChatGPT-specific prompts](/blog/chatgpt-prompts-to-tailor-resume-to-job-description) in an earlier article. This one goes broader. The prompts below work across ChatGPT, Claude, Gemini, and Copilot, and we'll focus on what separates prompts that produce useful output from ones that waste your time. For a broader look, see our guide to the [best AI tools for resume tailoring](/blog/best-ai-tools-for-tailoring-your-resume).
 
 ## The setup (same for every tool)
 
@@ -73,7 +73,7 @@ This last one helps catch the corporate-speak that AI tools default to when left
 
 Even good prompts have limits. You're still doing the analysis, writing the prompts, reviewing the output, and editing what doesn't sound right. For a single application, that's manageable. If you're tailoring across dozens of jobs, it adds up.
 
-[Taylor Resume](https://taylorresume.com) handles the full process: analysis, rewriting, cover letter generation, and [ATS scoring](/blog/what-is-an-ats-and-why-does-it-matter). No prompts required.
+[Taylor Resume](https://taylorresume.com) handles the full process: analysis, rewriting, cover letter generation, and [ATS scoring](/blog/what-is-an-ats-and-why-does-it-matter). No prompts required. You can also [check your ATS score](/tools/ats-score) directly to see how well your tailored resume matches the job description.
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

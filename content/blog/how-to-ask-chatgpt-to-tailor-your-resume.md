@@ -80,6 +80,8 @@ Or: "I think you understated my role. Here's more context: I was the only person
 
 ChatGPT works better in conversation than it does in one-shot requests.
 
+Before finalizing, [check how your resume scores against the job description](/tools/ats-score) with our free ATS checker.
+
 ## Real Example
 
 Let's say you're applying for a Data Analyst role. You paste this job description excerpt:
@@ -108,7 +110,7 @@ ChatGPT is good at making things sound professional. It's not good at understand
 
 Use ChatGPT to refine language, match keywords, and brainstorm structure. Use your own judgment to decide whether something is true, whether it matters, and whether it sells what makes you different.
 
-[For deeper guidance on tailoring overall](/blog/how-to-tailor-your-resume-to-a-job-description), ChatGPT is just one tool in your toolkit. You're still doing the core work.
+[For deeper guidance on tailoring overall](/blog/how-to-tailor-your-resume-to-a-job-description), ChatGPT is just one tool in your toolkit, or see [specific ChatGPT prompts for each tailoring step](/blog/chatgpt-prompts-to-tailor-resume-to-job-description) for a prompt-by-prompt breakdown. You're still doing the core work.
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

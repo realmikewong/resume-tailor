@@ -18,6 +18,8 @@ faq:
 
 Tailoring a cover letter works like tailoring a resume, but the mechanics are different. Your resume reorganizes facts. Your cover letter tells a story that lands on their priorities.
 
+Not sure if you even need one? Start with [whether a cover letter is worth writing](/blog/do-you-need-a-cover-letter).
+
 Here's how to do it strategically.
 
 ## Step 1: Mine the Job Posting
@@ -43,6 +45,8 @@ Key themes:
 Now your cover letter should touch on each of these.
 
 ## Step 2: Structure Around Their Needs
+
+For the basics of cover letter writing, see our guide on [how to write a cover letter](/blog/how-to-write-a-cover-letter).
 
 A strong cover letter follows this structure:
 
@@ -83,7 +87,7 @@ Job postings use specific words that reveal what matters. Mirror that language i
 If they say "data-driven," use "data-driven" somewhere.
 If they say "cross-functional collaboration," don't just say "worked with teams," say you "collaborated cross-functionally."
 
-This isn't game-playing. It's speaking their dialect. It also helps with ATS systems that scan cover letters.
+This isn't game-playing. It's speaking their dialect. It also helps with [ATS systems](/tools/ats-score) that scan cover letters.
 
 ## Step 5: Show You Know Them
 

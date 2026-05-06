@@ -70,6 +70,8 @@ Interview: If asked about the gap, "I was part of a layoff in [month/season]. I 
 
 Or: "I left to explore opportunities in [area] but found this role better aligned with my goals."
 
+If you're pivoting fields, see our full guide on [tailoring your resume for a career change](/blog/how-to-tailor-your-resume-for-a-career-change).
+
 Voluntary departures can be framed multiple ways:
 
 - "I wanted a different type of challenge"
@@ -119,6 +121,8 @@ Resume: Shows employment ending in [month], next role starting in [month]. The g
 Interview: You don't need to explain this unless asked. If they do ask, "I was thoughtful about my next role and wanted to find a position that was a great fit. That's why I'm excited about this opportunity."
 
 If the search took longer than expected, be honest: "The job market in [area] was competitive, so I took time to tailor my resume and applications carefully."
+
+Run your updated resume through our [ATS score checker](/tools/ats-score) to confirm the gap explanation doesn't hurt your keyword match.
 
 ## The Real Pattern
 

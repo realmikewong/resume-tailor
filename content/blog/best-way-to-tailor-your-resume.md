@@ -57,7 +57,7 @@ You're not inventing experience. You're highlighting the parts of your backgroun
 
 Match the skills in the job description. If they list "Salesforce, data analysis, and project management," make sure those exact words appear in your skills section.
 
-ATS systems match keywords. Recruiters scan skills quickly. Use their language.
+[ATS systems](/tools/ats-score) match keywords. Recruiters scan skills quickly. Use their language. For a deep dive on this, see [how to use keywords from a job description](/blog/how-to-use-keywords-from-a-job-description).
 
 ## The One Rule
 

@@ -113,7 +113,7 @@ The impact doesn't have to be a number. It has to show something got better.
 
 ## Tailor Your Bullets
 
-Once you have solid bullets, remember that [tailoring matters](/blog/how-to-tailor-your-resume-to-a-job-description). Different jobs care about different accomplishments.
+Once you have solid bullets, remember that [tailoring matters](/blog/how-to-tailor-your-resume-to-a-job-description). Different jobs care about different accomplishments. After rewriting, [check how your updated bullets score against the posting](/tools/ats-score) with our ATS checker.
 
 A job posting that emphasizes "fast-growing startup environment" wants to see your agility and scrappiness. Lead with the bullet about doing three jobs at once.
 
@@ -129,7 +129,7 @@ If your bullets are generic ("Managed projects," "Communicated with stakeholders
 
 If your bullets show impact ("Delivered three major projects ahead of schedule, saving the company $200K," "Presented to C-suite quarterly, influencing $1.5M in product investments"), they keep reading.
 
-Good bullets make people want to know more about you.
+Good bullets make people want to know more about you. Want to see full resume transformations? Check out [before-and-after resume examples](/blog/tailored-resume-examples-before-and-after).
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

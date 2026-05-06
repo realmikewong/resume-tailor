@@ -32,7 +32,7 @@ When you read a remote job description, highlight these terms:
 - "Time management"
 - "Timezone flexibility" or "distributed team"
 
-These aren't throwaway phrases. They're describing the skills that matter for the role. Your resume should mirror this language.
+These aren't throwaway phrases. They're describing the skills that matter for the role. Your resume should mirror this language. For a step-by-step on extracting and using those keywords, see [how to use keywords from a job description](/blog/how-to-use-keywords-from-a-job-description).
 
 ## What Remote Employers Notice
 
@@ -84,7 +84,7 @@ The second version emphasizes remote-specific skills: distributed team managemen
 
 ## Your Skills Section
 
-In remote roles, your skills section is more important than ever. ATS systems and hiring managers use it to assess whether you know the tools the team uses.
+In remote roles, your skills section is more important than ever. [ATS systems](/tools/ats-score) and hiring managers use it to assess whether you know the tools the team uses.
 
 If the job mentions specific tools, make sure you list them. If it says "experience with Asana and Slack required," those exact terms should appear in your skills section.
 

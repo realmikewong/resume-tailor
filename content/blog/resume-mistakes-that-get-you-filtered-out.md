@@ -16,7 +16,7 @@ faq:
     a: "Use a simple single-column layout, standard section headings, and language that mirrors the job posting. You can also test your resume with an ATS scoring tool like Taylor Resume's free ATS Score Checker."
 ---
 
-You can have the right experience and still not get interviews. Most of the time, the problem isn't your qualifications. It's something in your resume that's getting you filtered out before a person even looks at it.
+You can have the right experience and still not get interviews. Most of the time, the problem isn't your qualifications. It's something in your resume that's getting you filtered out before a person even looks at it. Not sure how ATS works? Start with [how ATS systems work](/blog/getting-started-with-ats).
 
 Here are the 10 most common mistakes, and how to fix each one.
 
@@ -82,7 +82,7 @@ Typos, inconsistent formatting, and mismatched dates signal carelessness. It's a
 
 ## Check your resume now
 
-Want to know where your resume stands? The free [ATS Score Checker](https://taylorresume.com/tools/ats-score) analyzes your resume against any job description and shows you exactly where you match and where you don't.
+Want to know where your resume stands? The free [ATS Score Checker](/tools/ats-score) analyzes your resume against any job description and shows you exactly where you match and where you don't.
 
 Or let [Taylor Resume](https://taylorresume.com) fix the gaps for you. Upload your resume and a job description, and get a tailored version back in minutes.
 

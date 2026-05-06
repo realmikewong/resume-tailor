@@ -30,6 +30,8 @@ The trick is not letting one rejection become a spiral. After a day, the feeling
 
 ## Ask for Feedback, But Expect Nothing
 
+For the step right before rejection or acceptance, see [how to follow up after a job interview](/blog/how-to-follow-up-after-a-job-interview).
+
 After a rejection, you can send a brief email asking if they're open to feedback. Some hiring managers will tell you something useful. Maybe you fumbled on a technical question. Maybe your experience didn't align with one aspect of the role. Maybe the other candidate had a specific credential you lacked.
 
 That's valuable. Write it down. If it's fixable, fix it.
@@ -54,7 +56,7 @@ The worst thing you can do after rejection is stop applying. The best time to ap
 
 Why? Because momentum matters. If you wait a week between applications, each new job feels like a restart. If you're applying consistently, one rejection is just noise in a larger process.
 
-Aim to have at least five applications out at any given time. That way, if one doesn't work out, you have four others in the pipeline and you're likely already working on the next one. It prevents rejection from derailing you.
+Aim to have at least five applications out at any given time. That way, if one doesn't work out, you have four others in the pipeline and you're likely already working on the next one. It prevents rejection from derailing you. A simple spreadsheet goes a long way — here's [how to track your job applications](/blog/how-to-track-your-job-applications).
 
 This also helps emotionally. If you're only talking to one company at a time, that one job becomes everything. Diversify. It takes pressure off any single opportunity.
 

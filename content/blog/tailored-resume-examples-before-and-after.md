@@ -98,7 +98,9 @@ The summary went from vague ("supporting teams") to specific ("supporting projec
 
 Every example follows the same approach. Read the job description, identify the key terms, and reflect them back in your resume using your real experience. You're not inventing anything. You're translating what you've already done into the language the employer is looking for.
 
-If you want to see how your resume scores against a specific job posting, try the free [ATS Score Checker](https://taylorresume.com/tools/ats-score). Or let [Taylor Resume](https://taylorresume.com) handle the tailoring for you.
+If you want to see how your resume scores against a specific job posting, try the free [ATS Score Checker](/tools/ats-score). Or let [Taylor Resume](https://taylorresume.com) handle the tailoring for you.
+
+For a full walkthrough of [tailoring your resume for one specific job](/blog/how-to-tailor-your-resume-to-a-specific-job), see our step-by-step guide.
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

@@ -16,7 +16,7 @@ faq:
     a: "You should ask questions. It signals genuine interest and shows that you're thinking critically about the role. Prepare 2 to 3 thoughtful questions before the interview."
 ---
 
-Interview questions tend to repeat. You'll probably hear most of these, in some form, across your job search.
+Interview questions tend to repeat. You'll probably hear most of these, in some form, across your job search. One of the most common openers is "Tell me about yourself" — see our guide on [how to answer 'Tell me about yourself'](/blog/how-to-answer-tell-me-about-yourself) for a structured approach to that one.
 
 The key is not to memorize perfect answers. It's to understand what the interviewer is listening for, then answer naturally in your own voice.
 
@@ -100,7 +100,7 @@ Good questions:
 
 ## The Framework for Any Answer
 
-Structure: Situation, your action, result, what you learned.
+Structure: Situation, your action, result, what you learned. This maps to [the STAR method](/blog/star-method-for-interview-answers), which is worth practicing before your interview.
 
 Keep it concise. 60 to 90 seconds. If the interviewer wants more, they'll ask.
 

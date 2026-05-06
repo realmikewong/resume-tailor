@@ -56,7 +56,7 @@ This works because it's specific. It names the company, references their product
 
 ## Tailor it every time
 
-A generic cover letter is almost as bad as no cover letter. Like your [resume](/blog/how-to-tailor-your-resume-to-a-job-description), your cover letter should reflect the specific job posting. If the posting emphasizes "cross-functional collaboration," your cover letter should show an example of it.
+A generic cover letter is almost as bad as no cover letter. Like your [resume](/blog/how-to-tailor-your-resume-to-a-job-description), your cover letter should reflect the specific job posting. If the posting emphasizes "cross-functional collaboration," your cover letter should show an example of it. While you're at it, [check how your resume aligns with the posting](/tools/ats-score) — both documents should be in sync. For a step-by-step on [how to tailor a cover letter to the specific posting](/blog/how-to-tailor-a-cover-letter-to-a-job-posting), we have a dedicated guide.
 
 [Taylor Resume](https://taylorresume.com) generates a tailored cover letter alongside your resume, matched to the specific job description. Both are included in the free tier.
 

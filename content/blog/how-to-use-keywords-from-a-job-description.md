@@ -72,7 +72,9 @@ If the posting says "project management," use "project management." Not "managed
 
 For internal applications or when you submit directly to a hiring manager, the ATS pressure drops. But the keyword principle still applies. You're helping a busy person find the skills they care about quickly.
 
-Learn more about how these systems work in our guide to [what ATS systems actually look for](/blog/what-is-an-ats-and-why-does-it-matter).
+Learn more about how these systems work in our guide to [what ATS systems actually look for](/blog/what-is-an-ats-and-why-does-it-matter). You can [test how your keyword-matched resume scores](/tools/ats-score) with our free ATS checker.
+
+Keywords are one piece of the puzzle — for the full picture, see [the complete resume tailoring process](/blog/how-to-tailor-your-resume-to-a-job-description).
 
 ---
 

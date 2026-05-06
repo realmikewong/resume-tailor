@@ -50,7 +50,7 @@ Then paste the 3 to 5 bullet points you want rewritten. Doing them in small batc
 
 > "Based on this job description, suggest how I should reorder and update my skills section. Only include skills that are already represented in my resume. Add the exact terms from the job posting where my resume uses different language for the same skill."
 
-This is where [ATS matching](/blog/what-is-an-ats-and-why-does-it-matter) matters most. The skills section is scanned directly for keyword matches.
+This is where [ATS matching](/blog/what-is-an-ats-and-why-does-it-matter) matters most. The skills section is scanned directly for keyword matches. Once you've made the updates, [check your ATS score](/tools/ats-score) to verify the match.
 
 ## Prompt 5: Final review
 
@@ -70,7 +70,7 @@ Use this as a final check after you've made your edits.
 
 ## When to use a purpose-built tool instead
 
-ChatGPT is flexible, but it requires you to do the analysis and prompting. If you want the tailoring handled end-to-end, [Taylor Resume](https://taylorresume.com) takes your resume and a job description and produces a tailored version automatically. It also generates a matched cover letter and scores your ATS compatibility.
+ChatGPT is flexible, but it requires you to do the analysis and prompting. If you want the tailoring handled end-to-end, [Taylor Resume](https://taylorresume.com) takes your resume and a job description and produces a tailored version automatically. It also generates a matched cover letter and scores your ATS compatibility. These prompts are also adaptable to other AI tools — see our guide to [prompts that work across other AI tools](/blog/ai-prompts-for-tailoring-your-resume).
 
 Get started for free. Create 10 tailored resumes and 10 tailored cover letters with no obligation and no credit card required.
 

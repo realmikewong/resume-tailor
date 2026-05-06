@@ -52,9 +52,9 @@ This doesn't mean lying. It means arranging the truth so your target audience un
 
 ## Use Easy Apply Strategically
 
-Easy Apply is convenient but it's also easy for hiring managers to ignore. When you use it, you're competing with hundreds of other one-clicks.
+Easy Apply is convenient but it's also easy for hiring managers to ignore. When you use it, you're competing with hundreds of other one-clicks. Before you apply, [check how your resume matches the posting](/tools/ats-score) — LinkedIn Easy Apply feeds directly into company ATS systems.
 
-If you're applying to a lot of roles broadly, Easy Apply is fine. But for roles you actually want, take the extra minute to find the company's careers page and apply there directly. Or look for the hiring manager's name and connect with a personalized message.
+If you're applying to a lot of roles broadly, Easy Apply is fine. But for roles you actually want, take the extra minute to find the company's careers page and apply there directly. Or look for the hiring manager's name and connect with a personalized message. For each role you find, make sure you [tailor your resume to the job description](/blog/how-to-tailor-your-resume-to-a-job-description) before applying.
 
 This takes more time per application but you'll spend less time overall because your conversion rate goes up.
 
