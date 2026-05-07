@@ -62,13 +62,18 @@ export function ThankYouEmailForm({ prefill }: ThankYouEmailFormProps) {
         return;
       }
 
-      const reader = res.body!.getReader();
+      if (!res.body) {
+        setError("No response body received. Please try again.");
+        return;
+      }
+
+      const reader = res.body.getReader();
       const decoder = new TextDecoder();
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        setEmailContent((prev) => prev + decoder.decode(value));
+        setEmailContent((prev) => prev + decoder.decode(value, { stream: true }));
       }
     } catch {
       setError("Something went wrong. Please try again.");
