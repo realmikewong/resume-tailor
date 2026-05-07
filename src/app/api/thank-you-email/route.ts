@@ -45,42 +45,34 @@ export async function POST(request: Request) {
   const anthropic = getAnthropicClient();
   const prompt = buildThankYouEmailPrompt(parsed.data);
 
-  try {
-    const stream = anthropic.messages.stream({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 500,
-      system: THANK_YOU_EMAIL_SYSTEM_PROMPT,
-      messages: [{ role: "user", content: prompt }],
-    });
+  const stream = anthropic.messages.stream({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 750,
+    system: THANK_YOU_EMAIL_SYSTEM_PROMPT,
+    messages: [{ role: "user", content: prompt }],
+  });
 
-    const encoder = new TextEncoder();
-    const readable = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const event of stream) {
-            if (
-              event.type === "content_block_delta" &&
-              event.delta.type === "text_delta"
-            ) {
-              controller.enqueue(encoder.encode(event.delta.text));
-            }
+  const encoder = new TextEncoder();
+  const readable = new ReadableStream({
+    async start(controller) {
+      try {
+        for await (const event of stream) {
+          if (
+            event.type === "content_block_delta" &&
+            event.delta.type === "text_delta"
+          ) {
+            controller.enqueue(encoder.encode(event.delta.text));
           }
-        } catch (err) {
-          controller.error(err);
-        } finally {
-          controller.close();
         }
-      },
-    });
+      } catch (err) {
+        controller.error(err);
+      } finally {
+        controller.close();
+      }
+    },
+  });
 
-    return new Response(readable, {
-      headers: { "Content-Type": "text/plain; charset=utf-8" },
-    });
-  } catch (err) {
-    console.error("[thank-you-email] Anthropic error:", err);
-    return NextResponse.json(
-      { error: "Failed to generate email", code: "GENERATION_FAILED" },
-      { status: 500 }
-    );
-  }
+  return new Response(readable, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
 }
