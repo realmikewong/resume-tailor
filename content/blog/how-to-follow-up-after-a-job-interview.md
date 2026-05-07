@@ -32,6 +32,8 @@ Then, add one thing. Either reinforce a key point from your interview, mention h
 
 Close by restating that you're interested and ask about next steps or timeline.
 
+If you want a personalized version written for you, try our [thank-you email generator](https://taylorresume.com/tools/thank-you-email).
+
 Here's a template:
 
 ---
