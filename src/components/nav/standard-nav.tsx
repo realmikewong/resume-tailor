@@ -108,7 +108,10 @@ export default function StandardNav() {
 
         {/* Hamburger button (mobile only) */}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            if (open) setToolsOpen(false);
+            setOpen(!open);
+          }}
           className="md:hidden font-sans text-foreground p-1"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
