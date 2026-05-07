@@ -109,7 +109,7 @@ export default function StandardNav() {
         {/* Hamburger button (mobile only) */}
         <button
           onClick={() => {
-            if (open) setToolsOpen(false);
+            setToolsOpen(false);
             setOpen(!open);
           }}
           className="md:hidden font-sans text-foreground p-1"
