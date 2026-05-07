@@ -45,12 +45,21 @@ export async function POST(request: Request) {
   const anthropic = getAnthropicClient();
   const prompt = buildThankYouEmailPrompt(parsed.data);
 
-  const stream = anthropic.messages.stream({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 750,
-    system: THANK_YOU_EMAIL_SYSTEM_PROMPT,
-    messages: [{ role: "user", content: prompt }],
-  });
+  let stream: ReturnType<typeof anthropic.messages.stream>;
+  try {
+    stream = anthropic.messages.stream({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 750,
+      system: THANK_YOU_EMAIL_SYSTEM_PROMPT,
+      messages: [{ role: "user", content: prompt }],
+    });
+  } catch (err) {
+    console.error("[thank-you-email] Anthropic init error:", err);
+    return NextResponse.json(
+      { error: "Failed to generate email", code: "GENERATION_FAILED" },
+      { status: 500 }
+    );
+  }
 
   const encoder = new TextEncoder();
   const readable = new ReadableStream({

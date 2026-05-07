@@ -24,6 +24,7 @@ export function ThankYouEmailForm({ prefill }: ThankYouEmailFormProps) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -88,7 +89,8 @@ export function ThankYouEmailForm({ prefill }: ThankYouEmailFormProps) {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     } catch {
-      // Clipboard API unavailable — fail silently
+      setCopyError(true);
+      setTimeout(() => setCopyError(false), 2000);
     }
   }
 
@@ -103,14 +105,25 @@ export function ThankYouEmailForm({ prefill }: ThankYouEmailFormProps) {
           </span>
           <button
             type="button"
-            onClick={() => setIsEditing(true)}
+            onClick={() => setIsEditing(!isEditing)}
             className="text-sm text-gray-500 hover:text-gray-700 ml-4"
           >
-            Edit ▾
+            {isEditing ? "Hide ▴" : "Edit ▾"}
           </button>
         </div>
       ) : (
         <>
+          {prefill && (
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => setIsEditing(false)}
+                className="text-sm text-gray-500 hover:text-gray-700"
+              >
+                Hide ▴
+              </button>
+            </div>
+          )}
           <div>
             <label className="block text-sm font-medium mb-2 font-sans">
               Job Description
@@ -215,7 +228,7 @@ export function ThankYouEmailForm({ prefill }: ThankYouEmailFormProps) {
                 onClick={handleCopy}
                 className="text-sm font-medium text-blue-600 hover:text-blue-800"
               >
-                {isCopied ? "✓ Copied!" : "Copy to Clipboard"}
+                {isCopied ? "✓ Copied!" : copyError ? "Copy failed" : "Copy to Clipboard"}
               </button>
             )}
           </div>

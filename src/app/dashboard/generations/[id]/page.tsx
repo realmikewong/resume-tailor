@@ -74,7 +74,7 @@ export default async function GenerationPage({
             </Link>
           </div>
 
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p className="font-medium text-gray-900">Ready to follow up?</p>
             <p className="text-sm text-gray-600 mt-1">
               Write a personalized thank you email using your tailored resume.
