@@ -73,6 +73,19 @@ export default async function GenerationPage({
               Add to Job Tracker
             </Link>
           </div>
+
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p className="font-medium text-gray-900">Ready to follow up?</p>
+            <p className="text-sm text-gray-600 mt-1">
+              Write a personalized thank you email using your tailored resume.
+            </p>
+            <Link
+              href={`/tools/thank-you-email?generation_id=${generation.id}`}
+              className="inline-block mt-3 text-sm font-medium text-blue-600 hover:underline"
+            >
+              Write Thank You Email →
+            </Link>
+          </div>
         </>
       )}
 
