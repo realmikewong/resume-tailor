@@ -132,6 +132,25 @@ export default function HomePage() {
           >
             Check Your Score Free &rarr;
           </Link>
+
+          <div className="border-t border-gray-200 mt-7 pt-7">
+            <h3 className="font-sans text-[15px] font-semibold text-foreground mb-1">
+              Post-Interview Correspondent
+            </h3>
+            <p className="text-sm text-gray-500 mb-2">
+              Community Service. Free, no sign-up required.
+            </p>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Had a great interview but unsure how to follow up? Get a personalized
+              thank you email in seconds, no account needed.
+            </p>
+            <Link
+              href="/tools/thank-you-email"
+              className="inline-block mt-3 font-sans text-sm font-medium text-blue-600 border-b border-blue-600 pb-px hover:text-blue-800 hover:border-blue-800 transition-colors"
+            >
+              Write Your Thank You Email &rarr;
+            </Link>
+          </div>
         </section>
 
         {/* Compensation */}
