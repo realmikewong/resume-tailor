@@ -1,10 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 export default function StandardNav() {
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleMouseDown(e: MouseEvent) {
+      if (toolsRef.current && !toolsRef.current.contains(e.target as Node)) {
+        setToolsOpen(false);
+      }
+    }
+    if (toolsOpen) {
+      document.addEventListener("mousedown", handleMouseDown);
+    }
+    return () => document.removeEventListener("mousedown", handleMouseDown);
+  }, [toolsOpen]);
 
   return (
     <nav className="max-w-6xl mx-auto px-8 py-4">
@@ -36,6 +50,48 @@ export default function StandardNav() {
           >
             Roadmap
           </Link>
+
+          {/* Tools dropdown */}
+          <div className="relative" ref={toolsRef}>
+            <button
+              onClick={() => setToolsOpen(!toolsOpen)}
+              className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors flex items-center gap-1"
+            >
+              Tools
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {toolsOpen && (
+              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-gray-200 shadow-sm py-1 z-10">
+                <Link
+                  href="/tools/ats-score"
+                  onClick={() => setToolsOpen(false)}
+                  className="block px-4 py-2 font-sans text-sm text-gray-600 hover:text-foreground hover:bg-gray-50 transition-colors"
+                >
+                  ATS Score Checker
+                </Link>
+                <Link
+                  href="/tools/thank-you-email"
+                  onClick={() => setToolsOpen(false)}
+                  className="block px-4 py-2 font-sans text-sm text-gray-600 hover:text-foreground hover:bg-gray-50 transition-colors"
+                >
+                  Thank You Email
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link
             href="/auth/login"
             className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
@@ -105,6 +161,48 @@ export default function StandardNav() {
           >
             Roadmap
           </Link>
+
+          {/* Tools accordion */}
+          <div>
+            <button
+              onClick={() => setToolsOpen(!toolsOpen)}
+              className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors w-full text-left flex items-center justify-between"
+            >
+              Tools
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d={toolsOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                />
+              </svg>
+            </button>
+            {toolsOpen && (
+              <div className="mt-2 pl-3 flex flex-col gap-2">
+                <Link
+                  href="/tools/ats-score"
+                  onClick={() => { setOpen(false); setToolsOpen(false); }}
+                  className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
+                >
+                  ATS Score Checker
+                </Link>
+                <Link
+                  href="/tools/thank-you-email"
+                  onClick={() => { setOpen(false); setToolsOpen(false); }}
+                  className="font-sans text-sm font-medium text-gray-600 hover:text-foreground transition-colors"
+                >
+                  Thank You Email
+                </Link>
+              </div>
+            )}
+          </div>
+
           <Link
             href="/auth/login"
             onClick={() => setOpen(false)}
