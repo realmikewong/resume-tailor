@@ -18,28 +18,63 @@ describe("ThankYouEmailRequestSchema", () => {
   });
 
   it("rejects missing job_description", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { job_description, ...rest } = validInput;
     expect(ThankYouEmailRequestSchema.safeParse(rest).success).toBe(false);
   });
 
   it("rejects missing resume_content", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { resume_content, ...rest } = validInput;
     expect(ThankYouEmailRequestSchema.safeParse(rest).success).toBe(false);
   });
 
   it("rejects missing interviewer_name", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { interviewer_name, ...rest } = validInput;
     expect(ThankYouEmailRequestSchema.safeParse(rest).success).toBe(false);
   });
 
   it("rejects missing interviewer_title", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { interviewer_title, ...rest } = validInput;
     expect(ThankYouEmailRequestSchema.safeParse(rest).success).toBe(false);
   });
 
   it("rejects missing memorable_moment", () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { memorable_moment, ...rest } = validInput;
     expect(ThankYouEmailRequestSchema.safeParse(rest).success).toBe(false);
+  });
+
+  it("rejects empty job_description", () => {
+    expect(
+      ThankYouEmailRequestSchema.safeParse({ ...validInput, job_description: "" }).success
+    ).toBe(false);
+  });
+
+  it("rejects empty resume_content", () => {
+    expect(
+      ThankYouEmailRequestSchema.safeParse({ ...validInput, resume_content: "" }).success
+    ).toBe(false);
+  });
+
+  it("rejects empty interviewer_name", () => {
+    expect(
+      ThankYouEmailRequestSchema.safeParse({ ...validInput, interviewer_name: "" }).success
+    ).toBe(false);
+  });
+
+  it("rejects empty interviewer_title", () => {
+    expect(
+      ThankYouEmailRequestSchema.safeParse({ ...validInput, interviewer_title: "" }).success
+    ).toBe(false);
+  });
+
+  it("rejects empty memorable_moment", () => {
+    expect(
+      ThankYouEmailRequestSchema.safeParse({ ...validInput, memorable_moment: "" }).success
+    ).toBe(false);
   });
 
   it("rejects job_description over 10000 chars", () => {
