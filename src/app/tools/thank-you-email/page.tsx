@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
-import { ThankYouEmailForm } from "@/components/thank-you/thank-you-email-form";
+import { ThankYouEmailForm, type Prefill } from "@/components/thank-you/thank-you-email-form";
 
 export const metadata: Metadata = {
   title: "Free Interview Thank You Email Generator | Taylor Resumé",
@@ -8,30 +8,28 @@ export const metadata: Metadata = {
     "Write a personalized post-interview thank you email in seconds. Paste your job description, resume, and memorable moment — we'll craft the perfect follow-up.",
 };
 
-type Prefill = {
-  jobDescription: string;
-  resumeContent: string;
-  companyName: string;
-  jobTitle: string;
-} | null;
-
 async function getPrefill(generationId: string): Promise<Prefill> {
   try {
     const supabase = await createClient();
     const { data } = await supabase
       .from("generations")
-      .select("*, jobs(*), resumes(*)")
+      .select("tailored_resume_content, jobs(job_description, company_name, job_title), resumes(raw_text_content)")
       .eq("id", generationId)
       .single();
 
-    if (!data?.jobs?.job_description) return null;
+    if (!data) return null;
+
+    const jobData = Array.isArray(data.jobs) ? data.jobs[0] : data.jobs;
+    const resumeData = Array.isArray(data.resumes) ? data.resumes[0] : data.resumes;
+
+    if (!jobData?.job_description) return null;
 
     return {
-      jobDescription: data.jobs.job_description,
+      jobDescription: jobData.job_description,
       resumeContent:
-        data.tailored_resume_content ?? data.resumes?.raw_text_content ?? "",
-      companyName: data.jobs.company_name,
-      jobTitle: data.jobs.job_title,
+        data.tailored_resume_content ?? resumeData?.raw_text_content ?? "",
+      companyName: jobData.company_name,
+      jobTitle: jobData.job_title,
     };
   } catch {
     return null;
@@ -44,7 +42,10 @@ export default async function ThankYouEmailPage({
   searchParams: Promise<{ generation_id?: string }>;
 }) {
   const { generation_id } = await searchParams;
-  const prefill = generation_id ? await getPrefill(generation_id) : null;
+  const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const prefill = generation_id && UUID_RE.test(generation_id)
+    ? await getPrefill(generation_id)
+    : null;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Prefill = {
+export type Prefill = {
   jobDescription: string;
   resumeContent: string;
   companyName: string;
