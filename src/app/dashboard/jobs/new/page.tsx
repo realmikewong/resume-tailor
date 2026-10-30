@@ -242,6 +242,22 @@ function ProcessingStep({
     if (!generationId) return;
 
     const supabase = createClient();
+    let settled = false;
+
+    const handleStatus = (status: string | undefined) => {
+      if (settled) return;
+      if (status === "completed") {
+        settled = true;
+        trackEvent("generation_completed", { generation_id: generationId });
+        trackEvent("job_added");
+        onComplete(generationId);
+      } else if (status === "failed") {
+        settled = true;
+        trackEvent("generation_failed", { generation_id: generationId });
+        onFailed("Generation failed. Your credit has been refunded. Please try again.");
+      }
+    };
+
     const channel = supabase
       .channel(`generation-${generationId}`)
       .on(
@@ -252,27 +268,33 @@ function ProcessingStep({
           table: "generations",
           filter: `id=eq.${generationId}`,
         },
-        (payload) => {
-          const status = payload.new.status;
-          if (status === "completed") {
-            channel.unsubscribe();
-            trackEvent("generation_completed", {
-              generation_id: generationId,
-            });
-            trackEvent("job_added");
-            onComplete(generationId);
-          } else if (status === "failed") {
-            channel.unsubscribe();
-            trackEvent("generation_failed", {
-              generation_id: generationId,
-            });
-            onFailed("Generation failed. Your credit has been refunded. Please try again.");
-          }
-        }
+        (payload) => handleStatus(payload.new.status)
       )
       .subscribe();
 
+    // Realtime can miss the update (e.g. it lands before subscribe completes), so also poll.
+    const poll = setInterval(async () => {
+      const { data } = await supabase
+        .from("generations")
+        .select("status")
+        .eq("id", generationId)
+        .single();
+      handleStatus(data?.status);
+    }, 5000);
+
+    const timeout = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      trackEvent("generation_timeout", { generation_id: generationId });
+      onFailed(
+        "This is taking longer than expected. Check your dashboard in a few minutes, or contact support if it doesn't appear."
+      );
+    }, 5 * 60 * 1000);
+
     return () => {
+      settled = true;
+      clearInterval(poll);
+      clearTimeout(timeout);
       channel.unsubscribe();
     };
   }, [generationId, onComplete, onFailed]);

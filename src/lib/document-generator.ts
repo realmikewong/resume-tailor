@@ -240,7 +240,7 @@ export async function generateDocuments(
     const rawCoverLetter: GptCoverLetterData = JSON.parse(input.coverLetterContent);
     coverLetterData = normalizeCoverLetterData(rawCoverLetter);
   } catch {
-    throw new Error("Failed to parse content from Make.com. Expected JSON format.");
+    throw new Error("Failed to parse generated content. Expected JSON format.");
   }
 
   const resumeDocx = await generateResumeDocx(resumeData, config);

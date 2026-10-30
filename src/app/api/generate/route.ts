@@ -1,7 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { deductCredit } from "@/lib/credits";
+import { processGeneration } from "@/lib/resume-tailor";
+
+export const maxDuration = 300;
 
 export async function POST(request: Request) {
   const supabase = await createClient();
@@ -68,7 +71,7 @@ export async function POST(request: Request) {
     .single();
 
   if (jobError) {
-    // Refund the credit since we failed before Make.com
+    // Refund the credit since generation never started
     await admin.rpc("refund_credit", {
       p_user_id: user.id,
       p_reason: "refund_job_creation_failed",
@@ -79,7 +82,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Create generation record with callback token
   const { data: generation, error: genError } = await supabase
     .from("generations")
     .insert({
@@ -103,37 +105,12 @@ export async function POST(request: Request) {
     );
   }
 
-  // Update status to processing before calling Make
   await admin
     .from("generations")
     .update({ status: "processing" })
     .eq("id", generation.id);
 
-  // Call Make.com webhook (fire and forget — don't await the full scenario)
-  const callbackBaseUrl = process.env.MAKE_CALLBACK_BASE_URL!;
-  const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL!;
-
-  console.log("[generate] Calling Make webhook:", makeWebhookUrl);
-
-  try {
-    const makeRes = await fetch(makeWebhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        generation_id: generation.id,
-        callback_token: generation.callback_token,
-        resume_content: resume.raw_text_content,
-        job_description: job.job_description,
-        job_title: job.job_title,
-        company_name: job.company_name,
-        callback_url: `${callbackBaseUrl}?generation_id=${generation.id}&callback_token=${generation.callback_token}`,
-      }),
-    });
-    console.log("[generate] Make webhook response status:", makeRes.status);
-  } catch (err) {
-    console.error("[generate] Make webhook fetch error:", err);
-    // Don't fail the request — generation is already in "processing"
-  }
+  after(() => processGeneration(generation.id));
 
   return NextResponse.json({ generation_id: generation.id });
 }
