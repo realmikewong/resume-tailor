@@ -85,7 +85,7 @@ export async function scoreResume(input: ATSScoreRequest): Promise<ATSScoreRespo
   const prompt = buildATSPrompt(input);
 
   const response = await getAnthropicClient().messages.create({
-    model: "claude-sonnet-4-20250514",
+    model: "claude-sonnet-4-6",
     max_tokens: 1500,
     temperature: 0,
     messages: [{ role: "user", content: prompt }],
