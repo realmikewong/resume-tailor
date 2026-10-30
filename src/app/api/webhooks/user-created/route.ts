@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { sendEmail } from "@/lib/resend";
 import { generateUnsubscribeToken } from "@/lib/email/unsubscribe";
 import { WelcomeEmail } from "@/emails/onboarding/welcome";
+import { notifySlack } from "@/lib/slack";
 
 export async function POST(request: Request) {
   // Validate webhook secret
@@ -27,6 +28,11 @@ export async function POST(request: Request) {
   const email = record.email;
   const fullName = record.raw_user_meta_data?.full_name ?? "";
   const firstName = fullName.split(" ")[0] || null;
+
+  await notifySlack(
+    "newUser",
+    `:tada: New user signed up\n• Email: ${email}${fullName ? `\n• Name: ${fullName}` : ""}\n• User ID: \`${userId}\``
+  );
 
   const admin = createAdminClient();
 

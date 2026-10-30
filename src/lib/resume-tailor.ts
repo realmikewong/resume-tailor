@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { generateDocuments } from "@/lib/document-generator";
+import { notifySlack } from "@/lib/slack";
 
 const anthropic = new Anthropic();
 const MODEL = "claude-sonnet-4-6";
@@ -237,7 +238,20 @@ export async function tailorContent(input: {
   return { tailored_resume_content, cover_letter_content };
 }
 
+function secondsSince(start: number): number {
+  return Math.round((Date.now() - start) / 1000);
+}
+
+function describeGeneration(g: {
+  id: string;
+  template_choice: string;
+  jobs: { job_title: string; company_name: string };
+}): string {
+  return `• Job: ${g.jobs.job_title} at ${g.jobs.company_name}\n• Template: ${g.template_choice}\n• Generation ID: \`${g.id}\``;
+}
+
 export async function processGeneration(generationId: string): Promise<void> {
+  const startedAt = Date.now();
   const admin = createAdminClient();
 
   const { data: generation, error } = await admin
@@ -301,6 +315,11 @@ export async function processGeneration(generationId: string): Promise<void> {
       generation_id: generationId,
       status: "generated",
     });
+
+    await notifySlack(
+      "success",
+      `:white_check_mark: Resume generated in ${secondsSince(startedAt)}s\n${describeGeneration(generation)}`
+    );
   } catch (err) {
     console.error("[generation] failed:", generationId, err);
     await admin.from("generations").update({ status: "failed" }).eq("id", generationId);
@@ -308,5 +327,11 @@ export async function processGeneration(generationId: string): Promise<void> {
       p_user_id: generation.user_id,
       p_reason: "refund_generation_failed",
     });
+
+    const message = err instanceof Error ? err.message : String(err);
+    await notifySlack(
+      "errors",
+      `:x: Resume generation failed after ${secondsSince(startedAt)}s (credit refunded)\n${describeGeneration(generation)}\n• Error: \`${message.slice(0, 500)}\``
+    );
   }
 }
