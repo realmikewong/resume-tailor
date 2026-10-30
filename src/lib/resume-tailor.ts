@@ -28,10 +28,17 @@ Do NOT:
 - Add new skills that are not present in the source resume
 - Change job titles, companies, or dates
 - Add tools or technologies not mentioned in the original resume
+- Add specifics the source resume does not state: no new numbers, channels (e.g. phone, email, online), audiences, outcomes, or locations. If a detail is not in the source resume, leave it out. A location that is not listed stays an empty string.
 
 Do NOT copy phrases, sentences, or distinctive wording from the job description into the resume. The resume should sound like the candidate wrote it, not like the job posting.
 
 If the candidate has relevant experience that uses different terminology, rewrite it to convey the same competency in the candidate's own voice. Do not borrow phrasing from the job description to do this.
+
+WRITE LIKE A PERSON, NOT AN AI
+- Do not use em dashes (—) anywhere. Use commas, periods, or split into two sentences.
+- Do not use: actually, truly, really, simply, just, very, incredibly, deeply, genuinely.
+- Do not use: delve, leverage, spearhead, utilize, harness, foster, robust, seamless, dynamic, passionate, results-driven, proven track record, elevate, embark, journey, tapestry, realm, landscape, testament, underscore, pivotal, crucial, vital, "fast-paced."
+- Avoid filler phrases and idioms like "the right information in the right hands at the right time" or "slip through the cracks." State what was done.
 
 Base Resume:${resume}
 
@@ -107,6 +114,7 @@ RULES
 - Do not invent experience, skills, tools, or accomplishments
 - Do not change job titles, companies, or employment dates
 - Only reference experience that appears in the resume
+- Do not add specifics the resume does not state: no new numbers, channels, audiences, or outcomes
 - If the job description mentions specific priorities or technologies, emphasize related experience from the resume
 - Do not copy phrases or sentences verbatim from the job description. Express the same idea in the candidate's own voice.
 
@@ -174,7 +182,8 @@ Return ONLY valid JSON with no commentary, no markdown, no code fences. Use this
 RULES:
 - The body array must contain exactly 4 paragraphs
 - Do not include any text outside the JSON object
-- Use the applicant's information from the tailored resume`;
+- Use the applicant's information from the tailored resume
+- Before answering, check every paragraph: no em dashes, none of the banned words above (especially "actually" and "just"), and no claim that is not in the resume`;
 }
 
 async function completeJson(prompt: string, maxTokens: number): Promise<string> {
@@ -205,6 +214,29 @@ function todayMMDDYYYY(): string {
   return `${mm}/${dd}/${d.getFullYear()}`;
 }
 
+export async function tailorContent(input: {
+  resumeText: string;
+  jobDescription: string;
+  jobTitle: string;
+  companyName: string;
+}): Promise<{ tailored_resume_content: string; cover_letter_content: string }> {
+  const tailored_resume_content = await completeJson(
+    buildResumePrompt(input.resumeText, input.jobDescription),
+    4096
+  );
+  const cover_letter_content = await completeJson(
+    buildCoverLetterPrompt({
+      companyName: input.companyName,
+      jobTitle: input.jobTitle,
+      jobDescription: input.jobDescription,
+      tailoredResume: tailored_resume_content,
+      today: todayMMDDYYYY(),
+    }),
+    2048
+  );
+  return { tailored_resume_content, cover_letter_content };
+}
+
 export async function processGeneration(generationId: string): Promise<void> {
   const admin = createAdminClient();
 
@@ -220,21 +252,12 @@ export async function processGeneration(generationId: string): Promise<void> {
   }
 
   try {
-    const tailored_resume_content = await completeJson(
-      buildResumePrompt(generation.resumes.raw_text_content, generation.jobs.job_description),
-      4096
-    );
-
-    const cover_letter_content = await completeJson(
-      buildCoverLetterPrompt({
-        companyName: generation.jobs.company_name,
-        jobTitle: generation.jobs.job_title,
-        jobDescription: generation.jobs.job_description,
-        tailoredResume: tailored_resume_content,
-        today: todayMMDDYYYY(),
-      }),
-      2048
-    );
+    const { tailored_resume_content, cover_letter_content } = await tailorContent({
+      resumeText: generation.resumes.raw_text_content,
+      jobDescription: generation.jobs.job_description,
+      jobTitle: generation.jobs.job_title,
+      companyName: generation.jobs.company_name,
+    });
 
     await admin
       .from("generations")
